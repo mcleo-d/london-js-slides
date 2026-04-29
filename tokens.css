@@ -1,0 +1,115 @@
+/* ============================================================================
+ * London.js — Design Tokens
+ * ----------------------------------------------------------------------------
+ * Single source of truth for color, type, motion, spacing.
+ * JSX layout reads from the C / TYPE / SPACE objects in slides.jsx;
+ * motion CSS reads from these vars. Keep them in sync by hand for now.
+ * ========================================================================= */
+
+:root {
+  /* --- Color ---------------------------------------------------------------- */
+  --bg:           #F2EEE4;       /* warm cream */
+  --bg-alt:       #1B1D1C;       /* deep ink */
+  --bg-warm:      #FFD93D;       /* motorway yellow */
+  --ink:          #161514;
+  --ink-soft:     #3A3631;
+  --ink-mute:     #7A726A;
+  --rule:         #1615141A;
+  --rule-strong:  #16151433;
+  --accent:       #FFD93D;       /* motorway yellow */
+  --accent-mint:  #3DD9A5;       /* omnea green */
+  --accent-ink:   oklch(0.45 0.14 70);
+  --paper:        #FFFFFF;
+
+  /* --- Type scale (px, design coords) -------------------------------------- */
+  --t-display:    168px;
+  --t-title:      88px;
+  --t-subtitle:   52px;
+  --t-lead:       40px;
+  --t-body:       32px;
+  --t-small:      26px;
+  --t-micro:      24px;
+
+  /* --- Type axes (Fraunces) ------------------------------------------------- */
+  /* SOFT 0 → 100 = sharp → soft ; opsz 9 → 144 = caption → display */
+  --fr-display-in:   "opsz" 9,   "SOFT" 100, "wght" 300;
+  --fr-display-out:  "opsz" 144, "SOFT" 0,   "wght" 700;
+  --fr-pulse-low:    "opsz" 144, "SOFT" 100, "wght" 400;
+  --fr-pulse-high:   "opsz" 144, "SOFT" 0,   "wght" 800;
+
+  /* --- Motion -------------------------------------------------------------- */
+  --t-fast:    180ms;
+  --t-med:     420ms;
+  --t-slow:    800ms;
+  --t-glacial: 1400ms;
+  --ease-out:  cubic-bezier(.2,.7,.1,1);
+  --ease-in:   cubic-bezier(.7,0,.84,0);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
+
+  /* --- Spacing ------------------------------------------------------------- */
+  --pad-x:        120px;
+  --pad-y:        100px;
+  --pad-bottom:   96px;
+}
+
+/* Reduced motion: collapse all timing to ~instant. Reveals still happen,
+ * they just don't animate. PDF export gets the final state. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast:    1ms;
+    --t-med:     1ms;
+    --t-slow:    1ms;
+    --t-glacial: 1ms;
+  }
+}
+
+/* ============================================================================
+ * Reveal system
+ * ----------------------------------------------------------------------------
+ * Items with [data-reveal] start hidden. When a slide receives [data-revealed],
+ * children animate in with a staggered delay based on --reveal-i.
+ * Auto-fires on slide-enter via JS in the host.
+ * ========================================================================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition-property: opacity, transform;
+  transition-duration: var(--t-slow), var(--t-slow);
+  transition-timing-function: var(--ease-out), var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms);
+  will-change: opacity, transform;
+}
+
+[data-revealed] [data-reveal] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variable-axis title reveal — runs on the slide title element.
+ * Initial state: thin/soft/small-axis. Final: heavy/sharp/display-axis. */
+[data-axis-reveal] {
+  font-family: "Fraunces", Georgia, serif;
+  font-variation-settings: var(--fr-display-in);
+  letter-spacing: 0;
+  transition:
+    font-variation-settings var(--t-glacial) var(--ease-out),
+    letter-spacing var(--t-glacial) var(--ease-out);
+}
+[data-revealed] [data-axis-reveal] {
+  font-variation-settings: var(--fr-display-out);
+  letter-spacing: -0.035em;
+}
+
+/* Slow weight-pulse for the Thanks slide title. */
+@keyframes axis-pulse {
+  0%, 100% { font-variation-settings: var(--fr-pulse-low);  }
+  50%      { font-variation-settings: var(--fr-pulse-high); }
+}
+[data-axis-pulse] {
+  font-family: "Fraunces", Georgia, serif;
+  animation: axis-pulse 6s var(--ease-out) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-axis-pulse] { animation: none; font-variation-settings: var(--fr-pulse-high); }
+}

@@ -1,0 +1,8 @@
+# Claude Code session files — not needed by contributors
+.claude/
+
+# Event photos and working uploads — not part of the slide source
+uploads/
+
+# Development screenshots
+screenshots/
