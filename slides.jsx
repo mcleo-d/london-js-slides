@@ -240,7 +240,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 function S01_Title({ motorwaySize = 60, omneaSize = 60, partnersStyle = 'stacked' } = {}) {
   // partnersStyle: 'stacked' (label above logo) or 'inline' (label inline left of logo)
   return (
-    <Frame bg={C.bgWarm} label="01 / 10">
+    <Frame bg={C.bgWarm} label="01 / 11">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -384,7 +384,7 @@ function S02_Agenda() {
     ['19:50', 'Q&A + hangout', 'Wrapping up around 20:30'],
   ];
   return (
-    <Frame bg={C.bg} label="02 / 10">
+    <Frame bg={C.bg} label="02 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -426,7 +426,7 @@ function S03_Housekeeping() {
     { num: '04', label: 'Code of conduct', body: 'Be excellent to each other. Ask good questions, listen generously, and leave people\'s inboxes alone. Tab vs spaces is a personal choice  –  keep it that way.' },
   ];
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="04 / 10">
+    <Frame bg={C.bgAlt} ink={C.bg} label="04 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -531,7 +531,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="07 / 10"
+      label="08 / 11"
       num="01" total="03"
       name="Ed Cooper"
       role="Senior Engineer"
@@ -548,7 +548,7 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="08 / 10"
+      label="09 / 11"
       num="02" total="03"
       bg={C.bgWarm}
       name="Ryan Cormack & Jamie Toloui"
@@ -566,7 +566,7 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="09 / 10"
+      label="10 / 11"
       num="03" total="03"
       bg={C.bgAlt} ink={C.bg}
       accent={C.accent}
@@ -583,7 +583,7 @@ function S06_Talk3() {
 // --- Slide 07  –  Wi-Fi --------------------------------------------------------
 function S07_Wifi() {
   return (
-    <Frame bg={C.bg} label="03 / 10">
+    <Frame bg={C.bg} label="03 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -639,7 +639,7 @@ function S07_Wifi() {
 // --- Slide 08  –  Host ---------------------------------------------------------
 function S08_Host() {
   return (
-    <Frame bg={C.bg} label="05 / 10">
+    <Frame bg={C.bg} label="05 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -692,7 +692,7 @@ const Stat = ({ n, label, i = 0 }) => (
 // --- Slide 09  –  Sponsor ------------------------------------------------------
 function S09_Sponsor() {
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="06 / 10">
+    <Frame bg={C.bgAlt} ink={C.bg} label="06 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -746,6 +746,51 @@ function S09_Sponsor() {
   );
 }
 
+// --- Slide 11  –  London.js by numbers ----------------------------------------
+function S11_ByNumbers() {
+  return (
+    <Frame bg={C.bg} label="07 / 11">
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 160, bottom: SPACE.padBottom,
+        display: 'flex', flexDirection: 'column',
+      }}>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// london_js.by_numbers</Mono>
+        <h2 data-reveal style={{
+          ['--reveal-i']: 1,
+          marginTop: 24, marginBottom: 0,
+          fontSize: TYPE.title, fontWeight: 600,
+          letterSpacing: '-0.03em', lineHeight: 1.02, color: C.ink,
+        }}>
+          London.js by numbers
+        </h2>
+        <p data-reveal style={{
+          ['--reveal-i']: 2,
+          marginTop: 20, marginBottom: 0,
+          fontSize: TYPE.lead, lineHeight: 1.3,
+          color: C.inkSoft, maxWidth: 1200,
+        }}>
+          Students, career-switchers, seniors  –  same Thursday, same welcome.
+        </p>
+
+        <div style={{
+          marginTop: 56,
+          flex: 1,
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gridTemplateRows: '1fr 1fr',
+          gap: 32,
+        }}>
+          <Stat n="4,434"   label="community members"          i={0} />
+          <Stat n={'166 🌈'} label="registered tonight"         i={1} />
+          <Stat n="1,734"   label="linkedin followers (+33)"   i={2} />
+          <Stat n="20"      label="london.js project nights"   i={3} />
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Slide 10  –  Thanks -------------------------------------------------------
 function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
   const [qrSrc, setQrSrc] = useState('');
@@ -754,7 +799,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
     setQrSrc(url);
   }, [qrUrl]);
   return (
-    <Frame bg={C.bg} label="10 / 10">
+    <Frame bg={C.bg} label="11 / 11">
       <NoiseHero color={C.ink} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -823,5 +868,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
 window.Slides = {
   S01_Title, S02_Agenda, S03_Housekeeping,
   S04_Talk1, S05_Talk2, S06_Talk3,
-  S07_Wifi, S08_Host, S09_Sponsor, S10_Thanks,
+  S07_Wifi, S08_Host, S09_Sponsor,
+  S11_ByNumbers,
+  S10_Thanks,
 };
