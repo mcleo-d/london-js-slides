@@ -610,7 +610,7 @@ function S07_Wifi() {
               fontSize: 84, fontWeight: 600, lineHeight: 1.05,
               marginTop: 16, color: C.ink, letterSpacing: '-0.02em',
             }}>
-              Motorway-Guest
+              Motorway Guest
             </Mono>
           </div>
           <div data-reveal style={{
