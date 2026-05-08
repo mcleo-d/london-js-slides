@@ -531,7 +531,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="08 / 11"
+      label="09 / 11"
       num="01" total="03"
       name="Ed Cooper"
       role="Senior Engineer"
@@ -548,7 +548,7 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="09 / 11"
+      label="10 / 11"
       num="02" total="03"
       bg={C.bgWarm}
       name="Ryan Cormack & Jamie Toloui"
@@ -566,7 +566,7 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="10 / 11"
+      label="11 / 11"
       num="03" total="03"
       bg={C.bgAlt} ink={C.bg}
       accent={C.accent}
@@ -799,7 +799,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
     setQrSrc(url);
   }, [qrUrl]);
   return (
-    <Frame bg={C.bg} label="11 / 11">
+    <Frame bg={C.bg} label="08 / 11">
       <NoiseHero color={C.ink} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
