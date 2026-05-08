@@ -814,7 +814,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               fontWeight: 600, letterSpacing: '-0.045em',
               whiteSpace: 'nowrap',
             }}>
-              See you soon.
+              Register now.
             </h2>
             <p data-reveal style={{
               ['--reveal-i']: 1,
