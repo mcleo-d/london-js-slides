@@ -76,7 +76,7 @@ A browser-based presentation deck (no build step) for the London.JS meetup, 30 A
 ### Key files
 | File | Purpose |
 |---|---|
-| `slides.jsx` | All 10 slide components |
+| `slides.jsx` | All 11 slide components |
 | `deck-stage.js` | Web component: keyboard nav, scaling, speaker notes, PDF print |
 | `reveals.js` | Staggered entry animations |
 | `tweaks-panel.jsx` | Live edit mode for logo sizing |
@@ -95,6 +95,7 @@ A browser-based presentation deck (no build step) for the London.JS meetup, 30 A
 | S08 | Host | Motorway company info |
 | S09 | Sponsor | Omnea company info |
 | S10 | Thanks | Organizers + LinkedIn QR |
+| S11 | By Numbers | London.js by numbers (mid-deck stat card) |
 
 ### Event details
 - **Date:** Thursday 30 April 2026, 18:00 GMT
@@ -102,3 +103,13 @@ A browser-based presentation deck (no build step) for the London.JS meetup, 30 A
 - **Organizers:** James McLeod (NatWest Group), Jordan Potts (Albany Growth), Will Laing (Plan:it)
 - **Host:** Motorway (7,500+ dealers, ~1,000 cars/day)
 - **Sponsor:** Omnea (Series B, $50M, AI-native procurement — trusted by Spotify, MongoDB)
+
+## Slide order
+
+Play order is the document order of the `<section>` elements inside `<deck-stage>` in `London JS - April 2026.html`, NOT the `slides.jsx` `window.Slides` key order. Authoritative reference: `docs/SLIDE_ORDER_MECHANISM.md`.
+
+## Documentation policy
+
+- All PRs that introduce a new feature, new mechanism, or change to wiring must include documentation that explains the change.
+- Mechanism changes (ordering, routing, mounting, dispatch) must update or add a doc under `docs/` in the same PR.
+- Repo state must not carry technical ambiguity that an executor or future contributor has to infer from a single file.

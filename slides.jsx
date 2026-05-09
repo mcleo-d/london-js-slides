@@ -865,6 +865,8 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
 }
 
 // --- Export ------------------------------------------------------------------
+// Label-to-component registry only. Play order is set by <section> order in
+// London JS - April 2026.html. See docs/SLIDE_ORDER_MECHANISM.md.
 window.Slides = {
   S01_Title, S02_Agenda, S03_Housekeeping,
   S04_Talk1, S05_Talk2, S06_Talk3,
