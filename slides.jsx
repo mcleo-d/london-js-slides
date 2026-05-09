@@ -820,13 +820,13 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               ['--reveal-i']: 1,
               margin: '32px 0 0', fontSize: TYPE.lead, color: C.inkSoft, lineHeight: 1.3,
             }}>
-              You are the meetup. Thank you for being here.
+              Glad you made it. Scan the QR to follow us on LinkedIn.
             </p>
             <p data-reveal style={{
               ['--reveal-i']: 2,
               margin: '16px 0 0', fontSize: TYPE.body, color: C.inkMute, lineHeight: 1.3,
             }}>
-              The speakers are right here  –  go say hello.
+              Three talks coming up  –  grab a drink and find a seat.
             </p>
           </div>
           <div style={{
