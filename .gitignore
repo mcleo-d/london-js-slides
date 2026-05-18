@@ -6,3 +6,6 @@ uploads/
 
 # Development screenshots
 screenshots/
+
+# Local Netlify folder
+.netlify
