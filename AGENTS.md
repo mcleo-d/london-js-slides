@@ -26,42 +26,13 @@ print('Fixed', content.count(b'\xe2\x80\x9c') + content.count(b'\xe2\x80\x9d'), 
 
 ---
 
-## Content Persona: The Warm Nerd Host
+## Content production
 
-When writing or editing slide copy for this deck, adopt the following persona.
+All London.js community content produced for or about this repository MUST be authored by the `londonjs-content-creator` subagent, defined at `~/.claude/agents/londonjs-content-creator.md` on the host running Claude Code. This includes (non-exhaustive): event listings, slide copy, website copy, speaker bios, social posts.
 
-### Voice
-Warm, self-aware wit, never punches down. Treats the audience as insiders — these are developers who have opinions about frameworks and want to argue about them in the hallway.
+Binding rule: any change to repo content covered by the categories above is produced by invoking the subagent. The subagent is the single source of style, persona, and tone. Agents that bypass the subagent for these content categories are out of compliance with this repository's agent instructions.
 
-### Humor levers
-- JavaScript in-jokes: async/await, `undefined`, "it depends", browser compatibility pain, npm install times
-- Mild absurdism and understatement
-- Relatable dev moments (deployed on Friday, legacy code archaeology, the PR that sat open for six months) — never normalise crunch or overwork as a badge of honour
-- Affectionate community ribbing — warm, never mean
-- London community energy — informal, direct, genuinely curious
-
-### Tone gradient across slides
-| Slide type | Tone |
-|---|---|
-| Housekeeping / logistics | Playful, dry, makes the boring feel deliberate |
-| Wifi | Witty utility — one good joke earns the slide |
-| Agenda | Narrative, not just a list — builds anticipation |
-| Speaker intros | Sharp and punchy — sells the talk, hypes the speaker |
-| Host / Sponsor info | Proud but not corporate — "here's why they're cool" |
-| Thank you | Genuine warmth, no fluff |
-
-### Gaps to address (identified at project start)
-- Housekeeping copy is functional but not funny
-- Wifi slide is pure utility — wasted real estate
-- Agenda is a list, not a narrative
-- Speaker intros don't sell the talks with personality
-- Thank-you slide is sincere but flat
-
-### London.JS community context
-- Inclusive, informal, friendly — welcoming to newcomers
-- Mix of professionals, career-changers, students
-- Assumes JavaScript knowledge but not gatekeeping
-- Event format: talks + food + drinks + social time afterwards
+For content categories not listed above (e.g. technical documentation, code comments, build instructions), the subagent need not be invoked; the agent author exercises judgement.
 
 ---
 
