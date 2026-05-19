@@ -1,4 +1,14 @@
-# London.JS — April 2026 Deck
+# London.JS slides repository, agent instructions
+
+> Current event metadata: April 2026 deck. Update this metadata when the repository is reused for a future London.js event. The generic agent rules below apply to every event.
+
+## Content production
+
+All London.js community content produced for or about this repository MUST be authored by the `londonjs-content-creator` subagent, defined at `~/.claude/agents/londonjs-content-creator.md` on the host running Claude Code. This includes (non-exhaustive): event listings, slide copy, website copy, speaker bios, social posts.
+
+Binding rule: any change to repo content covered by the categories above is produced by invoking the subagent. The subagent is the single source of style, persona, and tone. Agents that bypass the subagent for these content categories are out of compliance with this repository's agent instructions.
+
+For content categories not listed above (e.g. technical documentation, code comments, build instructions), the subagent need not be invoked; the agent author exercises judgement.
 
 ## Known Issues & Lessons Learned
 
@@ -22,17 +32,9 @@ print('Fixed', content.count(b'\xe2\x80\x9c') + content.count(b'\xe2\x80\x9d'), 
 
 **Prevention:** After any Edit to JSX string attributes, verify no curly quotes were introduced. For abstract/bio content containing double quotes, always use JSX expression syntax with a template literal — e.g. `abstract={\`text with "quotes" inside\`}` — never escaped `\"` inside a double-quoted attribute.
 
-**Also remember:** Bump the `?v=N` cache-bust on the `<script>` tag in `London JS - April 2026.html` after every edit to `slides.jsx` to ensure the browser fetches the updated file.
+### Cache-bust on every slides.jsx edit
 
----
-
-## Content production
-
-All London.js community content produced for or about this repository MUST be authored by the `londonjs-content-creator` subagent, defined at `~/.claude/agents/londonjs-content-creator.md` on the host running Claude Code. This includes (non-exhaustive): event listings, slide copy, website copy, speaker bios, social posts.
-
-Binding rule: any change to repo content covered by the categories above is produced by invoking the subagent. The subagent is the single source of style, persona, and tone. Agents that bypass the subagent for these content categories are out of compliance with this repository's agent instructions.
-
-For content categories not listed above (e.g. technical documentation, code comments, build instructions), the subagent need not be invoked; the agent author exercises judgement.
+Bump the `?v=N` cache-bust on the `<script>` tag in `London JS - April 2026.html` after every edit to `slides.jsx` to ensure the browser fetches the updated file.
 
 ---
 
@@ -54,19 +56,8 @@ A browser-based presentation deck (no build step) for the London.JS meetup, 30 A
 | `tokens.css` | Design tokens |
 
 ### Slides
-| ID | Label | Content |
-|---|---|---|
-| S01 | Title | Motorway + Omnea logos, procedural canvas animation |
-| S02 | Agenda | Run of show: 18:00 doors → 20:30 Q&A |
-| S03 | Housekeeping | Fire exits, facilities, code of conduct |
-| S04 | Talk 1 | Ed Cooper (Omnea) — "How to tame your AI feature" |
-| S05 | Talk 2 | Ryan Cormack & Jamie Toloui (Motorway) — "APIs in the fast lane" |
-| S06 | Talk 3 | Johannes Stein (Stealth) — "Building a JavaScript engine with AI" |
-| S07 | Wifi | Network + password |
-| S08 | Host | Motorway company info |
-| S09 | Sponsor | Omnea company info |
-| S10 | Thanks | Organizers + LinkedIn QR |
-| S11 | By Numbers | London.js by numbers (mid-deck stat card) |
+
+Slide content lives in `slides.jsx`. Slide play order lives in `London JS - April 2026.html` as the document order of `<section>` elements inside `<deck-stage>`. The procedure to add or reorder slides is documented in `docs/SLIDE_ORDER_MECHANISM.md`. Do not maintain a per-slide table here; the deck file and the slide-order doc are the canonical sources.
 
 ### Event details
 - **Date:** Thursday 30 April 2026, 18:00 GMT
@@ -79,8 +70,19 @@ A browser-based presentation deck (no build step) for the London.JS meetup, 30 A
 
 Play order is the document order of the `<section>` elements inside `<deck-stage>` in `London JS - April 2026.html`, NOT the `slides.jsx` `window.Slides` key order. Authoritative reference: `docs/SLIDE_ORDER_MECHANISM.md`.
 
+### When adding or removing slides
+
+When the slide count changes, every component's `label="NN / 11"` prop in `slides.jsx` MUST be updated to reflect the new total. The procedure in `docs/SLIDE_ORDER_MECHANISM.md` names this step (step 5 of "How to add a slide") but it is a frequent miss in agent-driven edits. Verify the count match after any slide insertion or removal by grepping `label="` in `slides.jsx` and confirming every match uses the same denominator.
+
 ## Documentation policy
 
 - All PRs that introduce a new feature, new mechanism, or change to wiring must include documentation that explains the change.
 - Mechanism changes (ordering, routing, mounting, dispatch) must update or add a doc under `docs/` in the same PR.
 - Repo state must not carry technical ambiguity that an executor or future contributor has to infer from a single file.
+
+## See also
+
+- `docs/SLIDE_ORDER_MECHANISM.md`, canonical procedure for slide order and slide addition.
+- `README.md`, repository overview and licence notes (brand assets carry a separate licence carve-out).
+- `London JS - April 2026.html`, the entry point and the canonical play-order source.
+- `~/.claude/agents/londonjs-content-creator.md`, the binding content-production subagent (see Content production above).
