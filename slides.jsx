@@ -240,7 +240,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 function S01_Title({ motorwaySize = 60, omneaSize = 60, partnersStyle = 'stacked' } = {}) {
   // partnersStyle: 'stacked' (label above logo) or 'inline' (label inline left of logo)
   return (
-    <Frame bg={C.bgWarm} label="01 / 11">
+    <Frame bg={C.bgWarm} label="01 / 12">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -384,7 +384,7 @@ function S02_Agenda() {
     ['19:50', 'Q&A + hangout', 'Wrapping up around 20:30'],
   ];
   return (
-    <Frame bg={C.bg} label="02 / 11">
+    <Frame bg={C.bg} label="02 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -426,7 +426,7 @@ function S03_Housekeeping() {
     { num: '04', label: 'Code of conduct', body: 'Be excellent to each other. Ask good questions, listen generously, and leave people\'s inboxes alone. Tab vs spaces is a personal choice  –  keep it that way.' },
   ];
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="04 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="04 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -531,7 +531,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="09 / 11"
+      label="10 / 12"
       num="01" total="03"
       name="Ed Cooper"
       role="Senior Engineer"
@@ -548,7 +548,7 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="10 / 11"
+      label="11 / 12"
       num="02" total="03"
       bg={C.bgWarm}
       name="Ryan Cormack & Jamie Toloui"
@@ -566,7 +566,7 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="11 / 11"
+      label="12 / 12"
       num="03" total="03"
       bg={C.bgAlt} ink={C.bg}
       accent={C.accent}
@@ -583,7 +583,7 @@ function S06_Talk3() {
 // --- Slide 07  –  Wi-Fi --------------------------------------------------------
 function S07_Wifi() {
   return (
-    <Frame bg={C.bg} label="03 / 11">
+    <Frame bg={C.bg} label="03 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -639,7 +639,7 @@ function S07_Wifi() {
 // --- Slide 08  –  Host ---------------------------------------------------------
 function S08_Host() {
   return (
-    <Frame bg={C.bg} label="05 / 11">
+    <Frame bg={C.bg} label="05 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -692,7 +692,7 @@ const Stat = ({ n, label, i = 0 }) => (
 // --- Slide 09  –  Sponsor ------------------------------------------------------
 function S09_Sponsor() {
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="06 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="06 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -749,7 +749,7 @@ function S09_Sponsor() {
 // --- Slide 11  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.bg} label="07 / 11">
+    <Frame bg={C.bg} label="07 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -799,7 +799,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
     setQrSrc(url);
   }, [qrUrl]);
   return (
-    <Frame bg={C.bg} label="08 / 11">
+    <Frame bg={C.bg} label="08 / 12">
       <NoiseHero color={C.ink} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -864,6 +864,29 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
   );
 }
 
+// --- Slide 12  Announcements section divider ----------------------------
+function S12_Announcements() {
+  return (
+    <Frame bg={C.bg} label="09 / 12">
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 320, bottom: SPACE.padBottom,
+      }}>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>
+          // section_divider
+        </Mono>
+        <h2 data-reveal style={{
+          ['--reveal-i']: 1,
+          margin: '24px 0 0', fontSize: TYPE.display, lineHeight: 0.9,
+          fontWeight: 700, letterSpacing: '-0.04em', color: C.ink,
+        }}>
+          Your Announcements
+        </h2>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Export ------------------------------------------------------------------
 // Label-to-component registry only. Play order is set by <section> order in
 // London JS - April 2026.html. See docs/SLIDE_ORDER_MECHANISM.md.
@@ -873,4 +896,5 @@ window.Slides = {
   S07_Wifi, S08_Host, S09_Sponsor,
   S11_ByNumbers,
   S10_Thanks,
+  S12_Announcements,
 };
