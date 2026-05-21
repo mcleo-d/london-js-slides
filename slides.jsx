@@ -850,6 +850,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
           ['--reveal-i']: 5,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end',
         }}>
+          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 420, display: 'block', marginBottom: 24 }} />
           <div style={{
             background: C.paper, padding: 28, border: `3px solid ${C.bgWarm}`,
           }}>
