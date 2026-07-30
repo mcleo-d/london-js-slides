@@ -227,7 +227,7 @@ function S01_Title({ incidentSize = 40 } = {}) {
             marginTop: 48, fontSize: TYPE.lead, color: C.ink,
             maxWidth: 1500, lineHeight: 1.25,
           }}>
-            Gardening the frontend in the LLM era, clinical AI in JavaScript,
+            Gardening the frontend in the LLM era, clinical AI in production,
             and an agentic software factory. JavaScript, doing serious work.
           </div>
         </div>
@@ -456,9 +456,9 @@ function S04_Talk1() {
       role="Product Engineer"
       brand={<IncidentMark kind="wordmark" variant="colour-dark" size={30} />}
       accent="#F25533"
-      title="Frontend gardening in the new world of LLMs."
+      title="Frontend Gardening in the new world of LLMs"
       bio="JavaScript/TypeScript engineer with almost a decade of experience, focused on charming, performant, accessible UIs. React for 7+ years, full-stack when needed. Goldsmiths, University of London. Writes at joehart.co.uk."
-      abstract="Weeds, pruning and the odd rogue commit. Joe on tending a frontend codebase now the LLMs have picked up a trowel, and keeping the craft alive while the machines garden alongside you."
+      abstract="Setting frontend standards has always been hard: how do you give engineers the primitives and guardrails to ship functioning, performant, joyous UIs, without needing to know what a lobotomized owl is? Agents widen that problem. New techniques to keep codebases healthy, and to empower whoever - or whatever - codes next to dodge React render loops."
     />
   );
 }
@@ -474,9 +474,9 @@ function S05_Talk2() {
       role="Tech Lead"
       brand={<Mono>Healthtech 1</Mono>}
       accent="#F25533"
-      title="Shipping clinical AI you can trust, in JavaScript."
+      title="How we built a sophisticated AI clinical triage app (in TypeScript)"
       bio="Full-stack engineer with an interest in building products that matter. Tech Lead at Healthtech 1 (joined 2025). University of Canterbury. Based in London."
-      abstract="Clinical AI where a wrong answer actually matters. Isabelle on how Healthtech 1 built a sophisticated triage product in JavaScript, and lived to tell the tale."
+      abstract="A patient types their symptoms; the backend asks the right follow-ups, works out how urgent it is, and books an appointment - all while racing users who answer faster than the system expects. How Healthtech 1 built it, including the tricky bits they're still figuring out."
     />
   );
 }
@@ -491,9 +491,9 @@ function S06_Talk3() {
       role="Staff Product Engineer"
       brand={<Mono>Clarify</Mono>}
       accent="#F25533"
-      title="Building an agentic software factory with JS."
+      title="How to Build an Agentic Software Factory"
       bio="Staff Product Engineer at Clarify, applying product engineering and machine learning to make a joyful CRM more intelligent and AI-driven. Full-stack, TypeScript, Python, applied ML and NLP. Runs hackathons. Based in London."
-      abstract="Back for a second helping. Igor turns a swarm of agents into a working software factory, all in JS. Bring your own hard hat."
+      abstract="Most of us are stuck reviewing the agent's 40-file PR one file at a time. Getting past that: the five pillars - project rules, architecture docs, the linter as law, tests, and a reviewer bot - and the skills to run ten agents at once instead of babysitting one. Real rules and lint guards you can copy, not theory."
     />
   );
 }
@@ -544,9 +544,6 @@ function S07_Wifi() {
             }}>
               dont-panic
             </Mono>
-            <div style={{ fontSize: TYPE.small, color: '#F2EEE499', marginTop: 24, fontFamily: '"Inter Tight", sans-serif' }}>
-              Case sensitive. Ask a host if you have any trouble.
-            </div>
           </div>
         </div>
       </div>
@@ -583,7 +580,7 @@ function S08_Host() {
           alignSelf: 'stretch',
           display: 'grid', gridTemplateRows: '1fr 1fr', gap: 24,
         }}>
-          <Stat n="250,000+" label="incidents powered" i={0} accentBorder="#F25533" />
+          <Stat n="1,000,000+" label="incidents powered" i={0} accentBorder="#F25533" />
           <Stat n="$62M" label="Series B, led by Insight Partners (2025)" i={1} accentBorder="#F25533" />
         </div>
       </div>
@@ -642,7 +639,7 @@ function S09_Sponsor() {
           {[
             ['Trusted by', 'OpenAI · Netflix · Airbnb · Etsy'],
             ['AI SRE', 'Autonomous investigation, ~90% accuracy, 5x faster'],
-            ['Scale', '2,000+ companies, 250,000+ incidents'],
+            ['Scale', '2,000+ companies, 1,000,000+ incidents'],
             ['Get started', 'incident.io/on-call'],
           ].map(([k, v], i) => (
             <div key={k} data-reveal style={{
