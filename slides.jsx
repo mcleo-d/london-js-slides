@@ -61,7 +61,7 @@ const Chrome = ({ ink, bg, label }) => (
     }}>
       <span>london.js</span>
       <span>{label}</span>
-      <span>30 · 04 · 2026</span>
+      <span>30 · 07 · 2026</span>
     </div>
     <div style={{
       position: 'absolute', top: 88, left: SPACE.padX, right: SPACE.padX,
@@ -87,66 +87,25 @@ const Wordmark = ({ name, color = C.ink, size = 56, weight = 700 }) => (
   }}>{name}</span>
 );
 
-// Motorway: official wordmark path data (provided by Motorway).
-// Single SVG, scales with `size` (treated as cap-height in px).
-// The viewBox spans the full path bounds incl. the y-descender at y≈41.
-const MotorwayMark = ({ size = 88, color = C.ink }) => {
-  // Source path uses a coordinate system where caps are roughly 26 units tall
-  // (y≈7 to y≈33), so 1px-cap-height ≈ size/26 of viewBox units.
-  // We render at width = size * (168/26) ≈ 6.46×size.
-  const widthPx = size * (168 / 26);
-  const heightPx = size * (42 / 26);
+// incident.io: official SVG assets (provided by incident.io), staged in assets/.
+// `kind` selects wordmark vs the standalone icon; `variant` selects the
+// colourway. `size` is the rendered height in px (width follows the SVG's
+// native aspect ratio via width: 'auto').
+//   wordmark colour-dark  = dark ink text + orange  -> use on light/cream/yellow backgrounds
+//   wordmark colour-light = white text + orange      -> use on dark backgrounds
+//   wordmark mono-dark    = ink-only, no orange       -> mono on light backgrounds
+//   wordmark mono-light   = white-only, no orange      -> mono on an orange fill or dark bg
+//   icon alarmalade       = orange icon mark, for small accent use
+const IncidentMark = ({ kind = 'wordmark', variant = 'colour-dark', size = 88, alt = 'incident.io' }) => {
+  const src = kind === 'icon'
+    ? (variant === 'alarmalade' ? 'assets/icon-alarmalade.svg' : `assets/icon-${variant}.svg`)
+    : `assets/wordmark-${variant}.svg`;
   return (
-    <svg
-      width={widthPx}
-      height={heightPx}
-      viewBox="0 0 168 42"
-      style={{ display: 'inline-block', flexShrink: 0 }}
-      aria-label="Motorway"
-      role="img"
-    >
-      <g fill={color}>
-        <path d="M39.46 12.19c-5.89 0-10 4.3-10 10.44 0 6.15 4.11 10.41 10 10.41 5.9 0 10.05-4.28 10.05-10.4s-4.23-10.45-10.05-10.45m0 15.88c-2.66 0-4.32-2.08-4.32-5.44 0-3.35 1.7-5.47 4.32-5.47s4.29 2.1 4.29 5.47c0 3.38-1.64 5.44-4.29 5.44M20.75 12.2a7.6 7.6 0 0 0-5.58 2.4.2.2 0 0 1-.32-.02 5.9 5.9 0 0 0-4.88-2.39A5.6 5.6 0 0 0 5.6 14.6a.2.2 0 0 1-.37-.06l-.48-1.68a.34.34 0 0 0-.33-.25H.35c-.2 0-.35.15-.35.35v19.32c0 .2.16.35.35.35H5.2c.2 0 .35-.16.35-.35v-11.3c0-2.24 1.12-3.62 2.93-3.62 1.68 0 2.6 1.07 2.6 3.01v11.91c0 .2.16.35.35.35h4.85c.19 0 .35-.16.35-.35V20.86c0-2.2 1.1-3.5 2.97-3.5 1.67 0 2.6 1.08 2.6 3.05v11.87c0 .2.15.35.34.35h4.86c.19 0 .34-.16.34-.35V19.16c0-4.1-2.87-6.97-6.98-6.97zm52.19-.01c-5.89 0-10 4.3-10 10.44 0 6.15 4.11 10.41 10 10.41 5.9 0 10.05-4.28 10.05-10.4s-4.23-10.45-10.05-10.45m0 15.88c-2.66 0-4.32-2.08-4.32-5.44 0-3.35 1.7-5.47 4.32-5.47s4.29 2.1 4.29 5.47c0 3.38-1.64 5.44-4.29 5.44M61.82 28a.3.3 0 0 0-.38-.17c-.4.18-1.07.4-1.78.4q-1.5 0-1.75-1.37l-.03-.26v-.03l-.01-.3V17.3q.02-.2.2-.21h4.23c.2 0 .35-.16.35-.35v-3.79c0-.2-.15-.35-.35-.35h-4.23a.2.2 0 0 1-.2-.2V7.28c0-.18-.16-.3-.33-.27l-5 .95a.3.3 0 0 0-.22.27v4.17c0 .12-.1.2-.2.2h-2.18c-.19 0-.34.16-.34.35v3.8c0 .19.15.34.34.34h2.17c.12 0 .21.1.21.2V27.3l.04.8v.06l.09.62.04.2.08.33v.01c.67 2.44 2.66 3.72 5.74 3.72 2.44 0 3.95-.95 4.48-1.35.09-.07.13-.2.1-.3zm65.32-15.4h-4.9c-.16 0-.3.12-.34.28l-2.85 12.62c-.03.15-.24.15-.27 0l-3-12.63a.35.35 0 0 0-.34-.27h-5.47c-.16 0-.3.12-.34.27l-2.94 12.59c-.03.14-.23.14-.27 0l-2.76-12.58a.35.35 0 0 0-.34-.28h-5.2a.28.28 0 0 0-.27.35l5.17 19.42q.08.24.34.25h6.15c.16 0 .3-.1.33-.26l2.65-11.55c.03-.14.24-.14.27 0l2.66 11.55c.03.15.17.26.33.26h6.14q.26-.01.34-.25l5.17-19.42a.28.28 0 0 0-.27-.35m18.84 16.36c-.97-.23-1.7-.67-1.7-2.06v-8.67c0-1.01-.35-6.06-7.23-6.06-5.56 0-8.08 2.9-8.82 3.96-.1.14-.08.33.05.45l2.92 2.75c.12.12.31.1.41-.03a6 6 0 0 1 4.46-2.3c1.3 0 2.67.68 2.67 1.92v1.01c0 .1-.08.2-.18.21l-4.46.52c-4.27.5-6.62 2.64-6.62 6.02 0 3.74 2.87 6.36 6.99 6.36 2.2 0 4.1-.71 5.34-2.01l.13-.13.1.15a4.9 4.9 0 0 0 3.86 2.02q.16 0 .25-.14l2-3.57a.27.27 0 0 0-.17-.4m-7.24-3.04c0 1.69-1.3 2.86-3.15 2.86-1.74 0-2.53-1.11-2.53-2.14 0-1.11.88-1.88 2.42-2.11l3.02-.51a.2.2 0 0 1 .24.2zM96.15 12.28a5.82 5.82 0 0 0-5.88 2.35.2.2 0 0 1-.37-.06l-.46-1.7a.35.35 0 0 0-.34-.26h-4.08c-.2 0-.35.15-.35.34v19.33c0 .2.15.35.35.35h4.85c.19 0 .34-.16.34-.35v-9.04q.01-5.14 4.28-5.16c.61 0 1.17.06 1.56.12.2.03.4-.13.4-.34v-5.23a.34.34 0 0 0-.3-.35"/>
-        <path d="M151.33 12.78a.4.4 0 0 0-.3-.17h-5.77a.28.28 0 0 0-.24.4l7.55 13.46c.12.2.12.46 0 .67l-7.55 13.45c-.1.18.03.41.24.41h5.77q.2 0 .3-.18l7.6-13.54a1 1 0 0 0 0-.95zm15.39-.18h-5.81a.4.4 0 0 0-.3.18l-2.15 3.83a.4.4 0 0 0 0 .34l2.9 5.17c.11.18.38.18.49 0l5.11-9.1a.28.28 0 0 0-.24-.42"/>
-      </g>
-    </svg>
-  );
-};
-
-// Omnea: official PNG wordmark. `size` = wordmark cap-height in px (so it
-// matches MotorwayMark's contract  –  both render at the same visual height).
-//
-// We render an outer box exactly `size` tall containing the wordmark, with
-// the image scaled and shifted so its WORDMARK sits centered within the box.
-// The icon overhangs above and below  –  caller is responsible for clearance.
-const OMNEA_WORDMARK_RATIO = 0.526;       // wordmark height / image height
-const OMNEA_WORDMARK_TOP_OFFSET = 0.236;  // wordmark-top y / image height (= 99/420)
-
-const OmneaMark = ({ size = 88, inverted = false }) => {
-  const imgHeight = size / OMNEA_WORDMARK_RATIO;
-  // Wordmark center y in image coordinates:
-  const wordmarkCenterInImg = imgHeight * (OMNEA_WORDMARK_TOP_OFFSET + OMNEA_WORDMARK_RATIO / 2);
-  // Box center y is size / 2; shift image up by (wordmark center - box center).
-  const topShift = (size / 2) - wordmarkCenterInImg;
-  return (
-    <span style={{
-      display: 'inline-block',
-      height: size,
-      position: 'relative',
-      // Allow vertical overflow (icon overhang); clip nothing.
-    }}>
-      <img
-        src="assets/omnea-logo.png"
-        alt="Omnea"
-        style={{
-          height: imgHeight,
-          width: 'auto',
-          display: 'block',
-          marginTop: topShift,
-          filter: inverted ? 'invert(1) hue-rotate(180deg)' : 'none',
-        }}
-      />
-    </span>
+    <img
+      src={src}
+      alt={alt}
+      style={{ height: size, width: 'auto', display: 'inline-block', flexShrink: 0 }}
+    />
   );
 };
 
@@ -237,8 +196,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 };
 
 // --- Slide 01  –  Title --------------------------------------------------------
-function S01_Title({ motorwaySize = 60, omneaSize = 60, partnersStyle = 'stacked' } = {}) {
-  // partnersStyle: 'stacked' (label above logo) or 'inline' (label inline left of logo)
+function S01_Title({ incidentSize = 40 } = {}) {
   return (
     <Frame bg={C.bgWarm} label="01 / 12">
       <NoiseHero color={C.ink} density={0.04} />
@@ -249,7 +207,7 @@ function S01_Title({ motorwaySize = 60, omneaSize = 60, partnersStyle = 'stacked
       }}>
         <div>
           <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>
-            // meetup_no.014 – april edition
+            // london.js · july 2026
           </Mono>
           <h1
             style={{
@@ -269,78 +227,23 @@ function S01_Title({ motorwaySize = 60, omneaSize = 60, partnersStyle = 'stacked
             marginTop: 48, fontSize: TYPE.lead, color: C.ink,
             maxWidth: 1500, lineHeight: 1.25,
           }}>
-            AI you can actually trust. APIs at scale. A JavaScript engine,
-            built from scratch.
+            Gardening the frontend in the LLM era, clinical AI in JavaScript,
+            and an agentic software factory. JavaScript, doing serious work.
           </div>
         </div>
         <div>
-        {partnersStyle === 'inline'
-          ? <FooterInline motorwaySize={motorwaySize} omneaSize={omneaSize} />
-          : <FooterStacked motorwaySize={motorwaySize} omneaSize={omneaSize} />}
+          <FooterCoBrand incidentSize={incidentSize} />
         </div>
       </div>
     </Frame>
   );
 }
 
-// Footer (stacked)  –  uses an explicit 2-row grid:
-//   row 1: all three column labels, sharing one baseline
-//   row 2: all three column bodies, vertically CENTERED on a shared center line
-// This anchors each logo / text block by its mid-point rather than its bottom,
-// which keeps Motorway's wordmark (no overhang) visually aligned with Omnea's
-// wordmark (centered inside its taller icon overhang) and the WHEN·WHERE text.
-const FOOTER_LABEL_GAP = 32;
+// Footer - single co-brand line: "hosted & sponsored by" + one wordmark,
+// with when/where on the right. incident.io is both host and sponsor for
+// this event, so there is only one logo (no partner-toggle needed).
 const FOOTER_TOP_PAD = 56;
-const FOOTER_BODY_ROW_H = 120;   // tall enough to absorb Omnea icon overhang
-function FooterStacked({ motorwaySize, omneaSize }) {
-  const labelStyle = {
-    fontSize: TYPE.micro, color: C.inkMute,
-    fontFamily: '"JetBrains Mono", ui-monospace, monospace',
-    letterSpacing: '0.02em', lineHeight: 1,
-  };
-  const cellStyle = {
-    height: FOOTER_BODY_ROW_H,
-    display: 'flex', alignItems: 'center',
-  };
-  return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'auto auto 1fr',
-      gridTemplateRows: `auto ${FOOTER_BODY_ROW_H}px`,
-      rowGap: FOOTER_LABEL_GAP,
-      columnGap: 120,
-      paddingTop: FOOTER_TOP_PAD,
-      borderTop: `1px solid ${C.ruleStrong}`,
-    }}>
-      {/* Row 1: labels  –  top-aligned within their auto row, sharing baseline */}
-      <span style={labelStyle}>HOSTED BY</span>
-      <span style={labelStyle}>SPONSORED BY</span>
-      <span style={{ ...labelStyle, justifySelf: 'end', whiteSpace: 'nowrap' }}>WHEN · WHERE</span>
-
-      {/* Row 2: bodies  –  fixed height, all vertically centered */}
-      <div style={cellStyle}>
-        <MotorwayMark size={motorwaySize} color={C.ink} />
-      </div>
-      <div style={cellStyle}>
-        <OmneaMark size={omneaSize} />
-      </div>
-      <div style={{
-        ...cellStyle, justifyContent: 'center', justifySelf: 'end',
-        whiteSpace: 'nowrap', textAlign: 'right',
-        flexDirection: 'column', alignItems: 'flex-end',
-        fontSize: TYPE.body, lineHeight: 1.2, fontWeight: 500,
-      }}>
-        <span>Thu 30 April · 18:00</span>
-        <span style={{ color: C.inkSoft, fontSize: TYPE.small, fontWeight: 400, marginTop: 6 }}>
-          12 Wells Mews, W1T 3HE
-        </span>
-      </div>
-    </div>
-  );
-}
-
-// Footer (inline)  –  labels sit left of each logo on a single row, all bottom-aligned.
-function FooterInline({ motorwaySize, omneaSize }) {
+function FooterCoBrand({ incidentSize = 40 }) {
   const labelStyle = {
     fontSize: TYPE.micro, color: C.inkMute,
     fontFamily: '"JetBrains Mono", ui-monospace, monospace',
@@ -348,25 +251,21 @@ function FooterInline({ motorwaySize, omneaSize }) {
   };
   return (
     <div style={{
-      display: 'flex', alignItems: 'flex-end', gap: 80,
+      display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
       paddingTop: FOOTER_TOP_PAD, borderTop: `1px solid ${C.ruleStrong}`,
     }}>
       <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
-        <span style={labelStyle}>HOSTED BY</span>
-        <MotorwayMark size={motorwaySize} color={C.ink} />
-      </div>
-      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
-        <span style={labelStyle}>SPONSORED BY</span>
-        <OmneaMark size={omneaSize} />
+        <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
+        <IncidentMark kind="wordmark" variant="colour-dark" size={incidentSize} />
       </div>
       <div style={{
-        marginLeft: 'auto', textAlign: 'right',
+        textAlign: 'right',
         fontSize: TYPE.body, lineHeight: 1.2, fontWeight: 500,
       }}>
         <span style={{ ...labelStyle, display: 'block', marginBottom: 12 }}>WHEN · WHERE</span>
-        Thu 30 April · 18:00<br />
+        Thu 30 July 2026 · 18:00<br />
         <span style={{ color: C.inkSoft, fontSize: TYPE.small, fontWeight: 400 }}>
-          12 Wells Mews, W1T 3HE
+          Floor 5, The Bower, 207-211 Old Street, EC1V 9NR
         </span>
       </div>
     </div>
@@ -377,11 +276,11 @@ function FooterInline({ motorwaySize, omneaSize }) {
 function S02_Agenda() {
   const rows = [
     ['18:00', 'Doors open', 'Drinks, food, say hello to someone new'],
-    ['18:30', 'Welcome', 'Your hosts for the evening'],
-    ['18:50', 'Talk 01', 'Can an AI feature earn real trust?'],
-    ['19:10', 'Talk 02', 'Design-first APIs at Motorway scale'],
-    ['19:30', 'Talk 03', 'A JS engine built with AI – what could go wrong?'],
-    ['19:50', 'Q&A + hangout', 'Wrapping up around 20:30'],
+    ['18:30', 'Welcome', 'Your hosts open the night (5-10 min)'],
+    ['18:40', 'Talk 01', 'Joe Hart, incident.io'],
+    ['19:15', 'Talk 02', 'Isabelle Taylor, Healthtech 1'],
+    ['19:50', 'Talk 03', 'Igor Luchenkov, Clarify'],
+    ['20:25', 'Q&A + hangout', 'Wrapping up around 20:30'],
   ];
   return (
     <Frame bg={C.bg} label="02 / 12">
@@ -420,10 +319,8 @@ function S02_Agenda() {
 // --- Slide 03  –  Housekeeping -------------------------------------------------
 function S03_Housekeeping() {
   const items = [
-    { num: '01', label: 'Fire exits',  body: 'Two of them. Back through reception (the way you came in) or the stairwell at the rear. Assembly point is on Wells Mews – please do not stop to finish your slide first.' },
-    { num: '02', label: 'Toilets',     body: 'Down the corridor, past the kitchen on your left. Please don\'t take a call in there  –  we can hear you.' },
-    { num: '03', label: 'Food & drinks', body: 'Help yourself all evening. Allergens labelled where we know them  –  ask a host if you\'re unsure. No last orders, and no judgment on seconds.' },
-    { num: '04', label: 'Code of conduct', body: 'Be excellent to each other. Ask good questions, listen generously, and leave people\'s inboxes alone. Tab vs spaces is a personal choice  –  keep it that way.' },
+    { num: '01', label: 'Fire',            body: 'Follow the exit signs; your hosts will point the way.' },
+    { num: '02', label: 'Code of conduct', body: 'Be excellent to each other. confcodeofconduct.com.' },
   ];
   return (
     <Frame bg={C.bgAlt} ink={C.bg} label="04 / 12">
@@ -438,7 +335,7 @@ function S03_Housekeeping() {
         }}>The important bits</h2>
 
         <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 36,
+          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 36,
         }}>
           {items.map(({ num, label, body }, i) => (
             <div key={num} data-reveal style={{
@@ -460,6 +357,13 @@ function S03_Housekeeping() {
             </div>
           ))}
         </div>
+        <p data-reveal style={{
+          ['--reveal-i']: 4,
+          marginTop: 56, fontSize: TYPE.body, lineHeight: 1.35,
+          color: '#F2EEE499', maxWidth: 1100,
+        }}>
+          Everything else, Will, Jordan and incident.io will cover on the night.
+        </p>
       </div>
     </Frame>
   );
@@ -533,13 +437,13 @@ function S04_Talk1() {
     <TalkSlide
       label="10 / 12"
       num="01" total="03"
-      name="Ed Cooper"
-      role="Senior Engineer"
-      brand={<OmneaMark size={32} />}
-      accent="#10A87A"
-      title="How to tame your AI feature."
-      bio="Senior Engineer at Omnea, building AI features that have to earn trust in production  –  not just in the demo."
-      abstract={`Shipping an AI feature that demos well is easy; shipping one enterprise users trust with six-figure decisions is another story. Ed walks through what it actually took to get from "it works in the demo" to "we'd bet the contract on it."`}
+      name="Joe Hart"
+      role="Product Engineer"
+      brand={<IncidentMark kind="wordmark" variant="colour-dark" size={30} />}
+      accent="#F25533"
+      title="Frontend gardening in the new world of LLMs."
+      bio="JavaScript/TypeScript engineer with almost a decade of experience, focused on charming, performant, accessible UIs. React for 7+ years, full-stack when needed. Goldsmiths, University of London. Writes at joehart.co.uk."
+      abstract="Weeds, pruning and the odd rogue commit. Joe on tending a frontend codebase now the LLMs have picked up a trowel, and keeping the craft alive while the machines garden alongside you."
     />
   );
 }
@@ -550,14 +454,14 @@ function S05_Talk2() {
     <TalkSlide
       label="11 / 12"
       num="02" total="03"
-      bg={C.bgWarm}
-      name="Ryan Cormack & Jamie Toloui"
-      role="Principal Eng. & Senior Backend Eng."
-      brand={<MotorwayMark size={36} color={C.ink} />}
-      accent={C.ink}
-      title="APIs in the fast lane."
-      bio="Ryan crossed over from digital marketing into engineering and never looked back  –  he ships fast and thinks in systems. Jamie builds the backend APIs that keep Motorway running at scale  –  the infrastructure that has to be right before anything else can happen."
-      abstract="How Motorway are building new, and evolving existing, APIs across their platform with a design-first approach. Smithy keeps documentation, SDKs and implementation in sync – real-world examples of APIs handling millions of requests, type-safe and doing exactly what they say on the tin."
+      bg={C.bgAlt} ink={C.bg}
+      name="Isabelle Taylor"
+      role="Tech Lead"
+      brand={<Mono>Healthtech 1</Mono>}
+      accent="#F25533"
+      title="Shipping clinical AI you can trust, in JavaScript."
+      bio="Full-stack engineer with an interest in building products that matter. Tech Lead at Healthtech 1 (joined 2025). University of Canterbury. Based in London."
+      abstract="Clinical AI where a wrong answer actually matters. Isabelle on how Healthtech 1 built a sophisticated triage product in JavaScript, and lived to tell the tale."
     />
   );
 }
@@ -568,14 +472,13 @@ function S06_Talk3() {
     <TalkSlide
       label="12 / 12"
       num="03" total="03"
-      bg={C.bgAlt} ink={C.bg}
-      accent={C.accent}
-      name="Johannes Stein"
-      role="Head of Engineering & Startup CTO"
-      brand={<span style={{ color: C.accent, fontFamily: '"JetBrains Mono", monospace', fontSize: 28 }}>// stealth</span>}
-      title="Building a JavaScript engine with AI."
-      bio="Head of Engineering and startup CTO. Open source contributor and maintainer across web, mobile and cross-platform. Thinks JavaScript deserves better  –  and is doing something about it."
-      abstract="What if we built a JavaScript engine without the bloat of backward compatibility? Modern features only – let/const, arrow functions, zero dynamic code execution, TypeScript-compatible. How far did they get? Further than you'd expect. What broke? More than planned."
+      name="Igor Luchenkov"
+      role="Staff Product Engineer"
+      brand={<Mono>Clarify</Mono>}
+      accent="#F25533"
+      title="Building an agentic software factory with JS."
+      bio="Staff Product Engineer at Clarify, applying product engineering and machine learning to make a joyful CRM more intelligent and AI-driven. Full-stack, TypeScript, Python, applied ML and NLP. Runs hackathons. Based in London."
+      abstract="Back for a second helping. Igor turns a swarm of agents into a working software factory, all in JS. Bring your own hard hat."
     />
   );
 }
@@ -610,7 +513,7 @@ function S07_Wifi() {
               fontSize: 84, fontWeight: 600, lineHeight: 1.05,
               marginTop: 16, color: C.ink, letterSpacing: '-0.02em',
             }}>
-              Motorway Guest
+              Ask a host
             </Mono>
           </div>
           <div data-reveal style={{
@@ -624,10 +527,10 @@ function S07_Wifi() {
               fontSize: 84, fontWeight: 600, lineHeight: 1.05,
               marginTop: 16, color: C.bg, letterSpacing: '-0.02em',
             }}>
-              ••••••••••
+              On the night
             </Mono>
             <div style={{ fontSize: TYPE.small, color: '#F2EEE499', marginTop: 24, fontFamily: '"Inter Tight", sans-serif' }}>
-              Yes, it's case sensitive. Ask a host if you need it.
+              Venue wifi is available on the night. Ask a host for details.
             </div>
           </div>
         </div>
@@ -648,35 +551,37 @@ function S08_Host() {
         <div>
           <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// our_host</Mono>
           <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
-            <MotorwayMark size={140} color={C.ink} />
+            <IncidentMark kind="wordmark" variant="colour-dark" size={100} />
           </div>
           <p data-reveal style={{
             ['--reveal-i']: 2,
             marginTop: 56, fontSize: TYPE.lead, lineHeight: 1.3,
             color: C.inkSoft, textWrap: 'pretty', maxWidth: 700,
           }}>
-            Motorway runs a real-time marketplace connecting thousands of
-            dealers with sellers across the UK  –  instant valuations, competitive
-            bidding, built right here off Oxford Street.
+            incident.io host tonight, their 4th London.js, in their new
+            office at The Bower. The single place you turn to when things go
+            wrong: incident response, on-call and post-incident learning in
+            one platform.
           </p>
         </div>
         <div style={{
           alignSelf: 'stretch',
           display: 'grid', gridTemplateRows: '1fr 1fr', gap: 24,
         }}>
-          <Stat n="7,500+" label="verified dealers" i={0} />
-          <Stat n="1,000/day" label="cars sold on platform" i={1} />
+          <Stat n="250,000+" label="incidents powered" i={0} accentBorder="#F25533" />
+          <Stat n="$62M" label="Series B, led by Insight Partners (2025)" i={1} accentBorder="#F25533" />
         </div>
       </div>
     </Frame>
   );
 }
 
-const Stat = ({ n, label, i = 0 }) => (
+const Stat = ({ n, label, i = 0, accentBorder }) => (
   <div data-reveal style={{
     ['--reveal-i']: 3 + i,
     background: C.paper,
     border: `1px solid ${C.ruleStrong}`,
+    borderTop: accentBorder ? `4px solid ${accentBorder}` : `1px solid ${C.ruleStrong}`,
     padding: '40px 48px',
     display: 'flex', flexDirection: 'column', justifyContent: 'center',
   }}>
@@ -699,19 +604,19 @@ function S09_Sponsor() {
         display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 100,
       }}>
         <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// our_sponsor</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: '#F25533' }}>// our_sponsor</Mono>
           <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 56, marginBottom: 40 }}>
-            <OmneaMark size={96} inverted />
+            <IncidentMark kind="wordmark" variant="colour-light" size={64} />
           </div>
           <p data-reveal style={{
             ['--reveal-i']: 2,
             marginTop: 40, fontSize: TYPE.lead, lineHeight: 1.3,
             color: '#F2EEE4CC', textWrap: 'pretty', maxWidth: 700,
           }}>
-            Omnea is an AI-native platform that brings procurement, finance,
-            legal and IT together in one place  –  faster approvals, better
-            visibility, less back-and-forth. Series B, $50M. They're making
-            tonight possible.
+            AI that works incidents with you. incident.io's AI SRE
+            investigates autonomously, correlates across your stack and
+            drafts fixes: up to 90% accuracy, 5x faster resolution. On-call
+            launched 2024.
           </p>
         </div>
         <div style={{
@@ -720,9 +625,9 @@ function S09_Sponsor() {
           gap: 24,
         }}>
           {[
-            ['Series B', '$50M led by Insight & Khosla'],
-            ['AI-native', 'Intake, approvals, supplier onboarding'],
-            ['Trusted by', 'Spotify · McAfee · MongoDB · Hargreaves Lansdown'],
+            ['Trusted by', 'OpenAI · Netflix · Airbnb · Etsy'],
+            ['AI SRE', 'Autonomous investigation, ~90% accuracy, 5x faster'],
+            ['Scale', '2,000+ companies, 250,000+ incidents'],
           ].map(([k, v], i) => (
             <div key={k} data-reveal style={{
               ['--reveal-i']: i + 3,
@@ -731,7 +636,7 @@ function S09_Sponsor() {
               display: 'grid', gridTemplateColumns: '180px 1fr', gap: 32,
               alignItems: 'baseline',
             }}>
-              <Mono style={{ fontSize: TYPE.micro, color: C.accent, fontWeight: 600 }}>{k}</Mono>
+              <Mono style={{ fontSize: TYPE.micro, color: '#F25533', fontWeight: 600 }}>{k}</Mono>
               <div style={{ fontSize: TYPE.body, color: C.bg, lineHeight: 1.3 }}>{v}</div>
             </div>
           ))}
@@ -770,7 +675,7 @@ function S11_ByNumbers() {
           fontSize: TYPE.lead, lineHeight: 1.3,
           color: C.inkSoft, maxWidth: 1200,
         }}>
-          Students, career-switchers, seniors  –  same Thursday, same welcome.
+          Students, career-switchers, seniors - same Thursday, same welcome.
         </p>
 
         <div style={{
@@ -781,10 +686,10 @@ function S11_ByNumbers() {
           gridTemplateRows: '1fr 1fr',
           gap: 32,
         }}>
-          <Stat n="4,434"   label="community members"          i={0} />
-          <Stat n={'166 🌈'} label="registered tonight"         i={1} />
-          <Stat n="1,734"   label="linkedin followers (+33)"   i={2} />
-          <Stat n="20"      label="london.js project nights"   i={3} />
+          <Stat n="4,481" label="community members"       i={0} />
+          <Stat n="157"   label="registered tonight"      i={1} />
+          <Stat n="1,783" label="linkedin followers"      i={2} />
+          <Stat n="20+"   label="london.js project nights" i={3} />
         </div>
       </div>
     </Frame>
@@ -834,9 +739,9 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
           }}>
             {[
-              ['James McLeod', 'NatWest Group'],
-              ['Jordan Potts', 'Albany Growth'],
-              ['Will Laing', 'Plan:it'],
+              ['James McLeod', 'Open Source Lead, NatWest Group · FINOS Board Member · London.js Organiser'],
+              ['Jordan Potts', 'Head of Technology, Albany Growth · Co-Founder, London.js'],
+              ['Will Laing', 'Co-Founder, Plan:it · Co-Founder & Organiser, London.js'],
             ].map(([n, c], i) => (
               <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>ORGANISER</Mono>
