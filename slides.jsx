@@ -321,49 +321,55 @@ function S03_Housekeeping() {
   const items = [
     { num: '01', label: 'Fire',            body: 'Follow the exit signs; your hosts will point the way.' },
     { num: '02', label: 'Code of conduct', body: 'Be excellent to each other. confcodeofconduct.com.' },
+    { num: '03', label: 'Food & drink',    body: 'Help yourself all evening. Drinks and snacks are on us.' },
   ];
   return (
     <Frame bg={C.bgAlt} ink={C.bg} label="04 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
+        display: 'flex', flexDirection: 'column',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: '#F2EEE499' }}>// before_we_start</Mono>
-        <h2 style={{
-          margin: '16px 0 64px', fontSize: TYPE.title, lineHeight: 1,
-          fontWeight: 600, letterSpacing: '-0.03em', color: C.bg,
-        }}>The important bits</h2>
-
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 36,
-        }}>
-          {items.map(({ num, label, body }, i) => (
-            <div key={num} data-reveal style={{
-              ['--reveal-i']: i + 2,
-              borderTop: `2px solid ${C.accent}`,
-              paddingTop: 28,
-            }}>
-              <Mono style={{ fontSize: TYPE.micro, color: C.accent, fontWeight: 600 }}>
-                {num}
-              </Mono>
-              <div style={{
-                fontSize: TYPE.subtitle, fontWeight: 600, marginTop: 12,
-                letterSpacing: '-0.02em',
-              }}>{label}</div>
-              <p style={{
-                fontSize: TYPE.body, lineHeight: 1.35, marginTop: 20,
-                color: '#F2EEE4',
-              }}>{body}</p>
-            </div>
-          ))}
+        <div>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: '#F2EEE499' }}>// before_we_start</Mono>
+          <h2 style={{
+            margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
+            fontWeight: 600, letterSpacing: '-0.03em', color: C.bg,
+          }}>The important bits</h2>
         </div>
-        <p data-reveal style={{
-          ['--reveal-i']: 4,
-          marginTop: 56, fontSize: TYPE.body, lineHeight: 1.35,
-          color: '#F2EEE499', maxWidth: 1100,
-        }}>
-          Everything else, Will, Jordan and incident.io will cover on the night.
-        </p>
+
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 48,
+          }}>
+            {items.map(({ num, label, body }, i) => (
+              <div key={num} data-reveal style={{
+                ['--reveal-i']: i + 2,
+                borderTop: `2px solid ${C.accent}`,
+                paddingTop: 32,
+              }}>
+                <Mono style={{ fontSize: TYPE.micro, color: C.accent, fontWeight: 600 }}>
+                  {num}
+                </Mono>
+                <div style={{
+                  fontSize: TYPE.subtitle, fontWeight: 600, marginTop: 16,
+                  letterSpacing: '-0.02em',
+                }}>{label}</div>
+                <p style={{
+                  fontSize: TYPE.body, lineHeight: 1.35, marginTop: 24,
+                  color: '#F2EEE4',
+                }}>{body}</p>
+              </div>
+            ))}
+          </div>
+          <p data-reveal style={{
+            ['--reveal-i']: 5,
+            marginTop: 72, fontSize: TYPE.lead, lineHeight: 1.35,
+            color: '#F2EEE499', maxWidth: 1400,
+          }}>
+            Everything else, Will, Jordan and incident.io will cover on the night.
+          </p>
+        </div>
       </div>
     </Frame>
   );
@@ -414,12 +420,19 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
           alignSelf: 'stretch',
           background: ink === C.bg ? '#FFFFFF14' : (bg === C.bgWarm ? 'rgba(255,255,255,0.35)' : '#16151418'),
           padding: '48px 44px',
-          display: 'flex', flexDirection: 'column',
+          display: 'flex', flexDirection: 'column', justifyContent: 'center',
           borderLeft: `2px solid ${accent}`,
         }}>
-          <Mono style={{ fontSize: TYPE.micro, color: ink === C.bg ? '#F2EEE499' : C.inkMute }}>
-            ABSTRACT
-          </Mono>
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+            <Mono style={{ fontSize: TYPE.micro, color: ink === C.bg ? '#F2EEE499' : C.inkMute }}>
+              ABSTRACT
+            </Mono>
+            <span style={{
+              fontSize: 140, fontWeight: 700, lineHeight: 0.8,
+              letterSpacing: '-0.04em', color: accent, opacity: 0.14,
+              fontFamily: '"Inter Tight", system-ui, sans-serif',
+            }}>{num}</span>
+          </div>
           <p style={{
             margin: '20px 0 0', fontSize: TYPE.body, lineHeight: 1.4,
             color: ink === C.bg ? '#F2EEE4E0' : C.inkSoft,
@@ -500,7 +513,7 @@ function S07_Wifi() {
 
         <div style={{
           marginTop: 80, flex: 1,
-          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32,
+          display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr', gap: 32,
         }}>
           <div data-reveal style={{
             ['--reveal-i']: 2,
@@ -628,11 +641,13 @@ function S09_Sponsor() {
             ['Trusted by', 'OpenAI · Netflix · Airbnb · Etsy'],
             ['AI SRE', 'Autonomous investigation, ~90% accuracy, 5x faster'],
             ['Scale', '2,000+ companies, 250,000+ incidents'],
+            ['Get started', 'incident.io/on-call'],
           ].map(([k, v], i) => (
             <div key={k} data-reveal style={{
               ['--reveal-i']: i + 3,
               padding: '28px 0',
               borderTop: '1px solid #F2EEE433',
+              borderBottom: i === 3 ? '1px solid #F2EEE433' : 'none',
               display: 'grid', gridTemplateColumns: '180px 1fr', gap: 32,
               alignItems: 'baseline',
             }}>
@@ -640,11 +655,6 @@ function S09_Sponsor() {
               <div style={{ fontSize: TYPE.body, color: C.bg, lineHeight: 1.3 }}>{v}</div>
             </div>
           ))}
-          <div style={{
-            padding: '28px 0',
-            borderTop: '1px solid #F2EEE433',
-            borderBottom: '1px solid #F2EEE433',
-          }} />
         </div>
       </div>
     </Frame>
@@ -711,7 +721,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
         top: 160, bottom: SPACE.padBottom,
         display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80,
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>
             <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// thanks_for_coming</Mono>
             <h2 style={{
@@ -731,11 +741,11 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               ['--reveal-i']: 2,
               margin: '16px 0 0', fontSize: TYPE.body, color: C.inkMute, lineHeight: 1.3,
             }}>
-              Three talks coming up  –  grab a drink and find a seat.
+              Three talks coming up - grab a drink and find a seat.
             </p>
           </div>
           <div style={{
-            paddingTop: 32, borderTop: `1px solid ${C.ruleStrong}`,
+            marginTop: 64, paddingTop: 32, borderTop: `1px solid ${C.ruleStrong}`,
             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
           }}>
             {[
@@ -746,7 +756,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>ORGANISER</Mono>
                 <div style={{ fontSize: TYPE.body, fontWeight: 600, marginTop: 8 }}>{n}</div>
-                <div style={{ fontSize: TYPE.small, color: C.inkSoft }}>{c}</div>
+                <div style={{ fontSize: 20, lineHeight: 1.35, color: C.inkSoft, marginTop: 6 }}>{c}</div>
               </div>
             ))}
           </div>
@@ -755,11 +765,11 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
           ['--reveal-i']: 5,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end',
         }}>
-          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 420, display: 'block', marginBottom: 24 }} />
+          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 320, display: 'block', marginBottom: 20 }} />
           <div style={{
-            background: C.paper, padding: 28, border: `3px solid ${C.bgWarm}`,
+            background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            {qrSrc && <img src={qrSrc} width={420} height={420} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />}
+            {qrSrc && <img src={qrSrc} width={340} height={340} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />}
           </div>
           <Mono style={{ fontSize: TYPE.micro, color: C.inkSoft, marginTop: 20 }}>
             FOLLOW · linkedin.com/company/london-js
@@ -788,6 +798,13 @@ function S12_Announcements() {
         }}>
           Your Announcements
         </h2>
+        <p data-reveal style={{
+          ['--reveal-i']: 2,
+          margin: '40px 0 0', fontSize: TYPE.lead, lineHeight: 1.3,
+          color: C.inkSoft,
+        }}>
+          Got something for the community? Grab the mic.
+        </p>
       </div>
     </Frame>
   );
