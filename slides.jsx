@@ -763,13 +763,13 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
         </div>
         <div data-reveal style={{
           ['--reveal-i']: 5,
-          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end',
+          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
         }}>
-          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 320, display: 'block', marginBottom: 20 }} />
+          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 393, display: 'block', marginBottom: 20 }} />
           <div style={{
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            {qrSrc && <img src={qrSrc} width={340} height={340} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />}
+            {qrSrc && <img src={qrSrc} width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />}
           </div>
           <Mono style={{ fontSize: TYPE.micro, color: C.inkSoft, marginTop: 20 }}>
             FOLLOW · linkedin.com/company/london-js
