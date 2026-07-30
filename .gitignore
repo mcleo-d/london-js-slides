@@ -9,3 +9,6 @@ screenshots/
 
 # Local Netlify folder
 .netlify
+
+# Generated PDF backups
+exports/
