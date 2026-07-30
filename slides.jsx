@@ -256,7 +256,9 @@ function FooterCoBrand({ incidentSize = 40 }) {
     }}>
       <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
-        <IncidentMark kind="wordmark" variant="colour-dark" size={incidentSize} />
+        <span style={{ display: 'inline-block', marginBottom: 5 }}>
+          <IncidentMark kind="wordmark" variant="colour-dark" size={incidentSize} />
+        </span>
       </div>
       <div style={{
         textAlign: 'right',
@@ -280,10 +282,10 @@ function S02_Agenda() {
     ['18:40', 'Talk 01', 'Joe Hart, incident.io'],
     ['19:15', 'Talk 02', 'Isabelle Taylor, Healthtech 1'],
     ['19:50', 'Talk 03', 'Igor Luchenkov, Clarify'],
-    ['20:25', 'Q&A + hangout', 'Wrapping up around 20:30'],
+    ['20:30', 'Q&A + hangout', 'Wrapping up around 20:30'],
   ];
   return (
-    <Frame bg={C.bg} label="02 / 12">
+    <Frame bg={C.bg} label="04 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -324,7 +326,7 @@ function S03_Housekeeping() {
     { num: '03', label: 'Food & drink',    body: 'Help yourself all evening. Drinks and snacks are on us.' },
   ];
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="04 / 12">
+    <Frame bg={C.bgAlt} ink={C.bg} label="05 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -367,7 +369,7 @@ function S03_Housekeeping() {
             marginTop: 72, fontSize: TYPE.lead, lineHeight: 1.35,
             color: '#F2EEE499', maxWidth: 1400,
           }}>
-            Everything else, Will, Jordan and incident.io will cover on the night.
+            Everything else, Will, Jordan and James will cover on the night.
           </p>
         </div>
       </div>
@@ -499,13 +501,13 @@ function S06_Talk3() {
 // --- Slide 07  –  Wi-Fi --------------------------------------------------------
 function S07_Wifi() {
   return (
-    <Frame bg={C.bg} label="03 / 12">
+    <Frame bg={C.bg} label="02 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// finally</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// first_things_first</Mono>
         <h2 style={{
           margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
           fontWeight: 600, letterSpacing: '-0.03em',
@@ -523,10 +525,10 @@ function S07_Wifi() {
           }}>
             <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>NETWORK</Mono>
             <Mono style={{
-              fontSize: 84, fontWeight: 600, lineHeight: 1.05,
+              fontSize: 56, fontWeight: 600, lineHeight: 1.05,
               marginTop: 16, color: C.ink, letterSpacing: '-0.02em',
             }}>
-              Ask a host
+              incident.io Guest
             </Mono>
           </div>
           <div data-reveal style={{
@@ -540,10 +542,10 @@ function S07_Wifi() {
               fontSize: 84, fontWeight: 600, lineHeight: 1.05,
               marginTop: 16, color: C.bg, letterSpacing: '-0.02em',
             }}>
-              On the night
+              dont-panic
             </Mono>
             <div style={{ fontSize: TYPE.small, color: '#F2EEE499', marginTop: 24, fontFamily: '"Inter Tight", sans-serif' }}>
-              Venue wifi is available on the night. Ask a host for details.
+              Case sensitive. Ask a host if you have any trouble.
             </div>
           </div>
         </div>
@@ -555,7 +557,7 @@ function S07_Wifi() {
 // --- Slide 08  –  Host ---------------------------------------------------------
 function S08_Host() {
   return (
-    <Frame bg={C.bg} label="05 / 12">
+    <Frame bg={C.bg} label="06 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -571,7 +573,7 @@ function S08_Host() {
             marginTop: 56, fontSize: TYPE.lead, lineHeight: 1.3,
             color: C.inkSoft, textWrap: 'pretty', maxWidth: 700,
           }}>
-            incident.io host tonight, their 4th London.js, in their new
+            incident.io host tonight, their 4th London.js, in their
             office at The Bower. The single place you turn to when things go
             wrong: incident response, on-call and post-incident learning in
             one platform.
@@ -610,7 +612,7 @@ const Stat = ({ n, label, i = 0, accentBorder }) => (
 // --- Slide 09  –  Sponsor ------------------------------------------------------
 function S09_Sponsor() {
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="06 / 12">
+    <Frame bg={C.bgAlt} ink={C.bg} label="07 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -664,7 +666,7 @@ function S09_Sponsor() {
 // --- Slide 11  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.bg} label="07 / 12">
+    <Frame bg={C.bg} label="08 / 12">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -714,7 +716,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
     setQrSrc(url);
   }, [qrUrl]);
   return (
-    <Frame bg={C.bg} label="08 / 12">
+    <Frame bg={C.bg} label="03 / 12">
       <NoiseHero color={C.ink} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -723,7 +725,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>
-            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// thanks_for_coming</Mono>
+            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// welcome</Mono>
             <h2 style={{
               margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
               fontWeight: 600, letterSpacing: '-0.045em',
