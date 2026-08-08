@@ -1,20 +1,22 @@
-# London.JS — April 2026 Slide Deck
+# London.js Slide Deck
 
-Browser-based presentation deck for the London.JS meetup, 30 April 2026.  
-Hosted by **Motorway** · Sponsored by **Omnea** · Venue: 12 Wells Mews, W1T 3HE.
+Browser-based presentation deck for the [London.js](https://www.meetup.com/london-javascript-community/) monthly meetup. No build step; the deck runs entirely in the browser via Babel standalone and React from CDN.
 
-## Stack
+**Current event:** July 2026, hosted and sponsored by [incident.io](https://incident.io/). Entry file: `London JS - July 2026.html`. Live at [https://london-js-slides.netlify.app](https://london-js-slides.netlify.app).
 
-No build step. Open the HTML file in a browser via a local server.
+Past events are preserved on archive branches (for example `archive/april-2026`).
 
-| Technology | Role |
+## Key files
+
+| File | Role |
 |---|---|
-| React 18 (CDN) + Babel standalone | UI / JSX transpiled in-browser |
+| `slides.jsx` | All slide content — the only file you normally need to edit |
+| `London JS - July 2026.html` | Entry point: loads React, Babel, and the deck |
 | `deck-stage.js` | Web component — keyboard nav, viewport scaling, speaker notes, PDF print |
 | `reveals.js` | MutationObserver-based staggered entry animations |
 | `tweaks-panel.jsx` | Live logo-size controls on the title slide |
-| `tokens.css` | Design tokens |
-| Google Fonts | Inter Tight · JetBrains Mono |
+| `tokens.css` | Design tokens (colours, typography, spacing) |
+| `netlify.toml` | Netlify config; root redirect points to the current entry HTML |
 
 ## Running locally
 
@@ -22,11 +24,9 @@ No build step. Open the HTML file in a browser via a local server.
 python3 -m http.server 8765
 ```
 
-Then open: [http://localhost:8765/London%20JS%20-%20April%202026.html](http://localhost:8765/London%20JS%20-%20April%202026.html)
+Then open: [http://localhost:8765/London%20JS%20-%20July%202026.html](http://localhost:8765/London%20JS%20-%20July%202026.html)
 
-> **Why a server?** Babel standalone fetches the `.jsx` file via XHR — it cannot
-> run from `file://`. Any static HTTP server works; `python3 -m http.server` is
-> the zero-dependency option.
+> **Why a server?** Babel standalone fetches `slides.jsx` via XHR and cannot run from `file://`. Any static HTTP server works; `python3 -m http.server` is the zero-dependency option.
 
 ## Navigation
 
@@ -37,39 +37,54 @@ Then open: [http://localhost:8765/London%20JS%20-%20April%202026.html](http://lo
 | `S` | Toggle speaker notes |
 | `P` | Print / export to PDF |
 
-## Slides
+## Slide structure
 
-| # | Label | Content |
+The deck has 12 slides rendered in this order:
+
+| Position | Slot | Typical content |
 |---|---|---|
-| 01 | Title | Motorway + Omnea logos, animated noise field |
+| 01 | Title | Event name, host/sponsor logos, animated background |
 | 02 | Agenda | Run of show with timings |
-| 03 | Wi-Fi | Network + password |
-| 04 | Housekeeping | Fire exits, facilities, code of conduct |
-| 05 | Host | Motorway company info |
-| 06 | Sponsor | Omnea company info |
-| 07 | Talk 01 | Ed Cooper (Omnea) |
-| 08 | Talk 02 | Ryan Cormack & Jamie Toloui (Motorway) |
-| 09 | Talk 03 | Johannes Stein |
-| 10 | Thanks | Organisers + LinkedIn QR |
+| 03 | Housekeeping | Fire exits, facilities, code of conduct |
+| 04 | Talk 01 | Speaker bio, talk title, abstract |
+| 05 | Talk 02 | Speaker bio, talk title, abstract |
+| 06 | Talk 03 | Speaker bio, talk title, abstract |
+| 07 | Wi-Fi | Network name and password |
+| 08 | Host | Host company info and stats |
+| 09 | Sponsor | Sponsor company info and stats |
+| 10 | By numbers | Highlights and stats |
+| 11 | Thanks | Organisers, photo, LinkedIn QR code |
+| 12 | Announcements | Open-floor announcements section |
 
-## Forking for your own meetup
+## Making edits
 
-1. Update event details in `slides.jsx` — search for `S01_Title`, `S02_Agenda`, and `S10_Thanks`.
-2. Replace talk content in `S04_Talk1`, `S05_Talk2`, `S06_Talk3`.
-3. Swap host/sponsor logos and copy in `S08_Host` and `S09_Sponsor`.
-4. Replace `assets/omnea-logo.png` with your sponsor's mark.
-5. Update the slide count label in `London JS - April 2026.html` (`data-label` attributes).
-6. Bump the `?v=N` cache-bust on `<script src="slides.jsx?v=N">` after every edit.
+Edit `slides.jsx`. After any change, bump the `?v=N` cache-bust integer on the `<script src="slides.jsx?v=N">` tag inside `London JS - July 2026.html` to force browsers to fetch the updated file.
 
-## Brand assets
+**Curly quote warning:** some editors silently replace straight ASCII double quotes with Unicode curly quotes inside JSX attribute values. Babel standalone rejects curly quotes and the slides go blank with a syntax error. Always use straight quotes in JSX attributes. See `CLAUDE.md` for a detection and fix script.
 
-The Motorway wordmark (inline SVG in `slides.jsx`) and the Omnea logo (`assets/omnea-logo.png`) are included with permission for this event. They are **not** covered by the MIT licence — see `LICENSE` for details. Replace them with your own sponsors' marks when forking.
+## Contributing via pull request
+
+Every PR targeting `main` automatically gets a Netlify Deploy Preview at:
+
+```
+https://deploy-preview-{PR-number}--london-js-slides.netlify.app
+```
+
+Use the deploy preview to verify slides render correctly before requesting review.
+
+## Deployment
+
+Merging to `main` auto-deploys to [https://london-js-slides.netlify.app](https://london-js-slides.netlify.app). The root URL redirects to the current entry HTML file. No build step; Netlify serves the repo root as-is.
 
 ## Organisers
 
-- James McLeod — NatWest Group
-- Jordan Potts — Albany Growth
-- Will Laing — Plan:it
+- James McLeod — Open Source Lead, NatWest Group · FINOS Board Member · London.js Organiser
+- Jordan Potts — Head of Technology, Albany Growth · Co-Founder, London.js
+- Will Laing — Co-Founder, Plan:it · Co-Founder and Organiser, London.js
+
+## Brand assets
+
+The incident.io wordmark and icon (official SVG assets, provided by incident.io) are staged in `assets/` with permission for this event. They are **not** covered by the MIT licence — see `LICENSE` for details. Replace them with your own host/sponsor marks when forking.
 
 ## Licence
 
