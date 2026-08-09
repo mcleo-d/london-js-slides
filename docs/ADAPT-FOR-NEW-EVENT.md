@@ -23,19 +23,15 @@ Gather the following from the event organisers before touching any files:
 
 The archive is created **before** making any changes to `main`. This preserves the live state of the previous event at a permanent reference point.
 
-Identify the outgoing event month and year (for example `july-2026`). Create the archive branch from the tip of `main`:
+Identify the outgoing event month and year (for example `july-2026`). Run `scripts/archive-event.sh` with that slug to cut and push the archive branch from `origin/main`:
 
 ```bash
-git checkout main
-git pull
-git checkout -b archive/july-2026
-git push -u origin archive/july-2026
-git checkout main
+bash scripts/archive-event.sh july-2026
 ```
 
-The naming convention, observed from the repo's live branch list, is `archive/<month>-<year>` (lowercase, hyphenated). There is no automated script for this step; it is intentionally manual.
+The naming convention, observed from the repo's live branch list, is `archive/<month>-<year>` (lowercase, hyphenated); the script builds this from the slug you pass it. It refuses to run against a dirty working tree, and it is idempotent: if `archive/<slug>` already exists on origin it reports that and exits cleanly rather than erroring.
 
-After pushing, verify the branch appears at `github.com/mcleo-d/london-js-slides/branches`.
+After running it, verify the branch appears at `github.com/mcleo-d/london-js-slides/branches`.
 
 ---
 
