@@ -1,7 +1,7 @@
 .PHONY: dev smoke pdf fix-quotes install-hooks
 
 dev:
-	python3 -m http.server 8000
+	python3 -m http.server 8765
 
 smoke:
 	bash scripts/smoke-check.sh
