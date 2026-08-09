@@ -18,21 +18,15 @@ All branches target `main`.
 
 ## Commit convention
 
-This repo uses [Conventional Commits](https://www.conventionalcommits.org/):
+This repo's merged history uses the Story contract as its commit convention:
 
 ```
-type(scope): short imperative description
+[ST-NNN] type: short imperative description
 ```
 
-Common types: `feat`, `fix`, `docs`, `chore`, `refactor`.  
-Common scopes: `slides`, `html`, `assets`, `scripts`, `docs`.
+Common types: `feat`, `fix`, `docs`, `chore`, `refactor`. The `[ST-NNN]` prefix identifies the Story the commit implements and is what every merged commit in this repository actually carries.
 
-Story reference goes at the end of the subject line in parentheses where applicable:
-
-```
-feat(slides): rebuild October 2026 deck for acme corp (ST-400)
-docs: add contributing guide (ST-383)
-```
+Human contributors without a Story reference may instead use [Conventional Commits](https://www.conventionalcommits.org/) (`type(scope): short imperative description`) as an alternative.
 
 ---
 
@@ -137,8 +131,9 @@ Automated agents (Claude Code, Cowork) merge PRs under the standing GL-58 policy
 | `netlify.toml` | Netlify config; root redirect points to the current entry HTML |
 | `scripts/install-hooks.sh` | Installs the curly-quote pre-commit hook |
 | `scripts/fix-curly-quotes.py` | Detects and fixes curly-quote JSX regressions |
-| `scripts/export-pdf.sh` | Exports the deck to PDF via Puppeteer |
+| `scripts/export-pdf.sh` | Exports the deck to PDF via Chrome headless |
 | `scripts/smoke-check.sh` | Smoke test: verifies the entry HTML loads without errors |
+| `scripts/archive-event.sh` | Cuts and pushes the `archive/<event-slug>` branch for the outgoing event |
 | `docs/` | Additional technical documentation |
 
 See `README.md` for deployment, navigation shortcuts, and the organiser list.
