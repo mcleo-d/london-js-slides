@@ -1,0 +1,7 @@
+name: CI Smoke Gate (preflight)
+on: [push]
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "preflight ok"
