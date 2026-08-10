@@ -18,15 +18,22 @@ All branches target `main`.
 
 ## Commit convention
 
-This repo's merged history uses the Story contract as its commit convention:
+Story-driven work uses the `[ST-NNN]` prefix as the primary convention:
 
 ```
 [ST-NNN] type: short imperative description
 ```
 
-Common types: `feat`, `fix`, `docs`, `chore`, `refactor`. The `[ST-NNN]` prefix identifies the Story the commit implements and is what every merged commit in this repository actually carries.
+Common types: `feat`, `fix`, `docs`, `chore`, `refactor`. The prefix identifies the Story the commit implements.
 
-Human contributors without a Story reference may instead use [Conventional Commits](https://www.conventionalcommits.org/) (`type(scope): short imperative description`) as an alternative.
+The merged history also contains commits using [Conventional Commits](https://www.conventionalcommits.org/) with the Story reference trailing in parentheses, which remains an established alternative:
+
+```
+feat(slides): rebuild October 2026 deck for acme corp (ST-400)
+docs: add contributing guide (ST-383)
+```
+
+Not every merged commit carries a Story reference in either form; some pre-Story work and merge commits carry neither.
 
 ---
 
