@@ -37,8 +37,15 @@ find_entry_file() {
     return 0
   fi
 
-  local newest
-  newest=$(ls -t "$REPO_ROOT"/London\ JS\ -\ *.html 2>/dev/null | head -1 || true)
+  local f newest="" newest_mtime=-1 mtime
+  for f in "$REPO_ROOT"/London\ JS\ -\ *.html; do
+    [ -e "$f" ] || continue
+    mtime=$(stat -c %Y "$f" 2>/dev/null || stat -f %m "$f" 2>/dev/null || echo -1)
+    if [ "$mtime" -gt "$newest_mtime" ]; then
+      newest_mtime="$mtime"
+      newest="$f"
+    fi
+  done
   if [ -n "$newest" ]; then
     basename "$newest"
   fi

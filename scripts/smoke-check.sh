@@ -17,6 +17,9 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PORT=8765
 SERVER_PID=""
+PAGE_FILE=""
+DOM_FILE=""
+CHROME_STDERR_FILE=""
 
 # Discover the entry HTML at runtime: prefer netlify.toml's redirect target,
 # falling back to the newest "London JS - *.html" file in the repo root.
@@ -38,8 +41,15 @@ find_entry_file() {
     return 0
   fi
 
-  local newest
-  newest=$(ls -t "$REPO_ROOT"/London\ JS\ -\ *.html 2>/dev/null | head -1 || true)
+  local f newest="" newest_mtime=-1 mtime
+  for f in "$REPO_ROOT"/London\ JS\ -\ *.html; do
+    [ -e "$f" ] || continue
+    mtime=$(stat -c %Y "$f" 2>/dev/null || stat -f %m "$f" 2>/dev/null || echo -1)
+    if [ "$mtime" -gt "$newest_mtime" ]; then
+      newest_mtime="$mtime"
+      newest="$f"
+    fi
+  done
   if [ -n "$newest" ]; then
     basename "$newest"
   fi
@@ -59,6 +69,11 @@ cleanup() {
     wait "$SERVER_PID" 2>/dev/null || true
     echo "smoke-check: server stopped (pid $SERVER_PID)"
   fi
+  for f in "$PAGE_FILE" "$DOM_FILE" "$CHROME_STDERR_FILE"; do
+    if [ -n "$f" ]; then
+      rm -f "$f"
+    fi
+  done
 }
 trap cleanup EXIT
 
@@ -72,8 +87,10 @@ for i in $(seq 1 10); do
   sleep 0.5
 done
 
+PAGE_FILE="$(mktemp /tmp/smoke_page.XXXXXX.html)"
+
 echo "smoke-check: fetching $URL"
-HTTP_STATUS=$(curl -s -o /tmp/smoke_page.html -w "%{http_code}" "$URL")
+HTTP_STATUS=$(curl -s --max-time 10 -o "$PAGE_FILE" -w "%{http_code}" "$URL")
 
 if [ "$HTTP_STATUS" != "200" ]; then
   echo "smoke-check: FAIL - HTTP status $HTTP_STATUS for $URL" >&2
@@ -111,17 +128,24 @@ if [ -z "$CHROME" ]; then
   exit 0
 fi
 
+DOM_FILE="$(mktemp /tmp/smoke_dom.XXXXXX.html)"
+CHROME_STDERR_FILE="$(mktemp /tmp/smoke_chrome_stderr.XXXXXX.txt)"
+
 echo "smoke-check: dumping DOM via headless Chrome"
-"$CHROME" \
+if ! "$CHROME" \
   --headless \
   --disable-gpu \
   --no-sandbox \
   --dump-dom \
-  "$URL" 2>/tmp/smoke_chrome_stderr.txt > /tmp/smoke_dom.html || true
+  "$URL" 2>"$CHROME_STDERR_FILE" > "$DOM_FILE"; then
+  echo "smoke-check: FAIL - Chrome present but failed" >&2
+  cat "$CHROME_STDERR_FILE" >&2
+  exit 1
+fi
 
-if grep -qi "SyntaxError\|Babel.*error\|Uncaught.*Error" /tmp/smoke_dom.html /tmp/smoke_chrome_stderr.txt 2>/dev/null; then
+if grep -qi "SyntaxError\|Babel.*error\|Uncaught.*Error" "$DOM_FILE" "$CHROME_STDERR_FILE" 2>/dev/null; then
   echo "smoke-check: FAIL - Babel/JS syntax error detected in rendered page" >&2
-  grep -i "SyntaxError\|Babel.*error\|Uncaught.*Error" /tmp/smoke_dom.html /tmp/smoke_chrome_stderr.txt >&2 || true
+  grep -i "SyntaxError\|Babel.*error\|Uncaught.*Error" "$DOM_FILE" "$CHROME_STDERR_FILE" >&2 || true
   exit 1
 fi
 
