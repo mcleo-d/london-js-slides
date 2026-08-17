@@ -4,7 +4,7 @@
 
 ## Content production
 
-All London.js community content produced for or about this repository MUST be authored by the `londonjs-content-creator` subagent, defined at `~/.claude/agents/londonjs-content-creator.md` on the host running Claude Code. This includes (non-exhaustive): event listings, slide copy, website copy, speaker bios, social posts.
+All London.js community content produced for or about this repository MUST be authored by the `londonjs-content-creator` subagent, canonically defined in this repository at [`agents/londonjs-content-creator.md`](./agents/londonjs-content-creator.md). Install it to `~/.claude/agents/londonjs-content-creator.md` (or your Claude Code agents directory) to activate it for a session. This includes (non-exhaustive): event listings, slide copy, website copy, speaker bios, social posts.
 
 Binding rule: any change to repo content covered by the categories above is produced by invoking the subagent. The subagent is the single source of style, persona, and tone. Agents that bypass the subagent for these content categories are out of compliance with this repository's agent instructions.
 
@@ -85,4 +85,4 @@ When the slide count changes, every component's `label="NN / 11"` prop in `slide
 - `docs/SLIDE_ORDER_MECHANISM.md`, canonical procedure for slide order and slide addition.
 - `README.md`, repository overview and licence notes (brand assets carry a separate licence carve-out).
 - `London JS - April 2026.html`, the entry point and the canonical play-order source.
-- `~/.claude/agents/londonjs-content-creator.md`, the binding content-production subagent (see Content production above).
+- `agents/londonjs-content-creator.md`, the binding content-production subagent, source-of-truth in this repository; install to `~/.claude/agents/` to activate (see Content production above).
