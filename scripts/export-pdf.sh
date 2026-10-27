@@ -4,13 +4,15 @@
 # Exits with a clear message if none are present (Chrome is not available in
 # headless CI containers; this is expected and is a host-side operation).
 # Idempotent: re-running overwrites the previous PDF output file.
+# Waits for Babel to compile slides.jsx before printing (--virtual-time-budget);
+# without it Chrome prints the empty pre-render page.
 #
 # Usage:
 #   ./scripts/export-pdf.sh [URL] [OUTPUT_PATH]
 #
 # Defaults:
 #   URL         http://localhost:8765/<entry HTML discovered at runtime>
-#   OUTPUT_PATH ./output.pdf
+#   OUTPUT_PATH ./exports/<YYYY-MM-DD>-deck.pdf (exports/ is gitignored)
 
 set -euo pipefail
 
@@ -61,7 +63,7 @@ if [ -z "${1:-}" ]; then
 else
   URL="$1"
 fi
-OUTPUT="${2:-$REPO_ROOT/output.pdf}"
+OUTPUT="${2:-$REPO_ROOT/exports/$(date +%Y-%m-%d)-deck.pdf}"
 
 find_chrome() {
   for candidate in \
@@ -94,6 +96,7 @@ if [ -z "$CHROME" ]; then
 fi
 
 echo "export-pdf: using $CHROME"
+mkdir -p "$REPO_ROOT/exports" "$(dirname "$OUTPUT")"
 echo "export-pdf: rendering $URL -> $OUTPUT"
 
 "$CHROME" \
@@ -101,6 +104,8 @@ echo "export-pdf: rendering $URL -> $OUTPUT"
   --disable-gpu \
   --no-sandbox \
   --window-size=1920,1080 \
+  --virtual-time-budget=15000 \
+  --run-all-compositor-stages-before-draw \
   --print-to-pdf="$OUTPUT" \
   "$URL"
 
