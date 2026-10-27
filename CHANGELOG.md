@@ -6,6 +6,7 @@ Entries are keyed by event.
 
 October 2026 VEED.IO deck live; April and July entry files retired to their archive branches.
 Post-event docs and tooling pass: export-pdf render wait and exports/ default, speaker-notes claim removed, docs updated for the October entry file.
+Restyle: slides 02 to 11 adopt the VEED dark/lime system; Title keeps London.js yellow; Thanks QR border keeps yellow.
 
 ## July 2026 — incident.io
 

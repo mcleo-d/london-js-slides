@@ -34,7 +34,7 @@ const C = {
   accentInk: '#7C4A00',
   paper: '#FFFFFF',
   veedInk: '#121212',                // VEED ink: guest accent on light slides
-  veedLime: '#96FF1A',               // VEED lime: dark slides only (S05, S09)
+  veedLime: '#96FF1A',               // VEED lime: kickers and rules on the dark slides (02 to 11)
 };
 
 // --- Atoms -------------------------------------------------------------------
@@ -93,7 +93,7 @@ const Wordmark = ({ name, color = C.ink, size = 56, weight = 700 }) => (
 // Inline SVG (not <img>) so fill="currentColor" follows `color`: ink on light
 // slides, cream on dark. Never lime. `size` is the rendered height in px.
 const VEED_PATH = 'm32.626.367-8.802 21.589a3.28 3.28 0 0 1-3.041 2.043h-8.895a3.28 3.28 0 0 1-3.04-2.04L.02.367A.266.266 0 0 1 .266 0h8.91c.222 0 .421.138.5.346l6.672 17.795L22.967.348a.53.53 0 0 1 .5-.348h8.912c.189 0 .318.192.247.367m.813-.1v23.466c0 .147.12.267.267.267h24.463c.146 0 .266-.12.266-.267v-5.851a.267.267 0 0 0-.266-.267h-15.92a.267.267 0 0 1-.266-.267v-1.927c0-.146.12-.266.267-.266h15.557c.147 0 .267-.12.267-.267V9.082a.267.267 0 0 0-.267-.267H42.25a.267.267 0 0 1-.267-.267V6.652c0-.147.12-.267.267-.267h15.919c.146 0 .266-.12.266-.267V.267A.267.267 0 0 0 58.17 0H33.706a.267.267 0 0 0-.267.267m26.12 0v23.466c0 .147.12.267.268.267H84.29c.146 0 .266-.12.266-.267v-5.851a.27.27 0 0 0-.266-.267H68.37a.267.267 0 0 1-.266-.267v-1.927c0-.146.12-.266.267-.266h15.557c.147 0 .267-.12.267-.267V9.082a.267.267 0 0 0-.267-.267H68.37a.267.267 0 0 1-.267-.267V6.652c0-.147.12-.267.267-.267H84.29c.146 0 .266-.12.266-.267V.267A.27.27 0 0 0 84.29 0H59.826a.267.267 0 0 0-.266.267m26.123 23.466c0 .147.12.267.266.267h16.76c3.668 0 6.627-.951 8.891-2.868q3.396-2.852 3.396-9.147 0-6.294-3.396-9.148C109.335.95 106.377 0 102.708 0h-16.76a.267.267 0 0 0-.266.267zm8.81-6.163a.267.267 0 0 1-.267-.267V6.697c0-.147.12-.267.266-.267h6.255q2.898 0 4.302 1.268c.936.845 1.403 2.279 1.403 4.287s-.467 3.472-1.403 4.317q-1.404 1.268-4.302 1.268z';
-const VeedMark = ({ size = 88, color = C.veedInk, title = 'VEED.IO' }) => (
+const VeedMark = ({ size = 88, color = C.bg, title = 'VEED.IO' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 115 24"
     role="img" aria-label={title}
@@ -279,12 +279,12 @@ function S02_Agenda() {
     ['20:30', 'Wrap', 'Close, then the pub for anyone keen'],
   ];
   return (
-    <Frame bg={C.bg} label="04 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="04 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// run_of_show</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// run_of_show</Mono>
         <h2 style={{
           margin: '16px 0 56px', fontSize: TYPE.title, lineHeight: 1,
           fontWeight: 600, letterSpacing: '-0.03em',
@@ -298,12 +298,12 @@ function S02_Agenda() {
               alignItems: 'baseline',
               gap: 40,
               padding: '28px 0',
-              borderTop: `1px solid ${C.ruleStrong}`,
-              borderBottom: i === rows.length - 1 ? `1px solid ${C.ruleStrong}` : 'none',
+              borderTop: '1px solid #F2EEE433',
+              borderBottom: i === rows.length - 1 ? '1px solid #F2EEE433' : 'none',
             }}>
-              <Mono style={{ fontSize: TYPE.body, color: C.accentInk, fontWeight: 600 }}>{t}</Mono>
+              <Mono style={{ fontSize: TYPE.body, color: C.veedLime, fontWeight: 600 }}>{t}</Mono>
               <span style={{ fontSize: TYPE.lead, fontWeight: 600 }}>{k}</span>
-              <span style={{ fontSize: TYPE.body, color: C.inkSoft }}>{d}</span>
+              <span style={{ fontSize: TYPE.body, color: '#F2EEE4CC' }}>{d}</span>
             </div>
           ))}
         </div>
@@ -327,7 +327,7 @@ function S03_Housekeeping() {
         display: 'flex', flexDirection: 'column',
       }}>
         <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: '#F2EEE499' }}>// before_we_start</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// before_we_start</Mono>
           <h2 style={{
             margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
             fontWeight: 600, letterSpacing: '-0.03em', color: C.bg,
@@ -341,10 +341,10 @@ function S03_Housekeeping() {
             {items.map(({ num, label, body }, i) => (
               <div key={num} data-reveal style={{
                 ['--reveal-i']: i + 2,
-                borderTop: `2px solid ${C.accent}`,
+                borderTop: `2px solid ${C.veedLime}`,
                 paddingTop: 32,
               }}>
-                <Mono style={{ fontSize: TYPE.micro, color: C.accent, fontWeight: 600 }}>
+                <Mono style={{ fontSize: TYPE.micro, color: C.veedLime, fontWeight: 600 }}>
                   {num}
                 </Mono>
                 <div style={{
@@ -372,7 +372,7 @@ function S03_Housekeeping() {
 }
 
 // --- Talk slide template -----------------------------------------------------
-function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, label, accent = C.accentInk, bg = C.bg, ink = C.ink }) {
+function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, label, accent = C.veedLime, bg = C.bg, ink = C.ink }) {
   // No published abstract: the right-hand panel carries the bio instead.
   const panelLabel = abstract ? 'ABSTRACT' : 'ABOUT THE SPEAKER';
   const panelText = abstract || bio;
@@ -418,7 +418,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
         <div data-reveal style={{
           ['--reveal-i']: 4,
           alignSelf: 'stretch',
-          background: ink === C.bg ? '#FFFFFF14' : (bg === C.bgWarm ? 'rgba(255,255,255,0.35)' : '#16151418'),
+          background: ink === C.bg ? '#FFFFFF14' : '#16151418',
           padding: '48px 44px',
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
           borderLeft: `2px solid ${accent}`,
@@ -449,11 +449,12 @@ function S04_Talk1() {
   return (
     <TalkSlide
       label="10 / 11"
+      bg={C.bgAlt} ink={C.bg}
       num="01" total="02"
       name="Joséphine Parquet"
       role="Head of API Products"
-      brand={<VeedMark size={26} color={C.veedInk} />}
-      accent={C.veedInk}
+      brand={<VeedMark size={26} color={C.bg} />}
+      accent={C.veedLime}
       title="Prompt to Video: Building a Video-Editing Agent"
       bio="Joséphine builds consumer AI products where creativity meets physical storytelling. Before VEED: Product Manager at Stability AI across image, 3D and audio models, PM for Clipdrop, then Entrepreneur in Residence at Entrepreneurs First. Also London Chair of AI Circle, founder of Field Notes and a Women Who Build mentor."
     />
@@ -480,13 +481,13 @@ function S05_Talk2() {
 // --- Slide 07  –  Wi-Fi --------------------------------------------------------
 function S07_Wifi() {
   return (
-    <Frame bg={C.bg} label="02 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="02 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// first_things_first</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// first_things_first</Mono>
         <h2 style={{
           margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
           fontWeight: 600, letterSpacing: '-0.03em',
@@ -498,14 +499,14 @@ function S07_Wifi() {
         }}>
           <div data-reveal style={{
             ['--reveal-i']: 2,
-            background: C.paper, padding: '56px 56px',
+            background: '#FFFFFF14', padding: '56px 56px',
             display: 'flex', flexDirection: 'column', justifyContent: 'center',
-            border: `1px solid ${C.ruleStrong}`,
+            border: '1px solid #F2EEE433',
           }}>
-            <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>NETWORK</Mono>
+            <Mono style={{ fontSize: TYPE.micro, color: C.veedLime }}>NETWORK</Mono>
             <Mono style={{
               fontSize: 56, fontWeight: 600, lineHeight: 1.05,
-              marginTop: 16, color: C.ink, letterSpacing: '-0.02em',
+              marginTop: 16, color: C.bg, letterSpacing: '-0.02em',
             }}>
               VEEDGuest
             </Mono>
@@ -514,9 +515,9 @@ function S07_Wifi() {
             ['--reveal-i']: 3,
             background: C.ink, padding: '56px 56px',
             display: 'flex', flexDirection: 'column', justifyContent: 'center',
-            color: C.bg,
+            color: C.bg, border: '1px solid #F2EEE433',
           }}>
-            <Mono style={{ fontSize: TYPE.micro, color: C.accent }}>PASSWORD</Mono>
+            <Mono style={{ fontSize: TYPE.micro, color: C.veedLime }}>PASSWORD</Mono>
             <Mono style={{
               fontSize: 64, fontWeight: 600, lineHeight: 1.1,
               marginTop: 16, color: C.bg, letterSpacing: '-0.02em',
@@ -533,21 +534,21 @@ function S07_Wifi() {
 // --- Slide 08  –  Host ---------------------------------------------------------
 function S08_Host() {
   return (
-    <Frame bg={C.bg} label="06 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="06 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
         display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 100,
       }}>
         <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// our_host</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// our_host</Mono>
           <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
-            <VeedMark size={100} color={C.veedInk} />
+            <VeedMark size={100} color={C.bg} />
           </div>
           <p data-reveal style={{
             ['--reveal-i']: 2,
             marginTop: 56, fontSize: TYPE.lead, lineHeight: 1.3,
-            color: C.inkSoft, textWrap: 'pretty', maxWidth: 700,
+            color: '#F2EEE4CC', textWrap: 'pretty', maxWidth: 700,
           }}>
             VEED is an AI video creation platform, founded in London in 2018
             and still headquartered here. Its mission: "Making video creation
@@ -559,8 +560,8 @@ function S08_Host() {
           alignSelf: 'stretch',
           display: 'grid', gridTemplateRows: '1fr 1fr', gap: 24,
         }}>
-          <Stat n="2018" label="Founded in London" i={0} accentBorder={C.veedInk} />
-          <Stat n="150+" label="People, remote-first" i={1} accentBorder={C.veedInk} />
+          <Stat n="2018" label="Founded in London" i={0} accentBorder={C.veedLime} />
+          <Stat n="150+" label="People, remote-first" i={1} accentBorder={C.veedLime} />
         </div>
       </div>
     </Frame>
@@ -570,16 +571,16 @@ function S08_Host() {
 const Stat = ({ n, label, i = 0, accentBorder }) => (
   <div data-reveal style={{
     ['--reveal-i']: 3 + i,
-    background: C.paper,
-    border: `1px solid ${C.ruleStrong}`,
-    borderTop: accentBorder ? `4px solid ${accentBorder}` : `1px solid ${C.ruleStrong}`,
+    background: '#FFFFFF14',
+    border: '1px solid #F2EEE433',
+    borderTop: accentBorder ? `4px solid ${accentBorder}` : '1px solid #F2EEE433',
     padding: '40px 48px',
     display: 'flex', flexDirection: 'column', justifyContent: 'center',
   }}>
-    <div style={{ fontSize: 96, fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 1, color: C.ink }}>
+    <div style={{ fontSize: 96, fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 1, color: C.bg }}>
       {n}
     </div>
-    <Mono style={{ fontSize: TYPE.micro, color: C.inkSoft, marginTop: 16, textTransform: 'uppercase' }}>
+    <Mono style={{ fontSize: TYPE.micro, color: '#F2EEE4CC', marginTop: 16, textTransform: 'uppercase' }}>
       {label}
     </Mono>
   </div>
@@ -641,18 +642,18 @@ function S09_Sponsor() {
 // --- Slide 11  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.bg} label="08 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="08 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// london_js.by_numbers</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// london_js.by_numbers</Mono>
         <h2 data-reveal style={{
           ['--reveal-i']: 1,
           marginTop: 24, marginBottom: 0,
           fontSize: TYPE.title, fontWeight: 600,
-          letterSpacing: '-0.03em', lineHeight: 1.02, color: C.ink,
+          letterSpacing: '-0.03em', lineHeight: 1.02, color: C.bg,
         }}>
           London.js by numbers
         </h2>
@@ -660,7 +661,7 @@ function S11_ByNumbers() {
           ['--reveal-i']: 2,
           marginTop: 20, marginBottom: 0,
           fontSize: TYPE.lead, lineHeight: 1.3,
-          color: C.inkSoft, maxWidth: 1200,
+          color: '#F2EEE4CC', maxWidth: 1200,
         }}>
           23 events in just over four years, back to a Thursday at Netflix in September 2022.
         </p>
@@ -673,10 +674,10 @@ function S11_ByNumbers() {
           gridTemplateRows: '1fr 1fr',
           gap: 32,
         }}>
-          <Stat n="4,499" label="community members"         i={0} />
-          <Stat n="98"    label="registered tonight"        i={1} />
-          <Stat n="1,812" label="linkedin followers"        i={2} />
-          <Stat n="23"    label="events since the relaunch" i={3} />
+          <Stat n="4,499" label="community members"         i={0} accentBorder={C.veedLime} />
+          <Stat n="98"    label="registered tonight"        i={1} accentBorder={C.veedLime} />
+          <Stat n="1,812" label="linkedin followers"        i={2} accentBorder={C.veedLime} />
+          <Stat n="23"    label="events since the relaunch" i={3} accentBorder={C.veedLime} />
         </div>
       </div>
     </Frame>
@@ -691,8 +692,8 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
     setQrSrc(url);
   }, [qrUrl]);
   return (
-    <Frame bg={C.bg} label="03 / 11">
-      <NoiseHero color={C.ink} density={0.08} />
+    <Frame bg={C.bgAlt} ink={C.bg} label="03 / 11">
+      <NoiseHero color={C.bg} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -700,7 +701,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>
-            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// welcome</Mono>
+            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// welcome</Mono>
             <h2 style={{
               margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
               fontWeight: 600, letterSpacing: '-0.045em',
@@ -710,19 +711,19 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
             </h2>
             <p data-reveal style={{
               ['--reveal-i']: 1,
-              margin: '32px 0 0', fontSize: TYPE.lead, color: C.inkSoft, lineHeight: 1.3,
+              margin: '32px 0 0', fontSize: TYPE.lead, color: '#F2EEE4CC', lineHeight: 1.3,
             }}>
               Glad you made it. Scan the QR to follow us on LinkedIn.
             </p>
             <p data-reveal style={{
               ['--reveal-i']: 2,
-              margin: '16px 0 0', fontSize: TYPE.body, color: C.inkMute, lineHeight: 1.3,
+              margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE499', lineHeight: 1.3,
             }}>
               Two talks coming up - grab a drink and find a seat.
             </p>
           </div>
           <div style={{
-            marginTop: 64, paddingTop: 32, borderTop: `1px solid ${C.ruleStrong}`,
+            marginTop: 64, paddingTop: 32, borderTop: '1px solid #F2EEE433',
             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
           }}>
             {[
@@ -731,9 +732,9 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               ['Will Laing', 'Co-Founder, Plan:it · Co-Founder & Organiser, London.js'],
             ].map(([n, c], i) => (
               <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
-                <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>ORGANISER</Mono>
+                <Mono style={{ fontSize: TYPE.micro, color: C.veedLime }}>ORGANISER</Mono>
                 <div style={{ fontSize: TYPE.body, fontWeight: 600, marginTop: 8 }}>{n}</div>
-                <div style={{ fontSize: 20, lineHeight: 1.35, color: C.inkSoft, marginTop: 6 }}>{c}</div>
+                <div style={{ fontSize: 20, lineHeight: 1.35, color: '#F2EEE4CC', marginTop: 6 }}>{c}</div>
               </div>
             ))}
           </div>
@@ -748,7 +749,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
           }}>
             {qrSrc && <img src={qrSrc} width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />}
           </div>
-          <Mono style={{ fontSize: TYPE.micro, color: C.inkSoft, marginTop: 20 }}>
+          <Mono style={{ fontSize: TYPE.micro, color: '#F2EEE4CC', marginTop: 20 }}>
             FOLLOW · linkedin.com/company/london-js
           </Mono>
         </div>
@@ -760,25 +761,25 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
 // --- Slide 12  Announcements section divider ----------------------------
 function S12_Announcements() {
   return (
-    <Frame bg={C.bg} label="09 / 11">
+    <Frame bg={C.bgAlt} ink={C.bg} label="09 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>
           // section_divider
         </Mono>
         <h2 data-reveal style={{
           ['--reveal-i']: 1,
           margin: '24px 0 0', fontSize: TYPE.display, lineHeight: 0.9,
-          fontWeight: 700, letterSpacing: '-0.04em', color: C.ink,
+          fontWeight: 700, letterSpacing: '-0.04em', color: C.bg,
         }}>
           Your Announcements
         </h2>
         <p data-reveal style={{
           ['--reveal-i']: 2,
           margin: '40px 0 0', fontSize: TYPE.lead, lineHeight: 1.3,
-          color: C.inkSoft,
+          color: '#F2EEE4CC',
         }}>
           Got something for the community? Grab the mic.
         </p>
