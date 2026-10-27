@@ -8,6 +8,7 @@ October 2026 VEED.IO deck live; April and July entry files retired to their arch
 Post-event docs and tooling pass: export-pdf render wait and exports/ default, speaker-notes claim removed, docs updated for the October entry file.
 Restyle: slides 02 to 11 adopt the VEED dark/lime system; Title keeps London.js yellow; Thanks QR border keeps yellow.
 Fact-check: Host tile wording 'remote-first' confirmed against veed.io/about; pack citations corrected for London HQ and remote status.
+Speaker headshot added to Talk 02 (with permission).
 
 ## July 2026 — incident.io
 
