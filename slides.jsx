@@ -245,12 +245,12 @@ function FooterCoBrand({ veedSize = 40 }) {
   };
   return (
     <div style={{
-      display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       paddingTop: FOOTER_TOP_PAD, borderTop: `1px solid ${C.ruleStrong}`,
     }}>
-      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
         <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
-        <span style={{ display: 'inline-block', marginBottom: 5 }}>
+        <span style={{ display: 'inline-block' }}>
           <VeedMark size={veedSize} color={C.veedInk} />
         </span>
       </div>
@@ -511,8 +511,8 @@ function S07_Wifi() {
         }}>
           <div data-reveal style={{
             ['--reveal-i']: 2,
-            background: '#FFFFFF14', padding: '56px 56px',
-            display: 'flex', flexDirection: 'column', justifyContent: 'center',
+            background: '#FFFFFF14', padding: '64px 56px',
+            display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
             border: '1px solid #F2EEE433',
           }}>
             <Mono style={{ fontSize: TYPE.micro, color: C.veedLime }}>NETWORK</Mono>
@@ -525,8 +525,8 @@ function S07_Wifi() {
           </div>
           <div data-reveal style={{
             ['--reveal-i']: 3,
-            background: C.ink, padding: '56px 56px',
-            display: 'flex', flexDirection: 'column', justifyContent: 'center',
+            background: C.ink, padding: '64px 56px',
+            display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
             color: C.bg, border: '1px solid #F2EEE433',
           }}>
             <Mono style={{ fontSize: TYPE.micro, color: C.veedLime }}>PASSWORD</Mono>

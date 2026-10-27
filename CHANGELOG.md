@@ -11,6 +11,7 @@ Fact-check: Host tile wording 'remote-first' confirmed against veed.io/about; pa
 Speaker headshot added to Talk 02 (with permission).
 Speaker headshots added to both talk slides (with permission).
 Housekeeping: who-to-find line updated for the night (Jordan not attending).
+Title footer: wordmark vertically centred with the date block. Wi-Fi: both cards top-aligned.
 
 ## July 2026 — incident.io
 
