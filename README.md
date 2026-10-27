@@ -34,8 +34,11 @@ Then open: [http://localhost:8765/London%20JS%20-%20October%202026.html](http://
 |---|---|
 | `→` / `Space` | Next slide |
 | `←` | Previous slide |
-| `S` | Toggle speaker notes |
-| `P` | Print / export to PDF |
+| `Home` / `End` | First / last slide |
+| `1`-`9`, `0` | Jump to slide 1-9, `0` for slide 10 |
+| `R` | Back to slide 1 |
+
+There is no speaker-notes toggle key. To export, use the browser's own print (`Cmd`/`Ctrl` + `P`): `@media print` lays out one slide per page. `make pdf` does the same headlessly (see `scripts/export-pdf.sh`).
 
 ## Slide structure
 

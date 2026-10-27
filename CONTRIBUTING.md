@@ -50,13 +50,13 @@ Before opening or merging a PR, run through every item below.
 2. **Walk every slide** using the keyboard:
    - `Right arrow` / `Space` -- next slide
    - `Left arrow` -- previous slide
-   - Confirm all 12 slides render with no blank or broken content.
+   - Confirm every slide renders with no blank or broken content (11 slides as of October 2026).
 
 3. **Keyboard navigation** -- verify transitions feel correct end-to-end.
 
-4. **Speaker notes** -- press `S` to toggle; confirm notes appear for any slides that carry them.
+4. **Speaker notes** -- `deck-stage.js` has no toggle key; notes are read only from a `<script type="application/json" id="speaker-notes">` block, if the entry HTML carries one. Nothing to check unless you added one.
 
-5. **Print preview** -- press `P` to enter PDF/print mode; confirm slide dimensions are correct and nothing is clipped.
+5. **Print preview** -- use the browser's print (`Cmd`/`Ctrl` + `P`) or `make pdf` (with `python3 -m http.server 8765` running); confirm one slide per page, correct dimensions, nothing clipped.
 
 6. **Check the `?v=N` cache-bust integer** has been incremented (see below).
 

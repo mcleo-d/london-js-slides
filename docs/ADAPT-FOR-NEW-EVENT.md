@@ -33,6 +33,8 @@ The naming convention, observed from the repo's live branch list, is `archive/<m
 
 After running it, verify the branch appears at `github.com/mcleo-d/london-js-slides/branches`.
 
+Timing: cut the archive branch from `main` **before** the new event's PR merges, so it captures the outgoing deck intact. The outgoing entry HTML is then deleted from `main` in the go-live PR (the one that flips `netlify.toml`), as was done for July 2026 (`archive/july-2026`).
+
 ---
 
 ## Step 2 -- Create a working branch
@@ -47,7 +49,7 @@ Use the format `event/<month>-<year>-<host-slug>` as described in `CONTRIBUTING.
 
 ## Step 3 -- Duplicate the entry HTML
 
-Identify the current entry HTML. As of the July 2026 event it is `London JS - July 2026.html`. Confirm which file `netlify.toml` is currently redirecting to:
+Identify the current entry HTML. As of the October 2026 event it is `London JS - October 2026.html`. Confirm which file `netlify.toml` is currently redirecting to:
 
 ```bash
 grep -A2 '\[\[redirects\]\]' netlify.toml
@@ -56,14 +58,14 @@ grep -A2 '\[\[redirects\]\]' netlify.toml
 Copy it to a new file named for the incoming event:
 
 ```bash
-cp "London JS - July 2026.html" "London JS - October 2026.html"
+cp "London JS - October 2026.html" "London JS - <Month> <Year>.html"
 ```
 
 ---
 
 ## Step 4 -- Update the new entry HTML
 
-Open `London JS - October 2026.html` in a text editor and make the following changes.
+Open the new `London JS - <Month> <Year>.html` in a text editor and make the following changes.
 
 ### 4a -- Update the page title
 
@@ -186,13 +188,15 @@ git diff --name-only main
 For a new event the expected changed files are typically:
 
 ```
-London JS - October 2026.html   (new file)
+London JS - <Month> <Year>.html (new file)
 assets/<new-logo-files>         (replaced)
 netlify.toml
 slides.jsx
 ```
 
 `CONTRIBUTING.md`, `README.md`, `CHANGELOG.md`, `Makefile`, `scripts/*`, and `.github/*` must not appear in this diff.
+
+In the separate go-live PR, expect two deletions alongside `netlify.toml`: the outgoing entry HTML (for example `London JS - October 2026.html`) and any older entry HTML still on `main`, both already preserved on their `archive/*` branches.
 
 ---
 
@@ -202,7 +206,7 @@ Follow every item in the **Pre-merge checklist** section of `CONTRIBUTING.md` be
 
 Key points:
 - Serve locally via `python3 -m http.server 8765` and open the new entry HTML (not the old one).
-- Walk all 12 slides; check keyboard nav, speaker notes (`S`), and print mode (`P`).
+- Walk every slide (the current slide count is 11 as of October 2026); check keyboard nav and the browser print preview (`Cmd`/`Ctrl` + `P`). There is no speaker-notes toggle key.
 - Confirm the Netlify Deploy Preview works after opening the PR.
 
 ---

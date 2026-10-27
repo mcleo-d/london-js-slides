@@ -5,6 +5,7 @@ Entries are keyed by event.
 ## October 2026 - VEED.IO
 
 October 2026 VEED.IO deck live; April and July entry files retired to their archive branches.
+Post-event docs and tooling pass: export-pdf render wait and exports/ default, speaker-notes claim removed, docs updated for the October entry file.
 
 ## July 2026 — incident.io
 
