@@ -1,6 +1,6 @@
 # London.js October 2026 (VEED.IO) content pack
 
-`[claude-code | executor | mac-primary | claude-opus-5-5 | none | 2026-10-27T22:05:00Z]`
+`[claude-code | executor | mac-primary | claude-opus-5-5 | none | 2026-10-27T21:56:39Z]`
 
 Single input for S3. Every fact carries its source. Section order is for reading only; play order is July's `<section>` order minus Talk 03. Slide copy drafted by the `london-js-content-creator` subagent from the facts below.
 

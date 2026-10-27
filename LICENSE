@@ -29,3 +29,8 @@ The Motorway wordmark (inline SVG in slides.jsx) and the Omnea logo
 included here with permission for this specific event. They are not covered by
 the MIT licence above. If you fork this project for a different event, replace
 these assets with your own sponsors' marks.
+
+The VEED.IO wordmark (assets/veed-wordmark.svg, also rendered inline in
+slides.jsx) is a trademark of its owner, supplied by the host and included
+with permission for the October 2026 London.js event only. It is not covered
+by the MIT licence above.
