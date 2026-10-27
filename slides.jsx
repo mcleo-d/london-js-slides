@@ -466,6 +466,7 @@ function S04_Talk1() {
       brand={<VeedMark size={26} color={C.bg} />}
       accent={C.veedLime}
       title="Prompt to Video: Building a Video-Editing Agent"
+      photo="assets/speaker-parquet.jpg"
       bio="Joséphine builds consumer AI products where creativity meets physical storytelling. Before VEED: Product Manager at Stability AI across image, 3D and audio models, PM for Clipdrop, then Entrepreneur in Residence at Entrepreneurs First. Also London Chair of AI Circle, founder of Field Notes and a Women Who Build mentor."
     />
   );
