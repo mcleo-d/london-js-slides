@@ -47,8 +47,11 @@ Source: S2 amendment 2026-10-27 21:31 (James's ruling; final copy, not a placeho
 ## Host: VEED
 
 - One-liner: VEED is an AI video creation platform, founded in London in 2018 and still headquartered here. Its mission: "Making video creation fast enough that the idea doesn't die before the video does." Thank you for having us.
-- Stat tile 1: **2018**, founded in London. Source: https://www.veed.io/about
-- Stat tile 2: **150+**, people, remote-first. Source: https://www.veed.io/about
+- Stat tile 1: **2018**, founded in London. Source: https://www.veed.io/about ("VEED was founded on 20 March 2018 by Sabba Keynejad and Tim Mamedov").
+  - London: https://www.veed.io/about FAQ ("VEED is headquartered in London, UK, ..."; structured data address 17-18 Clere Street, London, EC2A 4LJ). Corroborated by https://remoteprofile.beehiiv.com/p/veed-io-globally-remote-company ("Company Location: London, England", "Founded: 2018").
+- Stat tile 2: **150+**, people, remote-first. Source: https://www.veed.io/about FAQ ("... with a remote-first team of over 150 people working across the globe").
+  - Remote status corroborated by https://remoteprofile.beehiiv.com/p/veed-io-globally-remote-company ("Globally Remote Company", "Hiring in Location: Worldwide, Fully Remote"; it also says "over 170 people"). The slide keeps VEED's own wording, "remote-first", by James's ruling (2026-10-27).
+  - https://craft.co/veed-io was tried and returned HTTP 403 (2026-10-27 ~22:40Z), so it is not cited.
 
 ## Sponsor: VEED
 
