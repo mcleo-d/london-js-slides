@@ -363,7 +363,7 @@ function S03_Housekeeping() {
             marginTop: 72, fontSize: TYPE.lead, lineHeight: 1.35,
             color: '#F2EEE499', maxWidth: 1400,
           }}>
-            Any questions tonight? Find Will, Jordan or the VEED team.
+            Any questions tonight? Find Will, James or the VEED team.
           </p>
         </div>
       </div>
