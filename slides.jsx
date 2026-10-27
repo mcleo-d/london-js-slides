@@ -33,6 +33,8 @@ const C = {
   accentMint: '#3DD9A5',              // omnea green
   accentInk: '#7C4A00',
   paper: '#FFFFFF',
+  veedInk: '#121212',                // VEED ink: guest accent on light slides
+  veedLime: '#96FF1A',               // VEED lime: dark slides only (S05, S09)
 };
 
 // --- Atoms -------------------------------------------------------------------
@@ -61,7 +63,7 @@ const Chrome = ({ ink, bg, label }) => (
     }}>
       <span>london.js</span>
       <span>{label}</span>
-      <span>30 · 07 · 2026</span>
+      <span>28 · 10 · 2026</span>
     </div>
     <div style={{
       position: 'absolute', top: 88, left: SPACE.padX, right: SPACE.padX,
@@ -87,27 +89,19 @@ const Wordmark = ({ name, color = C.ink, size = 56, weight = 700 }) => (
   }}>{name}</span>
 );
 
-// incident.io: official SVG assets (provided by incident.io), staged in assets/.
-// `kind` selects wordmark vs the standalone icon; `variant` selects the
-// colourway. `size` is the rendered height in px (width follows the SVG's
-// native aspect ratio via width: 'auto').
-//   wordmark colour-dark  = dark ink text + orange  -> use on light/cream/yellow backgrounds
-//   wordmark colour-light = white text + orange      -> use on dark backgrounds
-//   wordmark mono-dark    = ink-only, no orange       -> mono on light backgrounds
-//   wordmark mono-light   = white-only, no orange      -> mono on an orange fill or dark bg
-//   icon alarmalade       = orange icon mark, for small accent use
-const IncidentMark = ({ kind = 'wordmark', variant = 'colour-dark', size = 88, alt = 'incident.io' }) => {
-  const src = kind === 'icon'
-    ? (variant === 'alarmalade' ? 'assets/icon-alarmalade.svg' : `assets/icon-${variant}.svg`)
-    : `assets/wordmark-${variant}.svg`;
-  return (
-    <img
-      src={src}
-      alt={alt}
-      style={{ height: size, width: 'auto', display: 'inline-block', flexShrink: 0 }}
-    />
-  );
-};
+// VEED.IO: host-supplied wordmark; source of record is assets/veed-wordmark.svg.
+// Inline SVG (not <img>) so fill="currentColor" follows `color`: ink on light
+// slides, cream on dark. Never lime. `size` is the rendered height in px.
+const VEED_PATH = 'm32.626.367-8.802 21.589a3.28 3.28 0 0 1-3.041 2.043h-8.895a3.28 3.28 0 0 1-3.04-2.04L.02.367A.266.266 0 0 1 .266 0h8.91c.222 0 .421.138.5.346l6.672 17.795L22.967.348a.53.53 0 0 1 .5-.348h8.912c.189 0 .318.192.247.367m.813-.1v23.466c0 .147.12.267.267.267h24.463c.146 0 .266-.12.266-.267v-5.851a.267.267 0 0 0-.266-.267h-15.92a.267.267 0 0 1-.266-.267v-1.927c0-.146.12-.266.267-.266h15.557c.147 0 .267-.12.267-.267V9.082a.267.267 0 0 0-.267-.267H42.25a.267.267 0 0 1-.267-.267V6.652c0-.147.12-.267.267-.267h15.919c.146 0 .266-.12.266-.267V.267A.267.267 0 0 0 58.17 0H33.706a.267.267 0 0 0-.267.267m26.12 0v23.466c0 .147.12.267.268.267H84.29c.146 0 .266-.12.266-.267v-5.851a.27.27 0 0 0-.266-.267H68.37a.267.267 0 0 1-.266-.267v-1.927c0-.146.12-.266.267-.266h15.557c.147 0 .267-.12.267-.267V9.082a.267.267 0 0 0-.267-.267H68.37a.267.267 0 0 1-.267-.267V6.652c0-.147.12-.267.267-.267H84.29c.146 0 .266-.12.266-.267V.267A.27.27 0 0 0 84.29 0H59.826a.267.267 0 0 0-.266.267m26.123 23.466c0 .147.12.267.266.267h16.76c3.668 0 6.627-.951 8.891-2.868q3.396-2.852 3.396-9.147 0-6.294-3.396-9.148C109.335.95 106.377 0 102.708 0h-16.76a.267.267 0 0 0-.266.267zm8.81-6.163a.267.267 0 0 1-.267-.267V6.697c0-.147.12-.267.266-.267h6.255q2.898 0 4.302 1.268c.936.845 1.403 2.279 1.403 4.287s-.467 3.472-1.403 4.317q-1.404 1.268-4.302 1.268z';
+const VeedMark = ({ size = 88, color = C.veedInk, title = 'VEED.IO' }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 115 24"
+    role="img" aria-label={title}
+    style={{ height: size, width: size * 115 / 24, display: 'inline-block', flexShrink: 0, color }}
+  >
+    <path fill="currentColor" d={VEED_PATH} />
+  </svg>
+);
 
 // --- Canvas hero (slide 01) ---------------------------------------------------
 // Slow noise field  –  three sine layers sampled and painted as warm dots on cream.
@@ -196,9 +190,9 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 };
 
 // --- Slide 01  –  Title --------------------------------------------------------
-function S01_Title({ incidentSize = 40 } = {}) {
+function S01_Title({ veedSize = 40 } = {}) {
   return (
-    <Frame bg={C.bgWarm} label="01 / 12">
+    <Frame bg={C.bgWarm} label="01 / 11">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -207,7 +201,7 @@ function S01_Title({ incidentSize = 40 } = {}) {
       }}>
         <div>
           <Mono style={{ fontSize: TYPE.micro, color: C.inkMute }}>
-            // london.js · july 2026
+            // london.js · october 2026
           </Mono>
           <h1
             style={{
@@ -227,12 +221,12 @@ function S01_Title({ incidentSize = 40 } = {}) {
             marginTop: 48, fontSize: TYPE.lead, color: C.ink,
             maxWidth: 1500, lineHeight: 1.25,
           }}>
-            Gardening the frontend in the LLM era, clinical AI in production,
-            and an agentic software factory. JavaScript, doing serious work.
+            Building a video-editing agent from a prompt, and using LLMs to
+            punch above your weight. JavaScript, doing serious work.
           </div>
         </div>
         <div>
-          <FooterCoBrand incidentSize={incidentSize} />
+          <FooterCoBrand veedSize={veedSize} />
         </div>
       </div>
     </Frame>
@@ -240,10 +234,10 @@ function S01_Title({ incidentSize = 40 } = {}) {
 }
 
 // Footer - single co-brand line: "hosted & sponsored by" + one wordmark,
-// with when/where on the right. incident.io is both host and sponsor for
+// with when/where on the right. VEED is both host and sponsor for
 // this event, so there is only one logo (no partner-toggle needed).
 const FOOTER_TOP_PAD = 56;
-function FooterCoBrand({ incidentSize = 40 }) {
+function FooterCoBrand({ veedSize = 40 }) {
   const labelStyle = {
     fontSize: TYPE.micro, color: C.inkMute,
     fontFamily: '"JetBrains Mono", ui-monospace, monospace',
@@ -257,7 +251,7 @@ function FooterCoBrand({ incidentSize = 40 }) {
       <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
         <span style={{ display: 'inline-block', marginBottom: 5 }}>
-          <IncidentMark kind="wordmark" variant="colour-dark" size={incidentSize} />
+          <VeedMark size={veedSize} color={C.veedInk} />
         </span>
       </div>
       <div style={{
@@ -265,9 +259,9 @@ function FooterCoBrand({ incidentSize = 40 }) {
         fontSize: TYPE.body, lineHeight: 1.2, fontWeight: 500,
       }}>
         <span style={{ ...labelStyle, display: 'block', marginBottom: 12 }}>WHEN · WHERE</span>
-        Thu 30 July 2026 · 18:00<br />
+        Wed 28 October 2026 · 18:00<br />
         <span style={{ color: C.inkSoft, fontSize: TYPE.small, fontWeight: 400 }}>
-          Floor 5, The Bower, 207-211 Old Street, EC1V 9NR
+          17-18 Clere Street, EC2A 4LJ
         </span>
       </div>
     </div>
@@ -277,15 +271,15 @@ function FooterCoBrand({ incidentSize = 40 }) {
 // --- Slide 02  –  Run of show --------------------------------------------------
 function S02_Agenda() {
   const rows = [
-    ['18:00', 'Doors open', 'Drinks, food, say hello to someone new'],
-    ['18:30', 'Welcome', 'Your hosts open the night (5-10 min)'],
-    ['18:40', 'Talk 01', 'Joe Hart, incident.io'],
-    ['19:15', 'Talk 02', 'Isabelle Taylor, Healthtech 1'],
-    ['19:50', 'Talk 03', 'Igor Luchenkov, Clarify'],
-    ['20:30', 'Q&A + hangout', 'Wrapping up around 20:30'],
+    ['18:00', 'Doors open', 'Food, drinks and hellos at VEED'],
+    ['18:30', 'Welcome', 'Intro and housekeeping'],
+    ['18:40', 'Talk 01', 'Joséphine Parquet, VEED'],
+    ['19:25', 'Talk 02', 'Sam Starling, Semaloop'],
+    ['20:10', 'Q&A + hangout', 'Questions for both speakers, then chat'],
+    ['20:30', 'Wrap', 'Close, then the pub for anyone keen'],
   ];
   return (
-    <Frame bg={C.bg} label="04 / 12">
+    <Frame bg={C.bg} label="04 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -321,12 +315,12 @@ function S02_Agenda() {
 // --- Slide 03  –  Housekeeping -------------------------------------------------
 function S03_Housekeeping() {
   const items = [
-    { num: '01', label: 'Fire',            body: 'Follow the exit signs; your hosts will point the way.' },
-    { num: '02', label: 'Code of conduct', body: 'Be excellent to each other. confcodeofconduct.com.' },
-    { num: '03', label: 'Food & drink',    body: 'Help yourself all evening. Drinks and snacks are on us.' },
+    { num: '01', label: 'Fire',            body: "Note your nearest exit. In an alarm, follow the VEED team's lead." },
+    { num: '02', label: 'Code of conduct', body: 'Be kind. Anything feel off? Find an organiser. confcodeofconduct.com' },
+    { num: '03', label: 'Food & drink',    body: 'Not just pizza. Allergies and diets catered for where possible.' },
   ];
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="05 / 12">
+    <Frame bg={C.bgAlt} ink={C.bg} label="05 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -369,7 +363,7 @@ function S03_Housekeeping() {
             marginTop: 72, fontSize: TYPE.lead, lineHeight: 1.35,
             color: '#F2EEE499', maxWidth: 1400,
           }}>
-            Everything else, Will, Jordan and James will cover on the night.
+            Any questions tonight? Find Will, Jordan or the VEED team.
           </p>
         </div>
       </div>
@@ -379,6 +373,10 @@ function S03_Housekeeping() {
 
 // --- Talk slide template -----------------------------------------------------
 function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, label, accent = C.accentInk, bg = C.bg, ink = C.ink }) {
+  // No published abstract: the right-hand panel carries the bio instead.
+  const panelLabel = abstract ? 'ABSTRACT' : 'ABOUT THE SPEAKER';
+  const panelText = abstract || bio;
+  const bioInline = abstract ? bio : null;
   return (
     <Frame bg={bg} ink={ink} label={label}>
       <div style={{
@@ -408,12 +406,12 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
               <span style={{ opacity: 0.5 }}>·</span>
               {brand}
             </div>
-            {bio && (
+            {bioInline && (
               <p style={{
                 margin: '24px 0 0', fontSize: TYPE.small, lineHeight: 1.45,
                 color: ink === C.bg ? '#F2EEE4B0' : C.inkSoft,
                 textWrap: 'pretty', maxWidth: 620,
-              }}>{bio}</p>
+              }}>{bioInline}</p>
             )}
           </div>
         </div>
@@ -427,7 +425,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <Mono style={{ fontSize: TYPE.micro, color: ink === C.bg ? '#F2EEE499' : C.inkMute }}>
-              ABSTRACT
+              {panelLabel}
             </Mono>
             <span style={{
               fontSize: 140, fontWeight: 700, lineHeight: 0.8,
@@ -439,7 +437,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
             margin: '20px 0 0', fontSize: TYPE.body, lineHeight: 1.4,
             color: ink === C.bg ? '#F2EEE4E0' : C.inkSoft,
             textWrap: 'pretty',
-          }}>{abstract}</p>
+          }}>{panelText}</p>
         </div>
       </div>
     </Frame>
@@ -450,15 +448,14 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="10 / 12"
-      num="01" total="03"
-      name="Joe Hart"
-      role="Product Engineer"
-      brand={<IncidentMark kind="wordmark" variant="colour-dark" size={30} />}
-      accent="#F25533"
-      title="Frontend Gardening in the new world of LLMs"
-      bio="JavaScript/TypeScript engineer with almost a decade of experience, focused on charming, performant, accessible UIs. React for 7+ years, full-stack when needed. Goldsmiths, University of London. Writes at joehart.co.uk."
-      abstract="Setting frontend standards has always been hard: how do you give engineers the primitives and guardrails to ship functioning, performant, joyous UIs, without needing to know what a lobotomized owl is? Agents widen that problem. New techniques to keep codebases healthy, and to empower whoever - or whatever - codes next to dodge React render loops."
+      label="10 / 11"
+      num="01" total="02"
+      name="Joséphine Parquet"
+      role="Head of API Products"
+      brand={<VeedMark size={26} color={C.veedInk} />}
+      accent={C.veedInk}
+      title="Prompt to Video: Building a Video-Editing Agent"
+      bio="Joséphine builds consumer AI products where creativity meets physical storytelling. Before VEED: Product Manager at Stability AI across image, 3D and audio models, PM for Clipdrop, then Entrepreneur in Residence at Entrepreneurs First. Also London Chair of AI Circle, founder of Field Notes and a Women Who Build mentor."
     />
   );
 }
@@ -467,33 +464,15 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="11 / 12"
-      num="02" total="03"
+      label="11 / 11"
+      num="02" total="02"
       bg={C.bgAlt} ink={C.bg}
-      name="Isabelle Taylor"
-      role="Tech Lead"
-      brand={<Mono>Healthtech 1</Mono>}
-      accent="#F25533"
-      title="How we built a sophisticated AI clinical triage app (in TypeScript)"
-      bio="Full-stack engineer with an interest in building products that matter. Tech Lead at Healthtech 1 (joined 2025). University of Canterbury. Based in London."
-      abstract="A patient types their symptoms; the backend asks the right follow-ups, works out how urgent it is, and books an appointment - all while racing users who answer faster than the system expects. How Healthtech 1 built it, including the tricky bits they're still figuring out."
-    />
-  );
-}
-
-// --- Slide 06  –  Talk 3 -------------------------------------------------------
-function S06_Talk3() {
-  return (
-    <TalkSlide
-      label="12 / 12"
-      num="03" total="03"
-      name="Igor Luchenkov"
-      role="Staff Product Engineer"
-      brand={<Mono>Clarify</Mono>}
-      accent="#F25533"
-      title="How to Build an Agentic Software Factory"
-      bio="Staff Product Engineer at Clarify, applying product engineering and machine learning to make a joyful CRM more intelligent and AI-driven. Full-stack, TypeScript, Python, applied ML and NLP. Runs hackathons. Based in London."
-      abstract="Most of us are stuck reviewing the agent's 40-file PR one file at a time. Getting past that: the five pillars - project rules, architecture docs, the linter as law, tests, and a reviewer bot - and the skills to run ten agents at once instead of babysitting one. Real rules and lint guards you can copy, not theory."
+      name="Sam Starling"
+      role="Founding Engineer"
+      brand={<Mono>Semaloop</Mono>}
+      accent={C.veedLime}
+      title="Using LLMs to punch above my weight"
+      bio="At Semaloop, Sam builds agents that test mobile apps the way humans do: through sight, sound and touch. Before that, Sam was a Tech Lead at incident.io (our July hosts), growing the Response team from five engineers to fifteen and shipping Catalog, Scribe and Microsoft Teams support. Earlier: Monzo, SoundCloud and the BBC."
     />
   );
 }
@@ -501,7 +480,7 @@ function S06_Talk3() {
 // --- Slide 07  –  Wi-Fi --------------------------------------------------------
 function S07_Wifi() {
   return (
-    <Frame bg={C.bg} label="02 / 12">
+    <Frame bg={C.bg} label="02 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -528,7 +507,7 @@ function S07_Wifi() {
               fontSize: 56, fontWeight: 600, lineHeight: 1.05,
               marginTop: 16, color: C.ink, letterSpacing: '-0.02em',
             }}>
-              incident.io Guest
+              VEEDGuest
             </Mono>
           </div>
           <div data-reveal style={{
@@ -539,10 +518,10 @@ function S07_Wifi() {
           }}>
             <Mono style={{ fontSize: TYPE.micro, color: C.accent }}>PASSWORD</Mono>
             <Mono style={{
-              fontSize: 84, fontWeight: 600, lineHeight: 1.05,
+              fontSize: 64, fontWeight: 600, lineHeight: 1.1,
               marginTop: 16, color: C.bg, letterSpacing: '-0.02em',
             }}>
-              dont-panic
+              Ask the host<br />on the night
             </Mono>
           </div>
         </div>
@@ -554,7 +533,7 @@ function S07_Wifi() {
 // --- Slide 08  –  Host ---------------------------------------------------------
 function S08_Host() {
   return (
-    <Frame bg={C.bg} label="06 / 12">
+    <Frame bg={C.bg} label="06 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -563,25 +542,25 @@ function S08_Host() {
         <div>
           <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.inkMute }}>// our_host</Mono>
           <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
-            <IncidentMark kind="wordmark" variant="colour-dark" size={100} />
+            <VeedMark size={100} color={C.veedInk} />
           </div>
           <p data-reveal style={{
             ['--reveal-i']: 2,
             marginTop: 56, fontSize: TYPE.lead, lineHeight: 1.3,
             color: C.inkSoft, textWrap: 'pretty', maxWidth: 700,
           }}>
-            incident.io host tonight, their 4th London.js, in their
-            office at The Bower. The single place you turn to when things go
-            wrong: incident response, on-call and post-incident learning in
-            one platform.
+            VEED is an AI video creation platform, founded in London in 2018
+            and still headquartered here. Its mission: "Making video creation
+            fast enough that the idea doesn't die before the video does."
+            Thank you for having us.
           </p>
         </div>
         <div style={{
           alignSelf: 'stretch',
           display: 'grid', gridTemplateRows: '1fr 1fr', gap: 24,
         }}>
-          <Stat n="1,000,000+" label="incidents powered" i={0} accentBorder="#F25533" />
-          <Stat n="$62M" label="Series B, led by Insight Partners (2025)" i={1} accentBorder="#F25533" />
+          <Stat n="2018" label="Founded in London" i={0} accentBorder={C.veedInk} />
+          <Stat n="150+" label="People, remote-first" i={1} accentBorder={C.veedInk} />
         </div>
       </div>
     </Frame>
@@ -609,26 +588,25 @@ const Stat = ({ n, label, i = 0, accentBorder }) => (
 // --- Slide 09  –  Sponsor ------------------------------------------------------
 function S09_Sponsor() {
   return (
-    <Frame bg={C.bgAlt} ink={C.bg} label="07 / 12">
+    <Frame bg={C.bgAlt} ink={C.bg} label="07 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
         display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 100,
       }}>
         <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: '#F25533' }}>// our_sponsor</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.veedLime }}>// our_sponsor</Mono>
           <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 56, marginBottom: 40 }}>
-            <IncidentMark kind="wordmark" variant="colour-light" size={64} />
+            <VeedMark size={64} color={C.bg} />
           </div>
           <p data-reveal style={{
             ['--reveal-i']: 2,
             marginTop: 40, fontSize: TYPE.lead, lineHeight: 1.3,
             color: '#F2EEE4CC', textWrap: 'pretty', maxWidth: 700,
           }}>
-            AI that works incidents with you. incident.io's AI SRE
-            investigates autonomously, correlates across your stack and
-            drafts fixes: up to 90% accuracy, 5x faster resolution. On-call
-            launched 2024.
+            Generate and edit in one workflow. VEED lets you create talking
+            heads, edit with AI, dub videos and add subtitles in 100+
+            languages. Thank you to VEED for sponsoring London.js tonight.
           </p>
         </div>
         <div style={{
@@ -637,10 +615,10 @@ function S09_Sponsor() {
           gap: 24,
         }}>
           {[
-            ['Trusted by', 'OpenAI · Netflix · Airbnb · Etsy'],
-            ['AI SRE', 'Autonomous investigation, ~90% accuracy, 5x faster'],
-            ['Scale', '2,000+ companies, 1,000,000+ incidents'],
-            ['Get started', 'incident.io/on-call'],
+            ['Used by', '10M+ people every month'],
+            ['Trusted by', '76% of Fortune 500 companies'],
+            ['Rated', '4.6 from 2,100+ reviews'],
+            ['Get started', 'veed.io'],
           ].map(([k, v], i) => (
             <div key={k} data-reveal style={{
               ['--reveal-i']: i + 3,
@@ -650,7 +628,7 @@ function S09_Sponsor() {
               display: 'grid', gridTemplateColumns: '180px 1fr', gap: 32,
               alignItems: 'baseline',
             }}>
-              <Mono style={{ fontSize: TYPE.micro, color: '#F25533', fontWeight: 600 }}>{k}</Mono>
+              <Mono style={{ fontSize: TYPE.micro, color: C.veedLime, fontWeight: 600 }}>{k}</Mono>
               <div style={{ fontSize: TYPE.body, color: C.bg, lineHeight: 1.3 }}>{v}</div>
             </div>
           ))}
@@ -663,7 +641,7 @@ function S09_Sponsor() {
 // --- Slide 11  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.bg} label="08 / 12">
+    <Frame bg={C.bg} label="08 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -684,7 +662,7 @@ function S11_ByNumbers() {
           fontSize: TYPE.lead, lineHeight: 1.3,
           color: C.inkSoft, maxWidth: 1200,
         }}>
-          Students, career-switchers, seniors - same Thursday, same welcome.
+          23 events in just over four years, back to a Thursday at Netflix in September 2022.
         </p>
 
         <div style={{
@@ -695,10 +673,10 @@ function S11_ByNumbers() {
           gridTemplateRows: '1fr 1fr',
           gap: 32,
         }}>
-          <Stat n="4,481" label="community members"       i={0} />
-          <Stat n="157"   label="registered tonight"      i={1} />
-          <Stat n="1,783" label="linkedin followers"      i={2} />
-          <Stat n="20+"   label="london.js project nights" i={3} />
+          <Stat n="4,499" label="community members"         i={0} />
+          <Stat n="98"    label="registered tonight"        i={1} />
+          <Stat n="1,812" label="linkedin followers"        i={2} />
+          <Stat n="23"    label="events since the relaunch" i={3} />
         </div>
       </div>
     </Frame>
@@ -713,7 +691,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
     setQrSrc(url);
   }, [qrUrl]);
   return (
-    <Frame bg={C.bg} label="03 / 12">
+    <Frame bg={C.bg} label="03 / 11">
       <NoiseHero color={C.ink} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -740,7 +718,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               ['--reveal-i']: 2,
               margin: '16px 0 0', fontSize: TYPE.body, color: C.inkMute, lineHeight: 1.3,
             }}>
-              Three talks coming up - grab a drink and find a seat.
+              Two talks coming up - grab a drink and find a seat.
             </p>
           </div>
           <div style={{
@@ -748,7 +726,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
           }}>
             {[
-              ['James McLeod', 'Open Source Lead, NatWest Group · FINOS Board Member · London.js Organiser'],
+              ['James McLeod', 'Open Source Program Lead, NatWest Group · FINOS Board Member · London.js Organiser'],
               ['Jordan Potts', 'Head of Technology, Albany Growth · Co-Founder, London.js'],
               ['Will Laing', 'Co-Founder, Plan:it · Co-Founder & Organiser, London.js'],
             ].map(([n, c], i) => (
@@ -782,7 +760,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
 // --- Slide 12  Announcements section divider ----------------------------
 function S12_Announcements() {
   return (
-    <Frame bg={C.bg} label="09 / 12">
+    <Frame bg={C.bg} label="09 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
@@ -811,10 +789,10 @@ function S12_Announcements() {
 
 // --- Export ------------------------------------------------------------------
 // Label-to-component registry only. Play order is set by <section> order in
-// London JS - April 2026.html. See docs/SLIDE_ORDER_MECHANISM.md.
+// London JS - October 2026.html. See docs/SLIDE_ORDER_MECHANISM.md.
 window.Slides = {
   S01_Title, S02_Agenda, S03_Housekeeping,
-  S04_Talk1, S05_Talk2, S06_Talk3,
+  S04_Talk1, S05_Talk2,
   S07_Wifi, S08_Host, S09_Sponsor,
   S11_ByNumbers,
   S10_Thanks,
