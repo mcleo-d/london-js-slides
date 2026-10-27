@@ -372,11 +372,30 @@ function S03_Housekeeping() {
 }
 
 // --- Talk slide template -----------------------------------------------------
-function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, label, accent = C.veedLime, bg = C.bg, ink = C.ink }) {
+function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, photo, label, accent = C.veedLime, bg = C.bg, ink = C.ink }) {
   // No published abstract: the right-hand panel carries the bio instead.
   const panelLabel = abstract ? 'ABSTRACT' : 'ABOUT THE SPEAKER';
   const panelText = abstract || bio;
   const bioInline = abstract ? bio : null;
+  const nameStack = (
+    <>
+      <div style={{ fontSize: TYPE.subtitle, fontWeight: 600, letterSpacing: '-0.02em' }}>
+        {name}
+      </div>
+      <div style={{ fontSize: TYPE.body, color: ink === C.bg ? '#F2EEE499' : C.inkSoft, marginTop: 12, display: 'flex', alignItems: 'center', gap: 16 }}>
+        <span>{role}</span>
+        <span style={{ opacity: 0.5 }}>·</span>
+        {brand}
+      </div>
+      {bioInline && (
+        <p style={{
+          margin: '24px 0 0', fontSize: TYPE.small, lineHeight: 1.45,
+          color: ink === C.bg ? '#F2EEE4B0' : C.inkSoft,
+          textWrap: 'pretty', maxWidth: 620,
+        }}>{bioInline}</p>
+      )}
+    </>
+  );
   return (
     <Frame bg={bg} ink={ink} label={label}>
       <div style={{
@@ -398,21 +417,12 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, l
             ['--reveal-i']: 3,
             paddingTop: 32, borderTop: `1px solid ${ink === C.bg ? '#F2EEE433' : C.ruleStrong}`,
           }}>
-            <div style={{ fontSize: TYPE.subtitle, fontWeight: 600, letterSpacing: '-0.02em' }}>
-              {name}
-            </div>
-            <div style={{ fontSize: TYPE.body, color: ink === C.bg ? '#F2EEE499' : C.inkSoft, marginTop: 12, display: 'flex', alignItems: 'center', gap: 16 }}>
-              <span>{role}</span>
-              <span style={{ opacity: 0.5 }}>·</span>
-              {brand}
-            </div>
-            {bioInline && (
-              <p style={{
-                margin: '24px 0 0', fontSize: TYPE.small, lineHeight: 1.45,
-                color: ink === C.bg ? '#F2EEE4B0' : C.inkSoft,
-                textWrap: 'pretty', maxWidth: 620,
-              }}>{bioInline}</p>
-            )}
+            {photo ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+                <img src={photo} alt={name} style={{ width: 160, height: 160, borderRadius: '50%', objectFit: 'cover', border: `3px solid ${accent}`, flex: 'none' }} />
+                <div>{nameStack}</div>
+              </div>
+            ) : nameStack}
           </div>
         </div>
         <div data-reveal style={{
@@ -473,6 +483,7 @@ function S05_Talk2() {
       brand={<Mono>Semaloop</Mono>}
       accent={C.veedLime}
       title="Using LLMs to punch above my weight"
+      photo="assets/speaker-starling.jpg"
       bio="At Semaloop, Sam builds agents that test mobile apps the way humans do: through sight, sound and touch. Before that, Sam was a Tech Lead at incident.io (our July hosts), growing the Response team from five engineers to fifteen and shipping Catalog, Scribe and Microsoft Teams support. Earlier: Monzo, SoundCloud and the BBC."
     />
   );
