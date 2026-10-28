@@ -12,6 +12,7 @@ Speaker headshot added to Talk 02 (with permission).
 Speaker headshots added to both talk slides (with permission).
 Housekeeping: who-to-find line updated for the night (Jordan not attending).
 Title footer: wordmark vertically centred with the date block. Wi-Fi: both cards top-aligned.
+Run of show: 10-minute welcome, two 20-minute talks with a changeover, presenter names in the agenda.
 
 ## July 2026 — incident.io
 
