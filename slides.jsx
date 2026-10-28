@@ -272,10 +272,10 @@ function FooterCoBrand({ veedSize = 40 }) {
 function S02_Agenda() {
   const rows = [
     ['18:00', 'Doors open', 'Food, drinks and hellos at VEED'],
-    ['18:30', 'Welcome', 'Intro and housekeeping'],
-    ['18:40', 'Talk 01', 'Joséphine Parquet, VEED'],
-    ['19:25', 'Talk 02', 'Sam Starling, Semaloop'],
-    ['20:10', 'Q&A + hangout', 'Questions for both speakers, then chat'],
+    ['18:30', 'Welcome', 'Intro and housekeeping, 10 min'],
+    ['18:40', 'Joséphine Parquet', 'Prompt to Video: Building a Video-Editing Agent'],
+    ['19:05', 'Sam Starling', 'Using LLMs to punch above my weight'],
+    ['19:25', 'Q&A + hangout', 'Questions for both speakers, then chat'],
     ['20:30', 'Wrap', 'Close, then the pub for anyone keen'],
   ];
   return (
