@@ -130,7 +130,7 @@ Automated agents (Claude Code, Cowork) merge PRs under the standing GL-58 policy
 |---|---|
 | `slides.jsx` | All slide content -- the only file you normally need to edit |
 | `London JS - [Month] [Year].html` | Entry point: loads React, Babel, and the deck |
-| `deck-stage.js` | Web component -- keyboard nav, viewport scaling, speaker notes, PDF print |
+| `deck-stage.js` | Web component -- keyboard nav, viewport scaling, PDF print |
 | `reveals.js` | MutationObserver-based staggered entry animations |
 | `tweaks-panel.jsx` | Live logo-size controls on the title slide |
 | `tokens.css` | Design tokens (colours, typography, spacing) |

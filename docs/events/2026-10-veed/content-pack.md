@@ -42,7 +42,7 @@ Source: S2 amendment 2026-10-27 21:31 (James's ruling; final copy, not a placeho
 - Fire: Note your nearest exit. In an alarm, follow the VEED team's lead. (No venue fire-exit detail published: `PLACEHOLDER: fire exit specifics, ask VEED on the night`; tried https://www.meetup.com/london-js/events/316953049/)
 - Code of conduct: Be kind. Anything feel off? Find an organiser. confcodeofconduct.com. Source: https://confcodeofconduct.com/ (linked from the Meetup event page)
 - Food & drink: Not just pizza. Allergies and diets catered for where possible. Source: Meetup event description "Refreshments".
-- Closing line: Any questions tonight? Find Will, Jordan or the VEED team.
+- Closing line: Any questions tonight? Find Will, James or the VEED team.
 
 ## Host: VEED
 
@@ -81,6 +81,7 @@ Source: S2 amendment 2026-10-27 21:35, "supplied by James, 2026-10-27", except w
 - Tiles:
   - **4,499** community members. Confirmed live at 21:53Z: https://www.meetup.com/london-js/
   - **98** registered tonight. Live RSVP `goingCount.totalCount: 98` at 21:53Z from https://www.meetup.com/london-js/events/316953049/ (higher than James's 97, so the live figure is used).
+  - **Post-event (2026-11-09):** Meetup event page shows **95** attendees (85 member RSVPs marked going); no photos uploaded. First-timer count not shown on the past-event page.
   - **1,812** linkedin followers.
   - **23** events since the relaunch (post-Covid relaunch at Netflix, 22 September 2022).
 

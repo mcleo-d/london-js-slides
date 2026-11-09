@@ -13,6 +13,7 @@ Speaker headshots added to both talk slides (with permission).
 Housekeeping: who-to-find line updated for the night (Jordan not attending).
 Title footer: wordmark vertically centred with the date block. Wi-Fi: both cards top-aligned.
 Run of show: 10-minute welcome, two 20-minute talks with a changeover, presenter names in the agenda.
+Merge SHAs: S3 build 93ca326 (#26), S4 go-live af631b2 (#27). Final attendance 95 (Meetup).
 
 ## July 2026 — incident.io
 
