@@ -12,7 +12,7 @@ Past events are preserved on archive branches (`archive/april-2026`, `archive/ju
 |---|---|
 | `slides.jsx` | All slide content — the only file you normally need to edit |
 | `London JS - October 2026.html` | Entry point: loads React, Babel, and the deck |
-| `deck-stage.js` | Web component — keyboard nav, viewport scaling, speaker notes, PDF print |
+| `deck-stage.js` | Web component — keyboard nav, viewport scaling, PDF print |
 | `reveals.js` | MutationObserver-based staggered entry animations |
 | `tweaks-panel.jsx` | Live logo-size controls on the title slide |
 | `tokens.css` | Design tokens (colours, typography, spacing) |
