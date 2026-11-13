@@ -1,5 +1,4 @@
 /* global React */
-const { useEffect, useState } = React;
 
 // --- Type & spacing system ---------------------------------------------------
 const TYPE = {
@@ -66,10 +65,7 @@ const Chrome = ({ ink, bg, label }) => (
     }}>
       <span>london.js</span>
       <span>{label}</span>
-      <span style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        {bg === C.aubergine && <SlackLogo variant="white" height={24} />}
-        23 · 11 · 2026
-      </span>
+      <span>23 · 11 · 2026</span>
     </div>
     <div style={{
       position: 'absolute', top: 88, left: SPACE.padX, right: SPACE.padX,
@@ -204,9 +200,9 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 };
 
 // --- Slide 01  –  Title --------------------------------------------------------
-function S01_Title({ hostSize = 40 } = {}) {
+function S01_Title({ hostSize = 64 } = {}) {
   return (
-    <Frame bg={C.bgWarm} label="01 / 12">
+    <Frame bg={C.bgWarm} label="01 / 11">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -235,8 +231,8 @@ function S01_Title({ hostSize = 40 } = {}) {
             marginTop: 48, fontSize: TYPE.lead, color: C.ink,
             maxWidth: 1500, lineHeight: 1.25,
           }}>
-            JavaScript in the conversation, from chat and bots to agents in
-            the room, however the night's talks take it.
+            JavaScript in the conversation: chat, bots and agents in the
+            room.
           </div>
         </div>
         <div>
@@ -285,16 +281,15 @@ function FooterCoBrand({ hostSize = 40 }) {
 // --- Slide 02  –  Run of show --------------------------------------------------
 function S02_Agenda() {
   const rows = [
-    ['18:00', 'Doors open', 'Food, drinks and hellos at Salesforce Tower'],
-    ['18:30', 'Welcome', 'Intro and housekeeping'],
-    ['18:40', 'Daryl Cecile', 'GitHub'],
-    ['19:05', 'Francisco Moretti', 'PLACEHOLDER: talk title not yet confirmed'],
-    ['19:30', 'Slack', 'PLACEHOLDER: individual speaker and talk title not yet confirmed.'],
-    ['19:50', 'Q&A + hangout', 'Questions for the speakers, then chat'],
+    ['18:30', 'Welcome', 'Intro, house rules and announcements'],
+    ['18:40', 'Talk 01', 'Talk and Q&A'],
+    ['19:05', 'Talk 02', 'Talk and Q&A'],
+    ['19:30', 'Talk 03, Slack', 'Talk and Q&A'],
+    ['19:50', 'Hangout', 'Food, drinks and chat'],
     ['20:30', 'Wrap', 'Close, then the pub for anyone keen'],
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 12">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -332,10 +327,11 @@ function S03_Housekeeping() {
   const items = [
     { num: '01', label: 'Fire',            body: "Note your nearest exit. In an alarm, follow the Slack team's lead." },
     { num: '02', label: 'Code of conduct', body: 'Be kind. Anything feel off? Find an organiser. confcodeofconduct.com.' },
-    { num: '03', label: 'Food & drink',    body: 'PLACEHOLDER: food & drink detail not yet confirmed this session.' },
+    { num: '03', label: 'Food & drink',    body: 'Soft drinks and nibbles, thanks to Slack. The floor closes at 21:00.' },
+    { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team.' },
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 12">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -351,7 +347,8 @@ function S03_Housekeeping() {
 
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 48,
+            display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateRows: 'repeat(2, 1fr)', gap: 48,
           }}>
             {items.map(({ num, label, body }, i) => (
               <div key={num} data-reveal style={{
@@ -374,7 +371,7 @@ function S03_Housekeeping() {
             ))}
           </div>
           <p data-reveal style={{
-            ['--reveal-i']: 5,
+            ['--reveal-i']: 6,
             marginTop: 72, fontSize: TYPE.lead, lineHeight: 1.35,
             color: '#F2EEE4CC', maxWidth: 1400,
           }}>
@@ -420,7 +417,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Mono data-reveal style={{ fontSize: TYPE.micro, color: accent, fontWeight: 600 }}>
-            // talk_{num} of {total}
+            // talk_{num} of {total} · talk + q&amp;a
           </Mono>
           <h2 style={{
             margin: '24px 0 0', fontSize: 88, lineHeight: 1.02,
@@ -473,7 +470,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="10 / 12"
+      label="08 / 11"
       num="01" total="03"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Daryl Cecile"
@@ -491,7 +488,7 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="11 / 12"
+      label="09 / 11"
       num="02" total="03"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Francisco Moretti"
@@ -509,7 +506,7 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="12 / 12"
+      label="10 / 11"
       num="03" total="03"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="PLACEHOLDER: individual speaker not yet confirmed. Slack has confirmed this talk slot."
@@ -523,59 +520,30 @@ function S06_Talk3() {
   );
 }
 
-// --- Slide 07  –  Wi-Fi --------------------------------------------------------
-function S07_Wifi() {
+// --- Slide 05  –  Thank you, Slack (merged host + sponsor) --------------------
+function S08_ThankYouSlack() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 12">
-      <div style={{
-        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
-        top: 160, bottom: SPACE.padBottom,
-        display: 'flex', flexDirection: 'column',
-      }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// first_things_first</Mono>
-        <h2 style={{
-          margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
-          fontWeight: 600, letterSpacing: '-0.03em',
-        }}>Wi-Fi</h2>
-
-        <div data-reveal style={{
-          ['--reveal-i']: 2,
-          marginTop: 80, flex: 1,
-          display: 'flex', alignItems: 'center',
-        }}>
-          <Mono style={{
-            fontSize: 72, fontWeight: 600, lineHeight: 1.1,
-            color: C.creamOnAubergine, letterSpacing: '-0.02em',
-          }}>
-            Wi-Fi details on the night.
-          </Mono>
-        </div>
-      </div>
-    </Frame>
-  );
-}
-
-// --- Slide 08  –  Host ---------------------------------------------------------
-function S08_Host() {
-  return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 12">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// our_host</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// thank_you</Mono>
         <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
-          <SlackLogo variant="white" height={100} />
+          <SlackLogo variant="white" height={120} />
         </div>
-        <p data-reveal style={{
+        <h2 data-reveal style={{
           ['--reveal-i']: 2,
-          marginTop: 56, fontSize: TYPE.lead, lineHeight: 1.3,
+          margin: '40px 0 0', fontSize: TYPE.title, lineHeight: 1,
+          fontWeight: 600, letterSpacing: '-0.03em',
+        }}>Thank you, Slack</h2>
+        <p data-reveal style={{
+          ['--reveal-i']: 3,
+          marginTop: 32, fontSize: TYPE.lead, lineHeight: 1.3,
           color: '#F2EEE4CC', textWrap: 'pretty', maxWidth: 1100,
         }}>
-          Slack is the AI-powered platform for work, bringing conversations, apps
-          and customers together in one place. Slack was acquired by Salesforce
-          in 2021. Thank you for having us tonight.
+          PLACEHOLDER: Slack's own description, to come from the Slack team.
         </p>
       </div>
     </Frame>
@@ -600,63 +568,10 @@ const Stat = ({ n, label, i = 0, accentBorder }) => (
   </div>
 );
 
-// --- Slide 09  –  Sponsor ------------------------------------------------------
-function S09_Sponsor() {
-  return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 12">
-      <div style={{
-        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
-        top: 160, bottom: SPACE.padBottom,
-        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 100,
-      }}>
-        <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// our_sponsor</Mono>
-          <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 56, marginBottom: 40 }}>
-            <SlackLogo variant="white" height={64} />
-          </div>
-          <p data-reveal style={{
-            ['--reveal-i']: 2,
-            marginTop: 40, fontSize: TYPE.lead, lineHeight: 1.3,
-            color: '#F2EEE4CC', textWrap: 'pretty', maxWidth: 700,
-          }}>
-            Thank you to Slack for sponsoring London.js tonight. Slack powers
-            200K+ paid customers, including 77 of the Fortune 100, with daily
-            active users across 150+ countries.
-          </p>
-        </div>
-        <div style={{
-          alignSelf: 'stretch',
-          display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          gap: 24,
-        }}>
-          {[
-            ['Paid customers', '200K+'],
-            ['Used by', '77 of the Fortune 100'],
-            ['Daily active users', '150+ countries'],
-            ['Get started', 'slack.com'],
-          ].map(([k, v], i) => (
-            <div key={k} data-reveal style={{
-              ['--reveal-i']: i + 3,
-              padding: '28px 0',
-              borderTop: '1px solid #F9F0FF33',
-              borderBottom: i === 3 ? '1px solid #F9F0FF33' : 'none',
-              display: 'grid', gridTemplateColumns: '180px 1fr', gap: 32,
-              alignItems: 'baseline',
-            }}>
-              <Mono style={{ fontSize: TYPE.micro, color: C.lavender, fontWeight: 600 }}>{k}</Mono>
-              <div style={{ fontSize: TYPE.body, color: C.creamOnAubergine, lineHeight: 1.3 }}>{v}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Frame>
-  );
-}
-
-// --- Slide 11  –  London.js by numbers ----------------------------------------
+// --- Slide 06  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 12">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -677,36 +592,33 @@ function S11_ByNumbers() {
           fontSize: TYPE.lead, lineHeight: 1.3,
           color: '#F2EEE4CC', maxWidth: 1200,
         }}>
-          24 events since the relaunch, and counting - London.js keeps growing, one meetup at a time.
+          24 events since the relaunch, and counting.
         </p>
 
         <div style={{
           marginTop: 56,
           flex: 1,
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gridTemplateRows: '1fr 1fr',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateRows: 'repeat(2, 1fr)',
           gap: 32,
         }}>
-          <Stat n="24"          label="events since the relaunch" i={0} accentBorder={C.lavender} />
-          <Stat n="PLACEHOLDER" label="community members"         i={1} accentBorder={C.lavender} />
-          <Stat n="PLACEHOLDER" label="registered tonight"        i={2} accentBorder={C.lavender} />
-          <Stat n="PLACEHOLDER" label="linkedin followers"        i={3} accentBorder={C.lavender} />
+          <Stat n="24"    label="events since the relaunch" i={0} accentBorder={C.lavender} />
+          <Stat n="4,518" label="Meetup members"             i={1} accentBorder={C.lavender} />
+          <Stat n="1,819" label="LinkedIn followers"         i={2} accentBorder={C.lavender} />
+          <Stat n="110"   label="places tonight"             i={3} accentBorder={C.lavender} />
+          <Stat n="4.7"   label="stars from 517 Meetup reviews" i={4} accentBorder={C.lavender} />
+          <Stat n="26"    label="floors up tonight"           i={5} accentBorder={C.lavender} />
         </div>
       </div>
     </Frame>
   );
 }
 
-// --- Slide 10  –  Thanks -------------------------------------------------------
-function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
-  const [qrSrc, setQrSrc] = useState('');
-  useEffect(() => {
-    const url = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=0&data=${encodeURIComponent(qrUrl)}`;
-    setQrSrc(url);
-  }, [qrUrl]);
+// --- Slide 02  –  Welcome -------------------------------------------------------
+function S10_Welcome() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 12">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 11">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -721,19 +633,13 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
               fontWeight: 600, letterSpacing: '-0.045em',
               whiteSpace: 'nowrap',
             }}>
-              Register now.
+              Follow London.js
             </h2>
             <p data-reveal style={{
               ['--reveal-i']: 1,
               margin: '32px 0 0', fontSize: TYPE.lead, color: '#F2EEE4CC', lineHeight: 1.3,
             }}>
               Glad you made it. Scan the QR to follow us on LinkedIn.
-            </p>
-            <p data-reveal style={{
-              ['--reveal-i']: 2,
-              margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3,
-            }}>
-              Daryl Cecile, Francisco Moretti, and Slack are up next - grab a drink and find a seat.
             </p>
           </div>
           <div style={{
@@ -761,7 +667,7 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
           <div style={{
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            {qrSrc && <img src={qrSrc} width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />}
+            <img src="assets/qr-linkedin-london-js.svg" width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
           </div>
           <Mono style={{ fontSize: TYPE.micro, color: C.lavender, marginTop: 20 }}>
             FOLLOW · linkedin.com/company/london-js
@@ -772,10 +678,10 @@ function S10_Thanks({ qrUrl = 'https://www.linkedin.com/company/london-js/' }) {
   );
 }
 
-// --- Slide 12  Announcements section divider ----------------------------
+// --- Slide 07  Announcements section divider ----------------------------
 function S12_Announcements() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="09 / 12">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 11">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
@@ -802,14 +708,67 @@ function S12_Announcements() {
   );
 }
 
+// --- Slide 11  –  Closing -------------------------------------------------------
+function S13_Closing() {
+  return (
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="11 / 11">
+      <NoiseHero color={C.creamOnAubergine} density={0.08} />
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 160, bottom: SPACE.padBottom,
+        display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80,
+      }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// thank_you_and_whats_next</Mono>
+          <h2 style={{
+            margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
+            fontWeight: 600, letterSpacing: '-0.045em',
+          }}>
+            Thank you
+          </h2>
+          <p data-reveal style={{
+            ['--reveal-i']: 1,
+            margin: '32px 0 0', fontSize: TYPE.lead, color: '#F2EEE4CC', lineHeight: 1.3,
+          }}>
+            Thanks to Slack for hosting and sponsoring tonight, and to tonight's speakers for sharing their time and knowledge.
+          </p>
+          <p data-reveal style={{
+            ['--reveal-i']: 2,
+            margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3,
+          }}>
+            London.js returns in January 2027.
+          </p>
+        </div>
+        <div data-reveal style={{
+          ['--reveal-i']: 3,
+          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
+        }}>
+          <div style={{
+            background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
+          }}>
+            <img src="assets/qr-linkedin-london-js.svg" width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
+          </div>
+          <Mono style={{ fontSize: TYPE.micro, color: C.lavender, marginTop: 20 }}>
+            FOLLOW · linkedin.com/company/london-js
+          </Mono>
+          <div style={{ marginTop: 32 }}>
+            <SlackLogo variant="white" height={28} />
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Export ------------------------------------------------------------------
 // Label-to-component registry only. Play order is set by <section> order in
 // London JS - November 2026.html. See docs/SLIDE_ORDER_MECHANISM.md.
 window.Slides = {
   S01_Title, S02_Agenda, S03_Housekeeping,
   S04_Talk1, S05_Talk2, S06_Talk3,
-  S07_Wifi, S08_Host, S09_Sponsor,
+  S08_ThankYouSlack,
   S11_ByNumbers,
-  S10_Thanks,
+  S10_Welcome,
   S12_Announcements,
+  S13_Closing,
 };
