@@ -294,7 +294,7 @@ function S02_Agenda() {
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// run_of_show</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// run_of_show</Mono>
         <h2 style={{
           margin: '16px 0 56px', fontSize: TYPE.title, lineHeight: 1,
           fontWeight: 600, letterSpacing: '-0.03em',
@@ -311,7 +311,7 @@ function S02_Agenda() {
               borderTop: `1px solid #F9F0FF33`,
               borderBottom: i === rows.length - 1 ? `1px solid #F9F0FF33` : 'none',
             }}>
-              <Mono style={{ fontSize: TYPE.body, color: C.lavender, fontWeight: 600 }}>{t}</Mono>
+              <Mono style={{ fontSize: TYPE.body, color: C.accent, fontWeight: 600 }}>{t}</Mono>
               <span style={{ fontSize: TYPE.lead, fontWeight: 600 }}>{k}</span>
               <span style={{ fontSize: TYPE.body, color: '#F2EEE4CC' }}>{d}</span>
             </div>
@@ -338,9 +338,9 @@ function S03_Housekeeping() {
         display: 'flex', flexDirection: 'column',
       }}>
         <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// before_we_start</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// before_we_start</Mono>
           <h2 style={{
-            margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
+            margin: '16px 0 40px', fontSize: TYPE.title, lineHeight: 1,
             fontWeight: 600, letterSpacing: '-0.03em', color: C.creamOnAubergine,
           }}>The important bits</h2>
         </div>
@@ -372,7 +372,7 @@ function S03_Housekeeping() {
           </div>
           <p data-reveal style={{
             ['--reveal-i']: 6,
-            marginTop: 72, fontSize: TYPE.lead, lineHeight: 1.35,
+            marginTop: 40, fontSize: TYPE.lead, lineHeight: 1.35,
             color: '#F2EEE4CC', maxWidth: 1400,
           }}>
             Find James, Will, Jordan or the Slack team.
@@ -416,7 +416,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
         display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: accent, fontWeight: 600 }}>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent, fontWeight: 600 }}>
             // talk_{num} of {total} · talk + q&amp;a
           </Mono>
           <h2 style={{
@@ -529,7 +529,7 @@ function S08_ThankYouSlack() {
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// thank_you</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// thank_you</Mono>
         <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
           <SlackLogo variant="white" height={120} />
         </div>
@@ -577,7 +577,7 @@ function S11_ByNumbers() {
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// london_js.by_numbers</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// london_js.by_numbers</Mono>
         <h2 data-reveal style={{
           ['--reveal-i']: 1,
           marginTop: 24, marginBottom: 0,
@@ -627,9 +627,9 @@ function S10_Welcome() {
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>
-            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// welcome</Mono>
+            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// welcome</Mono>
             <h2 style={{
-              margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
+              margin: '24px 0 0', fontSize: 160, lineHeight: 0.88,
               fontWeight: 600, letterSpacing: '-0.045em',
               whiteSpace: 'nowrap',
             }}>
@@ -663,13 +663,13 @@ function S10_Welcome() {
           ['--reveal-i']: 5,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
         }}>
-          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 393, display: 'block', marginBottom: 20 }} />
+          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 300, display: 'block', marginBottom: 20 }} />
           <div style={{
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            <img src="assets/qr-linkedin-london-js.svg" width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
+            <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
           </div>
-          <Mono style={{ fontSize: TYPE.micro, color: C.lavender, marginTop: 20 }}>
+          <Mono style={{ fontSize: 20, color: C.lavender, marginTop: 20, whiteSpace: 'nowrap' }}>
             FOLLOW · linkedin.com/company/london-js
           </Mono>
         </div>
@@ -686,7 +686,7 @@ function S12_Announcements() {
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>
           // section_divider
         </Mono>
         <h2 data-reveal style={{
@@ -719,7 +719,7 @@ function S13_Closing() {
         display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.lavender }}>// thank_you_and_whats_next</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// thank_you_and_whats_next</Mono>
           <h2 style={{
             margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
             fontWeight: 600, letterSpacing: '-0.045em',
@@ -746,7 +746,7 @@ function S13_Closing() {
           <div style={{
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            <img src="assets/qr-linkedin-london-js.svg" width={345} height={345} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
+            <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
           </div>
           <Mono style={{ fontSize: TYPE.micro, color: C.lavender, marginTop: 20 }}>
             FOLLOW · linkedin.com/company/london-js
