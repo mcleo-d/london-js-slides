@@ -54,25 +54,30 @@ const Frame = ({ bg = C.bg, ink = C.ink, children, hideChrome, label = '' }) => 
   </div>
 );
 
-const Chrome = ({ ink, bg, label }) => (
-  <>
-    <div style={{
-      position: 'absolute', top: 44, left: SPACE.padX, right: SPACE.padX,
-      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-      fontFamily: '"JetBrains Mono", ui-monospace, monospace',
-      fontSize: TYPE.micro, color: ink, letterSpacing: '0.02em',
-      opacity: bg === C.aubergine ? 1 : 0.7,
-    }}>
-      <span>london.js</span>
-      <span>{label}</span>
-      <span>23 · 11 · 2026</span>
-    </div>
-    <div style={{
-      position: 'absolute', top: 88, left: SPACE.padX, right: SPACE.padX,
-      height: 1, background: ink, opacity: 0.18,
-    }} />
-  </>
-);
+const Chrome = ({ ink, bg, label }) => {
+  const isAubergine = bg === C.aubergine;
+  return (
+    <>
+      <div style={{
+        position: 'absolute', top: 44, left: SPACE.padX, right: SPACE.padX,
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        fontFamily: '"JetBrains Mono", ui-monospace, monospace',
+        fontSize: TYPE.micro, color: ink, letterSpacing: '0.02em',
+        opacity: isAubergine ? 1 : 0.7,
+      }}>
+        {isAubergine
+          ? <span style={{ color: C.accent }}>london.js</span>
+          : <span>london.js</span>}
+        <span>{label}</span>
+        <span>23 · 11 · 2026</span>
+      </div>
+      <div style={{
+        position: 'absolute', top: 88, left: SPACE.padX, right: SPACE.padX,
+        height: 1, background: ink, opacity: 0.18,
+      }} />
+    </>
+  );
+};
 
 const Mono = ({ children, style }) => (
   <span style={{
@@ -200,7 +205,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 };
 
 // --- Slide 01  –  Title --------------------------------------------------------
-function S01_Title({ hostSize = 64 } = {}) {
+function S01_Title({ hostSize = 96 } = {}) {
   return (
     <Frame bg={C.bgWarm} label="01 / 11">
       <NoiseHero color={C.ink} density={0.04} />
@@ -260,7 +265,7 @@ function FooterCoBrand({ hostSize = 40 }) {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
         <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
-        <span style={{ display: 'inline-block' }}>
+        <span style={{ display: 'inline-block', background: C.paper, padding: 16, borderRadius: 12 }}>
           <SlackLogo variant="full" height={hostSize} />
         </span>
       </div>
@@ -269,7 +274,7 @@ function FooterCoBrand({ hostSize = 40 }) {
         fontSize: TYPE.body, lineHeight: 1.2, fontWeight: 500,
       }}>
         <span style={{ ...labelStyle, display: 'block', marginBottom: 12 }}>WHEN · WHERE</span>
-        Mon 23 November 2026 · 18:00<br />
+        Mon 23 November 2026 · Doors 17:30<br />
         <span style={{ color: C.inkSoft, fontSize: TYPE.small, fontWeight: 400 }}>
           Salesforce Tower, 110 Bishopsgate, London EC2N 4AY
         </span>
@@ -294,7 +299,7 @@ function S02_Agenda() {
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// run_of_show</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// run_of_show</Mono>
         <h2 style={{
           margin: '16px 0 56px', fontSize: TYPE.title, lineHeight: 1,
           fontWeight: 600, letterSpacing: '-0.03em',
@@ -338,7 +343,7 @@ function S03_Housekeeping() {
         display: 'flex', flexDirection: 'column',
       }}>
         <div>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// before_we_start</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// before_we_start</Mono>
           <h2 style={{
             margin: '16px 0 40px', fontSize: TYPE.title, lineHeight: 1,
             fontWeight: 600, letterSpacing: '-0.03em', color: C.creamOnAubergine,
@@ -370,13 +375,6 @@ function S03_Housekeeping() {
               </div>
             ))}
           </div>
-          <p data-reveal style={{
-            ['--reveal-i']: 6,
-            marginTop: 40, fontSize: TYPE.lead, lineHeight: 1.35,
-            color: '#F2EEE4CC', maxWidth: 1400,
-          }}>
-            Find James, Will, Jordan or the Slack team.
-          </p>
         </div>
       </div>
     </Frame>
@@ -416,7 +414,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
         display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent, fontWeight: 600 }}>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine, fontWeight: 600 }}>
             // talk_{num} of {total} · talk + q&amp;a
           </Mono>
           <h2 style={{
@@ -529,9 +527,9 @@ function S08_ThankYouSlack() {
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// thank_you</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// thank_you</Mono>
         <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
-          <SlackLogo variant="white" height={120} />
+          <SlackLogo variant="white" height={180} />
         </div>
         <h2 data-reveal style={{
           ['--reveal-i']: 2,
@@ -577,7 +575,7 @@ function S11_ByNumbers() {
         top: 160, bottom: SPACE.padBottom,
         display: 'flex', flexDirection: 'column',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// london_js.by_numbers</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// london_js.by_numbers</Mono>
         <h2 data-reveal style={{
           ['--reveal-i']: 1,
           marginTop: 24, marginBottom: 0,
@@ -627,7 +625,7 @@ function S10_Welcome() {
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>
-            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// welcome</Mono>
+            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// welcome</Mono>
             <h2 style={{
               margin: '24px 0 0', fontSize: 160, lineHeight: 0.88,
               fontWeight: 600, letterSpacing: '-0.045em',
@@ -662,14 +660,16 @@ function S10_Welcome() {
         <div data-reveal style={{
           ['--reveal-i']: 5,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
+          gap: 24,
         }}>
-          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 300, display: 'block', marginBottom: 20 }} />
+          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 300, height: 300, objectFit: 'cover', display: 'block' }} />
           <div style={{
+            width: 300, height: 300, boxSizing: 'border-box',
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
+            <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ width: '100%', height: '100%', display: 'block' }} />
           </div>
-          <Mono style={{ fontSize: 20, color: C.lavender, marginTop: 20, whiteSpace: 'nowrap' }}>
+          <Mono style={{ fontSize: 20, color: C.lavender, whiteSpace: 'nowrap' }}>
             FOLLOW · linkedin.com/company/london-js
           </Mono>
         </div>
@@ -686,7 +686,7 @@ function S12_Announcements() {
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>
           // section_divider
         </Mono>
         <h2 data-reveal style={{
@@ -719,7 +719,7 @@ function S13_Closing() {
         display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.accent }}>// thank_you_and_whats_next</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// thank_you_and_whats_next</Mono>
           <h2 style={{
             margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
             fontWeight: 600, letterSpacing: '-0.045em',
@@ -752,7 +752,7 @@ function S13_Closing() {
             FOLLOW · linkedin.com/company/london-js
           </Mono>
           <div style={{ marginTop: 32 }}>
-            <SlackLogo variant="white" height={28} />
+            <SlackLogo variant="white" height={72} />
           </div>
         </div>
       </div>
