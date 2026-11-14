@@ -1,6 +1,6 @@
 # London.js November 2026 (Slack) content pack
 
-`[claude-code | team-bravo | mac-mini | claude-sonnet-5 | none | 2026-11-12T00:07:19Z]`
+`[claude-code | team-alpha | mac-mini | claude-sonnet-5 | none | 2026-11-14T13:51:45Z]`
 
 Single input for S3. Every fact carries its source. Section order is for reading only. Slide copy drafted by the `london-js-content-creator` subagent from the facts below.
 
@@ -9,68 +9,86 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 ## Title
 
 - Event: "London.js at Slack on Monday 23 November 2026". Source: S2 Story body, citing https://www.meetup.com/london-js/events/317366197/ (not independently re-fetched this session, see fetch attempts above).
-- Date: Monday 23 November 2026. Doors 18:00, talks from 18:30. Source: as above.
-- Venue: Salesforce Tower, 110 Bishopsgate, London EC2N 4AY. Source: as above. Do not name a floor (S2 Story body instruction).
-- Finish: 20:30, then the pub. Source: S2 Story body run of show.
+- Date: Monday 23 November 2026. Doors 17:30, to clear registration and security before welcome and talks start. Welcome and talks from 18:30. Event ends about 20:30, then the pub. Source: owner, 13 Nov 2026.
+- Venue: Salesforce Tower, 110 Bishopsgate, London EC2N 4AY. Source: owner, 13 Nov 2026. Do not name a floor (S2 Story body instruction).
+- Floor closes: 21:00. Source: owner, 13 Nov 2026.
 - Kicker: `// london.js · november 2026`
-- Subtitle: JavaScript in the conversation, from chat and bots to agents in the room, however the night's talks take it.
-- Chrome date: `23 · 11 · 2026`. Footer: `Mon 23 November 2026 · 18:00` / `Salesforce Tower, 110 Bishopsgate, London EC2N 4AY`.
-- Footer co-brand: HOSTED & SPONSORED BY + "Slack" as plain text (no logo, no Slack colours; see Host section for the brand permission rule).
+- Subtitle: "JavaScript in the conversation: chat, bots and agents in the room." Source: slides.jsx, committed 42897f2.
+- Chrome date: `23 · 11 · 2026`. Footer: "Mon 23 November 2026 · Doors 17:30" / "Salesforce Tower, 110 Bishopsgate, London EC2N 4AY". Source: slides.jsx, committed 42897f2.
+- Footer co-brand: "HOSTED & SPONSORED BY" plus the Slack logo (full-colour, on a white plate). This is a change from the old pack, which specified "Slack" as plain text with no logo; see Host section below for the brand permission rule. Source: slides.jsx, committed 42897f2.
+
+## Access
+
+- Attendees bring photo ID. Source: owner, 13 Nov 2026.
+- Salesforce Guest Services emails each guest a QR code for building entry. Source: owner, 13 Nov 2026.
+- The guest list (names and emails) goes to Salesforce on Friday 20 November 2026. Source: owner, 13 Nov 2026.
+- Registration is capped at 110. Source: owner, 13 Nov 2026.
+
+## Flow
+
+The 11-slide play order, canonical per the committed November HTML:
+
+01 Title · 02 Welcome · 03 Tonight · 04 House rules · 05 Thank you, Slack · 06 By numbers · 07 Announcements · 08 Talk 01 · 09 Talk 02 · 10 Talk 03 · 11 Closing.
+
+Source: London JS - November 2026.html, committed 42897f2 (read-only reference, not modified).
 
 ## Agenda
 
-Source: S2 Story body run of show.
+Source: slides.jsx, committed 42897f2 (six-row agenda as presented on the Tonight slide; the prior doors-open row is not one of the deck's six rows and has been dropped).
 
 | Time | Label | Detail |
 |---|---|---|
-| 18:00 | Doors open | Food, drinks and hellos at Salesforce Tower |
-| 18:30 | Welcome | Intro and housekeeping |
-| 18:40 | Talk 01 | Daryl Cecile, GitHub |
-| 19:05 | Talk 02 | Francisco Moretti |
-| 19:30 | Talk 03 | `PLACEHOLDER: speaker and title not yet confirmed` |
-| 19:50 | Q&A + hangout | Questions for the speakers, then chat |
+| 18:30 | Welcome | Intro, house rules and announcements |
+| 18:40 | Talk 01 | Talk and Q&A |
+| 19:05 | Talk 02 | Talk and Q&A |
+| 19:30 | Talk 03, Slack | Talk and Q&A |
+| 19:50 | Hangout | Food, drinks and chat |
 | 20:30 | Wrap | Close, then the pub for anyone keen |
-
-## Wi-Fi
-
-Source: S2 Story body instruction, final copy, not a placeholder.
-
-- Wi-Fi details on the night.
 
 ## Housekeeping
 
-- Fire: Note your nearest exit. In an alarm, follow the Slack team's lead. (No venue fire-exit detail supplied or sourced this session: `PLACEHOLDER: fire exit specifics, ask the Slack team on the night`; Meetup page not reachable, see fetch attempts above.)
-- Code of conduct: Be kind. Anything feel off? Find an organiser. `PLACEHOLDER: confcodeofconduct.com link not independently re-verified this session`; attempted https://confcodeofconduct.com/, connection failed (no route to host), see fetch attempts above.
-- Food & drink: `PLACEHOLDER: no food and drink detail supplied this session`.
-- Closing line: Find James, Will, Jordan or the Slack team. Source: S2 Story body (final copy).
+Kicker: `// before_we_start`. Title: "The important bits". Source: slides.jsx, committed 42897f2 (replaces the prior placeholder-heavy version and absorbs the removed Wi-Fi section as card 04).
+
+- 01 Fire: Note your nearest exit. In an alarm, follow the Slack team's lead.
+- 02 Code of conduct: Be kind. Anything feel off? Find an organiser. confcodeofconduct.com.
+- 03 Food & drink: Soft drinks and nibbles, thanks to Slack. The floor closes at 21:00.
+- 04 Wi-Fi: Ask the Slack team.
 
 ## Host: Slack
 
 - One-liner: Slack is the AI-powered platform for work, bringing all your conversations, apps and customers together in one place. Slack was acquired by Salesforce in 2021. Thank you for having us. Source: https://slack.com/intl/en-gb/about, fetched 2026-11-12 00:05Z.
-- Brand rule: write "Slack" as plain text only. No Slack logo or Slack colours without Slack's written permission. Source: Slack Brand Terms of Service, https://slack.com/intl/en-gb/terms-of-service/slack-brand, fetched 2026-11-12 00:05Z (confirmed live).
+- Brand rule: Slack gave written permission to use its logo on 12 Nov 2026 (Cassie Hatfield, Senior Slack Specialist, Salesforce). Full-colour logo on light backgrounds only; white logo on aubergine backgrounds only, per Slack's Brand Terms of Service. This supersedes the prior "plain text only, no logo" rule. Source: slides.jsx code comment, committed 42897f2.
 
-## Sponsor: Slack
+## Thank you, Slack
 
-- Copy: Thank you to Slack for sponsoring London.js tonight. Source: S2 Story body (host and sponsor fact) plus https://slack.com/intl/en-gb/about, fetched 2026-11-12 00:05Z.
-- Rows:
-  - Paid customers | 200K+. Source: https://slack.com/intl/en-gb/about, fetched 2026-11-12 00:05Z.
-  - Used by | 77 of the Fortune 100. Source: as above.
-  - Daily active users | 150+ countries. Source: as above.
-  - Get started | slack.com. Source: as above.
+- Kicker: `// thank_you`
+- Headline: "Thank you, Slack"
+- Body: "PLACEHOLDER: Slack's own description, to come from the Slack team."
+- Design note: Slack logo, white variant, 180px.
 
-## By Numbers
+Source: slides.jsx, committed 42897f2. This replaces the prior "Sponsor: Slack" section and its customer stats, which are no longer in the deck.
 
-Source: S2 Story body ("supplied by James" fact: events since the relaunch).
+## By numbers
 
-- Subhead: 24 events since the relaunch, and counting.
+- Kicker: `// london_js.by_numbers`
+- Title: "London.js by numbers"
+- Subhead: "24 events since the relaunch, and counting."
 - Tiles:
-  - **24** events since the relaunch. Source: S2 Story body.
-  - Community members, RSVPs tonight, LinkedIn followers: `PLACEHOLDER: not supplied this session; Meetup page not reachable, see fetch attempts above`.
+  - **24** - events since the relaunch.
+  - **4,518** - Meetup members.
+  - **1,819** - LinkedIn followers.
+  - **110** - places tonight.
+  - **4.7** - stars from 517 Meetup reviews.
+  - **26** - floors up tonight.
 
-## Thanks
+Source: slides.jsx, committed 42897f2 (all six tiles are now confirmed; the prior "By Numbers" section only had "24" confirmed, with the rest marked PLACEHOLDER).
 
-- Line 1: Glad you made it. Scan the QR to follow us on LinkedIn. Source: unchanged from October pack, per S2 Story body instruction.
-- Line 2: Three talks coming up - grab a drink and find a seat. Source: S2 Story body (final copy).
+## Welcome
+
+- Kicker: `// welcome`
+- Headline: "Follow London.js"
+- Body: "Glad you made it. Scan the QR to follow us on LinkedIn." Source: slides.jsx, committed 42897f2. This is now the only body line; the prior second line, "Three talks coming up - grab a drink and find a seat.", is stale and has been removed, it is not in the current deck.
+- QR label: `FOLLOW · linkedin.com/company/london-js`
 - Organisers (unchanged from October pack, per S2 Story body instruction):
   - James McLeod: Open Source Program Lead, NatWest Group · FINOS Board Member · London.js Organiser
   - Jordan Potts: Head of Technology, Albany Growth · Co-Founder, London.js
@@ -82,8 +100,7 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 01
 
-- Speaker: Daryl Cecile. Role line: Software Engineer, GitHub. Source: S2 Story body (PROVISIONAL).
-- Topic, in the speaker's own words: "how we made our internal slack bot agentic to help improve velocity and engineering support quality". Source: S2 Story body.
+- Status: PROVISIONAL. Line-up not locked. No speaker name will be published until the owner locks it. Source: owner, 13 Nov 2026.
 - Title: `PLACEHOLDER: not yet supplied`.
 - Abstract: `PLACEHOLDER: not yet supplied`.
 - Bio: `PLACEHOLDER: not yet supplied`.
@@ -91,17 +108,37 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 02
 
-- Speaker: Francisco Moretti. Source: S2 Story body (PROVISIONAL).
-- Working summary, in the speaker's own words: "How I use AI agents to work on several things at once, check their own work, and take care of repetitive tasks. Real examples from Alaro: what worked, what got in the way, and when I choose to slow down and focus." Source: S2 Story body.
+- Status: PROVISIONAL. Line-up not locked. No speaker name will be published until the owner locks it. Source: owner, 13 Nov 2026.
 - Title: `PLACEHOLDER: not yet supplied`.
-- Role: `PLACEHOLDER: not yet supplied; working summary mentions Alaro but role is not confirmed`.
+- Abstract: `PLACEHOLDER: not yet supplied`.
 - Bio: `PLACEHOLDER: not yet supplied`.
 - Photo: none. No speaker photos this round (S2 Story body instruction).
 
 ## Talk 03
 
-- Speaker: `PLACEHOLDER: not yet supplied`.
+- Status: PROVISIONAL. Line-up not locked. Slack (the company) is confirmed for this slot; no individual speaker name will be published until the owner locks it. Source: owner, 13 Nov 2026.
 - Title: `PLACEHOLDER: not yet supplied`.
 - Abstract: `PLACEHOLDER: not yet supplied`.
 - Bio: `PLACEHOLDER: not yet supplied`.
 - Photo: none. No speaker photos this round (S2 Story body instruction).
+
+## Closing
+
+- Kicker: `// thank_you_and_whats_next`
+- Headline: "Thank you"
+- Body 1: "Thanks to Slack for hosting and sponsoring tonight, and to tonight's speakers for sharing their time and knowledge."
+- Body 2: "London.js returns in January 2027."
+- QR label: `FOLLOW · linkedin.com/company/london-js`
+- Design note: Slack logo, white variant, 72px.
+
+Source: slides.jsx, committed 42897f2.
+
+## Design notes
+
+- The yellow london.js header mark appears on slides 02 to 11 (the aubergine-background slides); slide 01 (yellow background) keeps the header mark in ink colour, not yellow.
+- Cream kickers (the mono `//` labels) on the aubergine slides.
+- Yellow agenda times on the Tonight slide.
+- Slack logo sizes: Title slide 96px on a white plate; Thank you, Slack slide 180px; Closing slide 72px.
+- The Welcome slide's organiser photo and QR code are both 300 by 300 px.
+
+Source: slides.jsx, committed 42897f2 (read-only reference).
