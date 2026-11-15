@@ -100,27 +100,30 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 01
 
-- Status: PROVISIONAL. Line-up not locked. No speaker name will be published until the owner locks it. Source: owner, 13 Nov 2026.
-- Title: `PLACEHOLDER: not yet supplied`.
+- Speaker: Thomas Kearsley. Role: Product Engineer. Brand: Omnea (text only, no logo). Source: owner, 15 Nov 2026, for the line-up and order.
+- Title: `PLACEHOLDER: talk title to come.`
 - Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: `PLACEHOLDER: not yet supplied`.
-- Photo: none. No speaker photos this round (S2 Story body instruction).
+- Bio: Thomas is a Product Engineer at Omnea, the AI procurement platform, where he recently helped build an AI agent with Adyen on a team trip to Amsterdam. Before Omnea he was a Product Engineer at Intercom, and earlier built tools and services at Twilio, Practifi and Honeywell in Sydney.
+- Photo: assets/speaker-kearsley.jpg.
+- Source: linkedin.com/in/thomas-kearsley-6a6278134 (experience: Product Engineer, Omnea, Nov 2024 to present).
 
 ## Talk 02
 
-- Status: PROVISIONAL. Line-up not locked. No speaker name will be published until the owner locks it. Source: owner, 13 Nov 2026.
-- Title: `PLACEHOLDER: not yet supplied`.
+- Speaker: Ryan Cormack. Role: AI Engineer. No brand (he left Motorway in September 2026). Source: owner, 15 Nov 2026, for the line-up and order.
+- Title: `PLACEHOLDER: talk title to come.`
 - Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: `PLACEHOLDER: not yet supplied`.
-- Photo: none. No speaker photos this round (S2 Story body instruction).
+- Bio: Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, he was previously Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software he worked in digital marketing and co-founded MemoryStoria, an EU-backed startup.
+- Photo: assets/speaker-cormack.jpg.
+- Source: linkedin.com/in/ryancormack (headline "Renaissance Developer and AI engineer"; Motorway Jun 2023 to Sep 2026).
 
 ## Talk 03
 
-- Status: PROVISIONAL. Line-up not locked. Slack (the company) is confirmed for this slot; no individual speaker name will be published until the owner locks it. Source: owner, 13 Nov 2026.
-- Title: `PLACEHOLDER: not yet supplied`.
+- Speaker: Jason Pope, Slack. Role: Senior Manager, Solution Engineering. Brand: Slack logo, white variant, 28px (unchanged). Source: owner, 15 Nov 2026, for the line-up and order.
+- Title: `PLACEHOLDER: talk title to come.`
 - Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: `PLACEHOLDER: not yet supplied`.
-- Photo: none. No speaker photos this round (S2 Story body instruction).
+- Bio: Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing the impact of generative AI on how teams work. He joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.
+- Photo: assets/speaker-pope.jpg.
+- Source: linkedin.com/in/jspope (Senior Manager, Solution Engineering, Slack, Mar 2026 to present).
 
 ## Closing
 

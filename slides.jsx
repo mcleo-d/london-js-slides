@@ -287,9 +287,9 @@ function FooterCoBrand({ hostSize = 40 }) {
 function S02_Agenda() {
   const rows = [
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
-    ['18:40', 'Talk 01', 'Talk and Q&A'],
-    ['19:05', 'Talk 02', 'Talk and Q&A'],
-    ['19:30', 'Talk 03, Slack', 'Talk and Q&A'],
+    ['18:40', 'Thomas Kearsley', 'Talk and Q&A'],
+    ['19:05', 'Ryan Cormack', 'Talk and Q&A'],
+    ['19:30', 'Jason Pope, Slack', 'Talk and Q&A'],
     ['19:50', 'Hangout', 'Food, drinks and chat'],
     ['20:30', 'Wrap', 'Close, then the pub for anyone keen'],
   ];
@@ -394,7 +394,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
       </div>
       <div style={{ fontSize: TYPE.body, color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft, marginTop: 12, display: 'flex', alignItems: 'center', gap: 16 }}>
         <span>{role}</span>
-        <span style={{ opacity: 0.5 }}>·</span>
+        {brand && <span style={{ opacity: 0.5 }}>·</span>}
         {brand}
       </div>
       {bioInline && (
@@ -471,13 +471,13 @@ function S04_Talk1() {
       label="08 / 11"
       num="01" total="03"
       bg={C.aubergine} ink={C.creamOnAubergine}
-      name="Daryl Cecile"
-      role="Software Engineer, GitHub (provisional)"
-      brand={<Mono>GitHub</Mono>}
+      name="Thomas Kearsley"
+      role="Product Engineer"
+      brand={<Mono>Omnea</Mono>}
       accent={C.lavender}
-      title="PLACEHOLDER: talk title not yet confirmed."
-      bio="PLACEHOLDER: speaker bio not yet confirmed."
-      abstract="PLACEHOLDER: abstract not yet confirmed. Speaker's own summary: how we made our internal Slack bot agentic to help improve velocity and engineering support quality."
+      title="PLACEHOLDER: talk title to come."
+      bio="Thomas is a Product Engineer at Omnea, the AI procurement platform, where he recently helped build an AI agent with Adyen on a team trip to Amsterdam. Before Omnea he was a Product Engineer at Intercom, and earlier built tools and services at Twilio, Practifi and Honeywell in Sydney."
+      photo="assets/speaker-kearsley.jpg"
     />
   );
 }
@@ -489,13 +489,12 @@ function S05_Talk2() {
       label="09 / 11"
       num="02" total="03"
       bg={C.aubergine} ink={C.creamOnAubergine}
-      name="Francisco Moretti"
-      role="PLACEHOLDER: role not yet confirmed (provisional speaker). Working summary mentions Alaro."
-      brand={<Mono>Alaro</Mono>}
+      name="Ryan Cormack"
+      role="AI Engineer"
       accent={C.lavender}
-      title="PLACEHOLDER: talk title not yet confirmed."
-      bio="PLACEHOLDER: speaker bio not yet confirmed."
-      abstract="PLACEHOLDER: abstract not yet confirmed. Speaker's own summary: how I use AI agents to work on several things at once, check their own work, and take care of repetitive tasks, with real examples from Alaro on what worked, what got in the way, and when to slow down."
+      title="PLACEHOLDER: talk title to come."
+      bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, he was previously Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software he worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
+      photo="assets/speaker-cormack.jpg"
     />
   );
 }
@@ -507,13 +506,13 @@ function S06_Talk3() {
       label="10 / 11"
       num="03" total="03"
       bg={C.aubergine} ink={C.creamOnAubergine}
-      name="PLACEHOLDER: individual speaker not yet confirmed. Slack has confirmed this talk slot."
-      role="PLACEHOLDER: role not yet confirmed."
+      name="Jason Pope"
+      role="Senior Manager, Solution Engineering"
       brand={<SlackLogo variant="white" height={28} />}
       accent={C.lavender}
-      title="PLACEHOLDER: talk title not yet confirmed."
-      bio="PLACEHOLDER: bio not yet confirmed."
-      abstract="PLACEHOLDER: abstract not yet confirmed."
+      title="PLACEHOLDER: talk title to come."
+      bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing the impact of generative AI on how teams work. He joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
+      photo="assets/speaker-pope.jpg"
     />
   );
 }
