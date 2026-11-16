@@ -615,7 +615,7 @@ function S08_ThankYouSlack() {
             marginTop: 32, fontSize: TYPE.lead, lineHeight: 1.3,
             color: '#F2EEE4CC', textWrap: 'pretty',
           }}>
-            PLACEHOLDER: Slack's own description, to come from the Slack team.
+            Slack is the AI-powered work OS, and the best place for Multiplayer AI: where people, agents, and apps work together.
           </p>
         </div>
         <div data-reveal style={{
