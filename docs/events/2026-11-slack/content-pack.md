@@ -11,7 +11,7 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 - Event: "London.js at Slack on Monday 23 November 2026". Source: S2 Story body, citing https://www.meetup.com/london-js/events/317366197/ (not independently re-fetched this session, see fetch attempts above).
 - Date: Monday 23 November 2026. Doors 17:30, to clear registration and security before welcome and talks start. Welcome and talks from 18:30. Event ends about 20:30, then the pub. Source: owner, 13 Nov 2026.
 - Venue: Salesforce Tower, 110 Bishopsgate, London EC2N 4AY. Source: owner, 13 Nov 2026. Do not name a floor (S2 Story body instruction).
-- Floor closes: 21:00. Source: owner, 13 Nov 2026.
+- Floor closes: 21:00. Source: owner, 13 Nov 2026. The House rules slide now says "We close at 20:30." (owner, 16 Nov 2026).
 - Kicker: `// london.js · november 2026`
 - Subtitle: "JavaScript in the conversation: chat, bots and agents in the room." Source: slides.jsx, committed 42897f2.
 - Chrome date: `23 · 11 · 2026`. Footer: "Mon 23 November 2026 · Doors 17:30" / "Salesforce Tower, 110 Bishopsgate, London EC2N 4AY". Source: slides.jsx, committed 42897f2.
@@ -26,24 +26,25 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 
 ## Flow
 
-The 11-slide play order, canonical per the committed November HTML:
+The 13-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s15; every label reads "NN / 13"):
 
-01 Title · 02 Welcome · 03 Tonight · 04 House rules · 05 Thank you, Slack · 06 By numbers · 07 Announcements · 08 Talk 01 · 09 Talk 02 · 10 Talk 03 · 11 Closing.
+01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Talk 01, Thomas Kearsley (s04) · 09 Talk 02, Daryl Cecile (s15) · 10 Networking break (s14) · 11 Talk 03, Ryan Cormack (s05) · 12 Talk 04, Jason Pope (s06) · 13 Closing (s13).
 
-Source: London JS - November 2026.html, committed 42897f2 (read-only reference, not modified).
+Source: London JS - November 2026.html and slides.jsx, owner instruction, 16 Nov 2026.
 
 ## Agenda
 
-Source: slides.jsx, committed 42897f2 (six-row agenda as presented on the Tonight slide; the prior doors-open row is not one of the deck's six rows and has been dropped).
+Source: slides.jsx, owner instruction, 16 Nov 2026 (seven-row agenda on the Tonight slide). Each talk is 15 minutes plus 5 minutes of Q&A. Talk rows carry a subtle highlight.
 
 | Time | Label | Detail |
 |---|---|---|
 | 18:30 | Welcome | Intro, house rules and announcements |
-| 18:40 | Talk 01 | Talk and Q&A |
-| 19:05 | Talk 02 | Talk and Q&A |
-| 19:30 | Talk 03, Slack | Talk and Q&A |
-| 19:50 | Hangout | Food, drinks and chat |
-| 20:30 | Wrap | Close, then the pub for anyone keen |
+| 18:40 | Thomas Kearsley, Omnea | Talk and Q&A |
+| 19:00 | Daryl Cecile, GitHub | Talk and Q&A |
+| 19:20 | Networking break | Drinks, conversation and a chance to stretch |
+| 19:40 | Ryan Cormack | Talk and Q&A |
+| 20:00 | Jason Pope, Slack | Talk and Q&A |
+| 20:20 | Close | Drinks with the speakers, then the pub |
 
 ## Housekeeping
 
@@ -51,7 +52,7 @@ Kicker: `// before_we_start`. Title: "The important bits". Source: slides.jsx, c
 
 - 01 Fire: Note your nearest exit. In an alarm, follow the Slack team's lead.
 - 02 Code of conduct: Be kind. Anything feel off? Find an organiser. confcodeofconduct.com.
-- 03 Food & drink: Soft drinks and nibbles, thanks to Slack. The floor closes at 21:00.
+- 03 Food & drink: Soft drinks and nibbles, thanks to Slack. We close at 20:30.
 - 04 Wi-Fi: Ask the Slack team.
 
 ## Host: Slack
@@ -103,34 +104,52 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 - Speaker: Thomas Kearsley. Role: Product Engineer. Brand: Omnea (text only, no logo). Source: owner, 15 Nov 2026, for the line-up and order.
 - Title: `PLACEHOLDER: talk title to come.`
 - Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: Thomas is a Product Engineer at Omnea, the AI procurement platform, where he recently helped build an AI agent with Adyen on a team trip to Amsterdam. Before Omnea he was a Product Engineer at Intercom, and earlier built tools and services at Twilio, Practifi and Honeywell in Sydney.
+- Bio: Thomas is a Product Engineer at Omnea, an AI procurement platform, and recently helped build an AI agent with Adyen on a team trip to Amsterdam. Previously a Product Engineer at Intercom, Thomas earlier built tools and services at Twilio, Practifi and Honeywell in Sydney.
 - Photo: assets/speaker-kearsley.jpg.
 - Source: linkedin.com/in/thomas-kearsley-6a6278134 (experience: Product Engineer, Omnea, Nov 2024 to present).
 
 ## Talk 02
 
-- Speaker: Ryan Cormack. Role: AI Engineer. No brand (he left Motorway in September 2026). Source: owner, 15 Nov 2026, for the line-up and order.
-- Title: `PLACEHOLDER: talk title to come.`
-- Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, he was previously Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software he worked in digital marketing and co-founded MemoryStoria, an EU-backed startup.
-- Photo: assets/speaker-cormack.jpg.
-- Source: linkedin.com/in/ryancormack (headline "Renaissance Developer and AI engineer"; Motorway Jun 2023 to Sep 2026).
+- Speaker: Daryl Cecile, GitHub. Role: Software Engineer. Brand: GitHub lockup, white variant, 40px; the logo is never recoloured or filtered. GitHub logo used by owner decision, 16 Nov 2026.
+- Title: Beyond the Reply: Building an AI Support Teammate.
+- Bio: Daryl is a Software Engineer at GitHub. Before GitHub, Daryl spent nearly four years at Capital One, latterly as a Senior Software Engineer, and co-founded ProjectFunction. Outside work, Daryl is building Knosh.app and writes about engineering with AI agents at darylcecile.net.
+- Photo: assets/speaker-cecile.jpg. No abstract.
+- Source: linkedin.com/in/darylcecile, read 16 Nov 2026.
 
 ## Talk 03
 
-- Speaker: Jason Pope, Slack. Role: Senior Manager, Solution Engineering. Brand: Slack logo, white variant, 28px (unchanged). Source: owner, 15 Nov 2026, for the line-up and order.
+- Speaker: Ryan Cormack. Role: AI Engineer. No brand (Ryan left Motorway in September 2026). Source: owner, 15 Nov 2026, for the line-up and order.
 - Title: `PLACEHOLDER: talk title to come.`
 - Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing the impact of generative AI on how teams work. He joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.
+- Bio: Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup.
+- Photo: assets/speaker-cormack.jpg.
+- Source: linkedin.com/in/ryancormack (headline "Renaissance Developer and AI engineer"; Motorway Jun 2023 to Sep 2026).
+
+## Talk 04
+
+- Speaker: Jason Pope, Slack. Role: Senior Manager, Solution Engineering. Brand: Slack logo, white variant, 56px. Source: owner, 15 Nov 2026, for the line-up and order.
+- Title: `PLACEHOLDER: talk title to come.`
+- Abstract: `PLACEHOLDER: not yet supplied`.
+- Bio: Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.
 - Photo: assets/speaker-pope.jpg.
 - Source: linkedin.com/in/jspope (Senior Manager, Solution Engineering, Slack, Mar 2026 to present).
+
+## Networking break
+
+- Slide 10 of 13, between Talk 02 and Talk 03. No kicker.
+- Headline: "Networking break"
+- Lead: "Back at 19:40 with Ryan Cormack"
+- Body: "Grab a drink, meet someone new and stretch your legs."
+- Right column: the Welcome slide's QR code and two-line `FOLLOW` / `linkedin.com/company/london-js` label.
+
+Source: slides.jsx, owner instruction, 16 Nov 2026.
 
 ## Closing
 
 - Kicker: `// thank_you_and_whats_next`
 - Headline: "Thank you"
 - Body 1: "Thanks to Slack for hosting and sponsoring tonight, and to tonight's speakers for sharing their time and knowledge."
-- Body 2: "London.js returns in January 2027."
+- Body 2: "London.js returns in early 2027."
 - QR label: `FOLLOW · linkedin.com/company/london-js`
 - Design note: Slack logo, white variant, 72px.
 
@@ -138,7 +157,7 @@ Source: slides.jsx, committed 42897f2.
 
 ## Design notes
 
-- The yellow london.js header mark appears on slides 02 to 11 (the aubergine-background slides); slide 01 (yellow background) keeps the header mark in ink colour, not yellow.
+- The yellow london.js header mark appears on slides 02 to 13 (the aubergine-background slides); slide 01 (yellow background) keeps the header mark in ink colour, not yellow.
 - Cream kickers (the mono `//` labels) on the aubergine slides.
 - Yellow agenda times on the Tonight slide.
 - Slack logo sizes: Title slide 96px on a white plate; Thank you, Slack slide 180px; Closing slide 72px.
