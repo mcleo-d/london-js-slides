@@ -285,11 +285,11 @@ function FooterCoBrand({ hostSize = 40 }) {
 function S02_Agenda() {
   const rows = [
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
-    ['18:40', 'Tom Kearsley, Omnea', 'Talk and Q&A', true],
-    ['19:00', 'Daryl Cecile, GitHub', 'Talk and Q&A', true],
+    ['18:40', 'Tom Kearsley', 'Talk and Q&A', true, 'omnea'],
+    ['19:00', 'Daryl Cecile', 'Talk and Q&A', true, 'github'],
     ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
     ['19:40', 'Ryan Cormack', 'Talk and Q&A', true],
-    ['20:00', 'Jason Pope, Slack', 'Talk and Q&A', true],
+    ['20:00', 'Jason Pope', 'Talk and Q&A', true, 'slack'],
     ['20:20', 'Close', 'Drinks with the speakers, then the pub'],
   ];
   return (
@@ -304,7 +304,7 @@ function S02_Agenda() {
           fontWeight: 600, letterSpacing: '-0.03em',
         }}>Tonight</h2>
         <div>
-          {rows.map(([t, k, d, talk], i) => (
+          {rows.map(([t, k, d, talk, logo], i) => (
             <div key={i} data-reveal style={{
               ['--reveal-i']: i + 2,
               display: 'grid',
@@ -317,7 +317,12 @@ function S02_Agenda() {
               borderBottom: i === rows.length - 1 ? `1px solid #F9F0FF33` : 'none',
             }}>
               <Mono style={{ fontSize: TYPE.body, color: C.creamOnAubergine, fontWeight: 600 }}>{t}</Mono>
-              <span style={{ fontSize: TYPE.lead, fontWeight: 600 }}>{k}</span>
+              <span style={{ fontSize: TYPE.lead, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 20 }}>
+                {k}
+                {logo === 'omnea' && <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
+                {logo === 'github' && <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 40, width: 'auto', display: 'block' }} />}
+                {logo === 'slack' && <SlackLogo variant="white" height={40} style={{ padding: 0 }} />}
+              </span>
               <span style={{ fontSize: TYPE.body, color: '#F2EEE4CC' }}>{d}</span>
             </div>
           ))}
