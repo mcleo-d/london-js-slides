@@ -285,7 +285,7 @@ function FooterCoBrand({ hostSize = 40 }) {
 function S02_Agenda() {
   const rows = [
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
-    ['18:40', 'Thomas Kearsley, Omnea', 'Talk and Q&A', true],
+    ['18:40', 'Tom Kearsley, Omnea', 'Talk and Q&A', true],
     ['19:00', 'Daryl Cecile, GitHub', 'Talk and Q&A', true],
     ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
     ['19:40', 'Ryan Cormack', 'Talk and Q&A', true],
@@ -480,12 +480,12 @@ function S04_Talk1() {
       label="08 / 13"
       num="01" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
-      name="Thomas Kearsley"
+      name="Tom Kearsley"
       role="Product Engineer"
       brand={<img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
       accent={C.accent}
-      title="PLACEHOLDER: talk title to come."
-      bio="Thomas is a Product Engineer at Omnea, an AI procurement platform, and recently helped build an AI agent with Adyen on a team trip to Amsterdam. Previously a Product Engineer at Intercom, Thomas earlier built tools and services at Twilio, Practifi and Honeywell in Sydney."
+      title={`Your API's newest user is an LLM`}
+      bio={`Tom Kearsley is a Product Engineer at Omnea, the procurement platform, and leads its MCP project: the layer that lets Claude, ChatGPT, Copilot, Gemini and customers' own agents work with their company's procurement data.`}
       photo="assets/speaker-kearsley.jpg"
     />
   );

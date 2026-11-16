@@ -28,7 +28,7 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 
 The 13-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s15; every label reads "NN / 13"):
 
-01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Talk 01, Thomas Kearsley (s04) · 09 Talk 02, Daryl Cecile (s15) · 10 Networking break (s14) · 11 Talk 03, Ryan Cormack (s05) · 12 Talk 04, Jason Pope (s06) · 13 Closing (s13).
+01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Talk 01, Tom Kearsley (s04) · 09 Talk 02, Daryl Cecile (s15) · 10 Networking break (s14) · 11 Talk 03, Ryan Cormack (s05) · 12 Talk 04, Jason Pope (s06) · 13 Closing (s13).
 
 Source: London JS - November 2026.html and slides.jsx, owner instruction, 16 Nov 2026.
 
@@ -39,7 +39,7 @@ Source: slides.jsx, owner instruction, 16 Nov 2026 (seven-row agenda on the Toni
 | Time | Label | Detail |
 |---|---|---|
 | 18:30 | Welcome | Intro, house rules and announcements |
-| 18:40 | Thomas Kearsley, Omnea | Talk and Q&A |
+| 18:40 | Tom Kearsley, Omnea | Talk and Q&A |
 | 19:00 | Daryl Cecile, GitHub | Talk and Q&A |
 | 19:20 | Networking break | Drinks, conversation and a chance to stretch |
 | 19:40 | Ryan Cormack | Talk and Q&A |
@@ -101,11 +101,12 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 01
 
-- Speaker: Thomas Kearsley. Role: Product Engineer. Brand: Omnea (text only, no logo). Source: owner, 15 Nov 2026, for the line-up and order.
-- Title: `PLACEHOLDER: talk title to come.`
-- Abstract: `PLACEHOLDER: not yet supplied`.
-- Bio: Thomas is a Product Engineer at Omnea, an AI procurement platform, and recently helped build an AI agent with Adyen on a team trip to Amsterdam. Previously a Product Engineer at Intercom, Thomas earlier built tools and services at Twilio, Practifi and Honeywell in Sydney.
+- Speaker: Tom Kearsley. Role: Product Engineer. Brand: Omnea (text only, no logo). Source: owner, 15 Nov 2026, for the line-up and order.
+- Title: Your API's newest user is an LLM.
+- Description (not shown on the slide, which has no abstract prop): We built an MCP server so people could ask their AI assistants, from Claude to ChatGPT to Copilot, about their procurement data. Then agents and AI-built dashboards started calling it too, in ways we never planned for. Our logs could tell us what they were doing, but not why. So we asked them. This talk covers what the models told us, what we changed because of it, and what it means for anyone building tools for agents in TypeScript.
+- Bio: Tom Kearsley is a Product Engineer at Omnea, the procurement platform, and leads its MCP project: the layer that lets Claude, ChatGPT, Copilot, Gemini and customers' own agents work with their company's procurement data.
 - Photo: assets/speaker-kearsley.jpg.
+- Source: Tom via Will (WhatsApp), 16 Nov 2026. Bio in Tom's own words.
 - Source: linkedin.com/in/thomas-kearsley-6a6278134 (experience: Product Engineer, Omnea, Nov 2024 to present).
 
 ## Talk 02
