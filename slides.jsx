@@ -265,9 +265,7 @@ function FooterCoBrand({ hostSize = 40 }) {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
         <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
-        <span style={{ display: 'inline-block', background: C.paper, padding: 16, borderRadius: 12 }}>
-          <SlackLogo variant="full" height={hostSize} />
-        </span>
+        <SlackLogo variant="full" height={hostSize} style={{ filter: 'brightness(0)' }} />
       </div>
       <div style={{
         textAlign: 'right',
@@ -316,7 +314,7 @@ function S02_Agenda() {
               borderTop: `1px solid #F9F0FF33`,
               borderBottom: i === rows.length - 1 ? `1px solid #F9F0FF33` : 'none',
             }}>
-              <Mono style={{ fontSize: TYPE.body, color: C.accent, fontWeight: 600 }}>{t}</Mono>
+              <Mono style={{ fontSize: TYPE.body, color: C.creamOnAubergine, fontWeight: 600 }}>{t}</Mono>
               <span style={{ fontSize: TYPE.lead, fontWeight: 600 }}>{k}</span>
               <span style={{ fontSize: TYPE.body, color: '#F2EEE4CC' }}>{d}</span>
             </div>
@@ -392,11 +390,14 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
       <div style={{ fontSize: TYPE.subtitle, fontWeight: 600, letterSpacing: '-0.02em' }}>
         {name}
       </div>
-      <div style={{ fontSize: TYPE.body, color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft, marginTop: 12, display: 'flex', alignItems: 'center', gap: 16 }}>
-        <span>{role}</span>
-        {brand && <span style={{ opacity: 0.5 }}>·</span>}
-        {brand}
+      <div style={{ fontSize: TYPE.body, color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft, marginTop: 12 }}>
+        {role}
       </div>
+      {brand && (
+        <div style={{ marginTop: 14 }}>
+          {brand}
+        </div>
+      )}
       {bioInline && (
         <p style={{
           margin: '24px 0 0', fontSize: TYPE.small, lineHeight: 1.45,
@@ -473,8 +474,8 @@ function S04_Talk1() {
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Thomas Kearsley"
       role="Product Engineer"
-      brand={<Mono>Omnea</Mono>}
-      accent={C.lavender}
+      brand={<img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
+      accent={C.accent}
       title="PLACEHOLDER: talk title to come."
       bio="Thomas is a Product Engineer at Omnea, the AI procurement platform, where he recently helped build an AI agent with Adyen on a team trip to Amsterdam. Before Omnea he was a Product Engineer at Intercom, and earlier built tools and services at Twilio, Practifi and Honeywell in Sydney."
       photo="assets/speaker-kearsley.jpg"
@@ -491,7 +492,7 @@ function S05_Talk2() {
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Ryan Cormack"
       role="AI Engineer"
-      accent={C.lavender}
+      accent={C.accent}
       title="PLACEHOLDER: talk title to come."
       bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, he was previously Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software he worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
       photo="assets/speaker-cormack.jpg"
@@ -508,8 +509,8 @@ function S06_Talk3() {
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Jason Pope"
       role="Senior Manager, Solution Engineering"
-      brand={<SlackLogo variant="white" height={28} />}
-      accent={C.lavender}
+      brand={<SlackLogo variant="white" height={40} />}
+      accent={C.accent}
       title="PLACEHOLDER: talk title to come."
       bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing the impact of generative AI on how teams work. He joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
       photo="assets/speaker-pope.jpg"
@@ -524,24 +525,28 @@ function S08_ThankYouSlack() {
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 64, alignItems: 'center',
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// thank_you</Mono>
-        <div data-reveal style={{ ['--reveal-i']: 1, marginTop: 24 }}>
-          <SlackLogo variant="white" height={180} />
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <h2 data-reveal style={{
+            ['--reveal-i']: 1,
+            margin: 0, fontSize: 140, lineHeight: 1,
+            fontWeight: 600, letterSpacing: '-0.03em',
+          }}>Thank you, Slack</h2>
+          <p data-reveal style={{
+            ['--reveal-i']: 3,
+            marginTop: 32, fontSize: TYPE.lead, lineHeight: 1.3,
+            color: '#F2EEE4CC', textWrap: 'pretty',
+          }}>
+            PLACEHOLDER: Slack's own description, to come from the Slack team.
+          </p>
         </div>
-        <h2 data-reveal style={{
+        <div data-reveal style={{
           ['--reveal-i']: 2,
-          margin: '40px 0 0', fontSize: TYPE.title, lineHeight: 1,
-          fontWeight: 600, letterSpacing: '-0.03em',
-        }}>Thank you, Slack</h2>
-        <p data-reveal style={{
-          ['--reveal-i']: 3,
-          marginTop: 32, fontSize: TYPE.lead, lineHeight: 1.3,
-          color: '#F2EEE4CC', textWrap: 'pretty', maxWidth: 1100,
+          display: 'flex', justifyContent: 'center', alignItems: 'center',
         }}>
-          PLACEHOLDER: Slack's own description, to come from the Slack team.
-        </p>
+          <SlackLogo variant="white" height={240} />
+        </div>
       </div>
     </Frame>
   );
@@ -627,7 +632,7 @@ function S10_Welcome() {
             <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// welcome</Mono>
             <h2 style={{
               margin: '24px 0 0', fontSize: 160, lineHeight: 0.88,
-              fontWeight: 600, letterSpacing: '-0.045em',
+              fontWeight: 600, letterSpacing: '-0.03em',
               whiteSpace: 'nowrap',
             }}>
               Follow London.js
@@ -650,27 +655,29 @@ function S10_Welcome() {
             ].map(([n, c], i) => (
               <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.lavender }}>ORGANISER</Mono>
-                <div style={{ fontSize: TYPE.body, fontWeight: 600, marginTop: 8 }}>{n}</div>
-                <div style={{ fontSize: 20, lineHeight: 1.35, color: '#F2EEE4CC', marginTop: 6 }}>{c}</div>
+                <div style={{ fontSize: TYPE.lead, fontWeight: 600, marginTop: 8 }}>{n}</div>
+                <div style={{ fontSize: TYPE.body, lineHeight: 1.35, color: '#F2EEE4CC', marginTop: 10 }}>{c}</div>
               </div>
             ))}
           </div>
         </div>
         <div data-reveal style={{
           ['--reveal-i']: 5,
-          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
+          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
           gap: 24,
         }}>
-          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 300, height: 300, objectFit: 'cover', display: 'block' }} />
+          <img src="assets/london-js-organisers.jpeg" alt="London.js organisers" style={{ width: 340, height: 340, objectFit: 'cover', display: 'block' }} />
           <div style={{
-            width: 300, height: 300, boxSizing: 'border-box',
+            width: 340, height: 340, boxSizing: 'border-box',
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
             <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ width: '100%', height: '100%', display: 'block' }} />
           </div>
-          <Mono style={{ fontSize: 20, color: C.lavender, whiteSpace: 'nowrap' }}>
-            FOLLOW · linkedin.com/company/london-js
-          </Mono>
+          <div style={{ textAlign: 'center' }}>
+            <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>FOLLOW</Mono>
+            <br />
+            <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>linkedin.com/company/london-js</Mono>
+          </div>
         </div>
       </div>
     </Frame>
@@ -721,7 +728,7 @@ function S13_Closing() {
           <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// thank_you_and_whats_next</Mono>
           <h2 style={{
             margin: '24px 0 0', fontSize: 200, lineHeight: 0.88,
-            fontWeight: 600, letterSpacing: '-0.045em',
+            fontWeight: 600, letterSpacing: '-0.03em',
           }}>
             Thank you
           </h2>
