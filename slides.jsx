@@ -284,6 +284,7 @@ function FooterCoBrand({ hostSize = 40 }) {
 // --- Slide 02  –  Run of show --------------------------------------------------
 function S02_Agenda() {
   const rows = [
+    ['17:30', 'Doors open', 'Drinks and hellos at Salesforce Tower'],
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
     ['18:40', 'Thomas Kearsley', 'Talk and Q&A'],
     ['19:05', 'Ryan Cormack', 'Talk and Q&A'],
@@ -310,7 +311,7 @@ function S02_Agenda() {
               gridTemplateColumns: '180px 1fr 1.4fr',
               alignItems: 'baseline',
               gap: 40,
-              padding: '28px 0',
+              padding: '20px 0',
               borderTop: `1px solid #F9F0FF33`,
               borderBottom: i === rows.length - 1 ? `1px solid #F9F0FF33` : 'none',
             }}>
@@ -555,16 +556,16 @@ function S08_ThankYouSlack() {
 const Stat = ({ n, label, i = 0, accentBorder }) => (
   <div data-reveal style={{
     ['--reveal-i']: 3 + i,
-    background: C.paper,
-    border: `1px solid ${C.ruleStrong}`,
-    borderTop: accentBorder ? `4px solid ${accentBorder}` : `1px solid ${C.ruleStrong}`,
+    background: '#FFFFFF14',
+    border: '1px solid #F9F0FF33',
+    borderTop: `4px solid ${C.accent}`,
     padding: '40px 48px',
     display: 'flex', flexDirection: 'column', justifyContent: 'center',
   }}>
-    <div style={{ fontSize: 96, fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 1, color: C.ink }}>
+    <div style={{ fontSize: 96, fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 1, color: C.creamOnAubergine }}>
       {n}
     </div>
-    <Mono style={{ fontSize: TYPE.micro, color: C.inkSoft, marginTop: 16, textTransform: 'uppercase' }}>
+    <Mono style={{ fontSize: TYPE.micro, color: '#F2EEE4CC', marginTop: 16, textTransform: 'uppercase' }}>
       {label}
     </Mono>
   </div>
@@ -742,7 +743,7 @@ function S13_Closing() {
             ['--reveal-i']: 2,
             margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3,
           }}>
-            London.js returns in January 2027.
+            London.js returns in early 2027.
           </p>
         </div>
         <div data-reveal style={{
