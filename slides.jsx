@@ -351,7 +351,7 @@ function S03_Housekeeping() {
         <div>
           <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// before_we_start</Mono>
           <h2 style={{
-            margin: '16px 0 40px', fontSize: TYPE.title, lineHeight: 1,
+            margin: '16px 0 24px', fontSize: TYPE.title, lineHeight: 1,
             fontWeight: 600, letterSpacing: '-0.03em', color: C.creamOnAubergine,
           }}>The important bits</h2>
         </div>
@@ -359,13 +359,13 @@ function S03_Housekeeping() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{
             display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-            gridTemplateRows: 'auto auto', gap: 40,
+            gridTemplateRows: 'auto auto', gap: 32,
           }}>
             {items.map(({ num, label, body }, i) => (
               <div key={num} data-reveal style={{
                 ['--reveal-i']: i + 2,
                 borderTop: `2px solid ${C.lavender}`,
-                paddingTop: 32,
+                paddingTop: 24,
               }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.lavender, fontWeight: 600 }}>
                   {num}
@@ -375,7 +375,7 @@ function S03_Housekeeping() {
                   letterSpacing: '-0.02em',
                 }}>{label}</div>
                 <p style={{
-                  fontSize: TYPE.body, lineHeight: 1.35, marginTop: 16,
+                  fontSize: TYPE.body, lineHeight: 1.35, margin: '16px 0 0',
                   color: C.creamOnAubergine,
                 }}>{body}</p>
               </div>
