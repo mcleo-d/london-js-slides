@@ -207,7 +207,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 // --- Slide 01  –  Title --------------------------------------------------------
 function S01_Title({ hostSize = 96 } = {}) {
   return (
-    <Frame bg={C.bgWarm} label="01 / 11">
+    <Frame bg={C.bgWarm} label="01 / 13">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -284,16 +284,16 @@ function FooterCoBrand({ hostSize = 40 }) {
 // --- Slide 02  –  Run of show --------------------------------------------------
 function S02_Agenda() {
   const rows = [
-    ['17:30', 'Doors open', 'Drinks and hellos at Salesforce Tower'],
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
-    ['18:40', 'Thomas Kearsley', 'Talk and Q&A'],
-    ['19:05', 'Ryan Cormack', 'Talk and Q&A'],
-    ['19:30', 'Jason Pope, Slack', 'Talk and Q&A'],
-    ['19:50', 'Hangout', 'Food, drinks and chat'],
-    ['20:30', 'Wrap', 'Close, then the pub for anyone keen'],
+    ['18:40', 'Thomas Kearsley, Omnea', 'Talk and Q&A', true],
+    ['19:00', 'Daryl Cecile, GitHub', 'Talk and Q&A', true],
+    ['19:20', 'Networking break', 'Drinks, conversation and a chance to stretch'],
+    ['19:40', 'Ryan Cormack', 'Talk and Q&A', true],
+    ['20:00', 'Jason Pope, Slack', 'Talk and Q&A', true],
+    ['20:20', 'Close', 'Drinks with the speakers, then the pub'],
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 13">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -304,14 +304,15 @@ function S02_Agenda() {
           fontWeight: 600, letterSpacing: '-0.03em',
         }}>Tonight</h2>
         <div>
-          {rows.map(([t, k, d], i) => (
+          {rows.map(([t, k, d, talk], i) => (
             <div key={i} data-reveal style={{
               ['--reveal-i']: i + 2,
               display: 'grid',
               gridTemplateColumns: '180px 1fr 1.4fr',
               alignItems: 'baseline',
               gap: 40,
-              padding: '20px 0',
+              padding: '20px 24px',
+              background: talk ? '#FFFFFF14' : undefined,
               borderTop: `1px solid #F9F0FF33`,
               borderBottom: i === rows.length - 1 ? `1px solid #F9F0FF33` : 'none',
             }}>
@@ -335,7 +336,7 @@ function S03_Housekeeping() {
     { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team.' },
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 13">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -470,8 +471,8 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="08 / 11"
-      num="01" total="03"
+      label="08 / 13"
+      num="01" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Thomas Kearsley"
       role="Product Engineer"
@@ -488,8 +489,8 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="09 / 11"
-      num="02" total="03"
+      label="11 / 13"
+      num="03" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Ryan Cormack"
       role="AI Engineer"
@@ -505,8 +506,8 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="10 / 11"
-      num="03" total="03"
+      label="12 / 13"
+      num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Jason Pope"
       role="Senior Manager, Solution Engineering"
@@ -519,10 +520,74 @@ function S06_Talk3() {
   );
 }
 
+// --- Slide 09  –  Talk 2 (Daryl Cecile, GitHub) -------------------------------
+function S15_TalkCecile() {
+  return (
+    <TalkSlide
+      label="09 / 13"
+      num="02" total="04"
+      bg={C.aubergine} ink={C.creamOnAubergine}
+      name="Daryl Cecile"
+      role="Software Engineer"
+      brand={<img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 40, width: 'auto', display: 'block' }} />}
+      accent={C.accent}
+      title="Beyond the Reply: Building an AI Support Teammate"
+      bio="Daryl is a Software Engineer at GitHub. Before GitHub, Daryl spent nearly four years at Capital One, latterly as a Senior Software Engineer, and co-founded ProjectFunction. Outside work, Daryl is building Knosh.app and writes about engineering with AI agents at darylcecile.net."
+      photo="assets/speaker-cecile.jpg"
+    />
+  );
+}
+
+// --- Slide 10  –  Networking break ---------------------------------------------
+function S14_Break() {
+  return (
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="10 / 13">
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 96, bottom: 96,
+      }}>
+        <div style={{
+          display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80, alignItems: 'center',
+          height: '100%',
+        }}>
+          <div>
+            <h2 style={{
+              margin: 0, fontSize: 140, fontWeight: 700, lineHeight: 0.95,
+              letterSpacing: '-0.03em',
+            }}>Networking break</h2>
+            <p style={{ margin: '40px 0 0', fontSize: TYPE.lead, lineHeight: 1.3 }}>
+              Back at 19:40 with Ryan Cormack
+            </p>
+            <p style={{ margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3 }}>
+              Grab a drink, meet someone new and stretch your legs.
+            </p>
+          </div>
+          <div style={{
+            display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+            gap: 24,
+          }}>
+            <div style={{
+              width: 340, height: 340, boxSizing: 'border-box',
+              background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
+            }}>
+              <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ width: '100%', height: '100%', display: 'block' }} />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>FOLLOW</Mono>
+              <br />
+              <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>linkedin.com/company/london-js</Mono>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Slide 05  –  Thank you, Slack (merged host + sponsor) --------------------
 function S08_ThankYouSlack() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 13">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -574,7 +639,7 @@ const Stat = ({ n, label, i = 0, accentBorder }) => (
 // --- Slide 06  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 13">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -621,7 +686,7 @@ function S11_ByNumbers() {
 // --- Slide 02  –  Welcome -------------------------------------------------------
 function S10_Welcome() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 13">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -688,7 +753,7 @@ function S10_Welcome() {
 // --- Slide 07  Announcements section divider ----------------------------
 function S12_Announcements() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 13">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
@@ -718,7 +783,7 @@ function S12_Announcements() {
 // --- Slide 11  –  Closing -------------------------------------------------------
 function S13_Closing() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="11 / 11">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="13 / 13">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -773,6 +838,7 @@ function S13_Closing() {
 window.Slides = {
   S01_Title, S02_Agenda, S03_Housekeeping,
   S04_Talk1, S05_Talk2, S06_Talk3,
+  S14_Break, S15_TalkCecile,
   S08_ThankYouSlack,
   S11_ByNumbers,
   S10_Welcome,
