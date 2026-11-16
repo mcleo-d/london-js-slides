@@ -317,11 +317,11 @@ function S02_Agenda() {
               borderBottom: i === rows.length - 1 ? `1px solid #F9F0FF33` : 'none',
             }}>
               <Mono style={{ fontSize: TYPE.body, color: C.creamOnAubergine, fontWeight: 600 }}>{t}</Mono>
-              <span style={{ fontSize: TYPE.lead, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 20 }}>
+              <span style={{ fontSize: TYPE.lead, fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, width: '100%' }}>
                 {k}
                 {logo === 'omnea' && <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
                 {logo === 'github' && <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 40, width: 'auto', display: 'block' }} />}
-                {logo === 'slack' && <SlackLogo variant="white" height={40} style={{ padding: 0 }} />}
+                {logo === 'slack' && <SlackLogo variant="white" height={56} style={{ padding: 0 }} />}
               </span>
               <span style={{ fontSize: TYPE.body, color: '#F2EEE4CC' }}>{d}</span>
             </div>
@@ -531,7 +531,7 @@ function S06_Talk3() {
   );
 }
 
-// --- Slide 09  –  Talk 2 (Daryl Cecile, GitHub) -------------------------------
+// --- Slide 09: Talk 2 (Daryl Cecile) ---
 function S15_TalkCecile() {
   return (
     <TalkSlide
