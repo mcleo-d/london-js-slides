@@ -359,7 +359,7 @@ function S03_Housekeeping() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{
             display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-            gridTemplateRows: 'repeat(2, 1fr)', gap: 48,
+            gridTemplateRows: 'auto auto', gap: 40,
           }}>
             {items.map(({ num, label, body }, i) => (
               <div key={num} data-reveal style={{
@@ -375,7 +375,7 @@ function S03_Housekeeping() {
                   letterSpacing: '-0.02em',
                 }}>{label}</div>
                 <p style={{
-                  fontSize: TYPE.body, lineHeight: 1.35, marginTop: 24,
+                  fontSize: TYPE.body, lineHeight: 1.35, marginTop: 16,
                   color: C.creamOnAubergine,
                 }}>{body}</p>
               </div>
