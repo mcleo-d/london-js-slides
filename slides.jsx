@@ -332,7 +332,7 @@ function S03_Housekeeping() {
   const items = [
     { num: '01', label: 'Fire',            body: "Note your nearest exit. In an alarm, follow the Slack team's lead." },
     { num: '02', label: 'Code of conduct', body: 'Be kind. Anything feel off? Find an organiser. confcodeofconduct.com.' },
-    { num: '03', label: 'Food & drink',    body: 'Soft drinks and nibbles, thanks to Slack. The floor closes at 21:00.' },
+    { num: '03', label: 'Food & drink',    body: 'Soft drinks and nibbles, thanks to Slack. We close at 20:30.' },
     { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team.' },
   ];
   return (
@@ -479,7 +479,7 @@ function S04_Talk1() {
       brand={<img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
       accent={C.accent}
       title="PLACEHOLDER: talk title to come."
-      bio="Thomas is a Product Engineer at Omnea, the AI procurement platform, where he recently helped build an AI agent with Adyen on a team trip to Amsterdam. Before Omnea he was a Product Engineer at Intercom, and earlier built tools and services at Twilio, Practifi and Honeywell in Sydney."
+      bio="Thomas is a Product Engineer at Omnea, an AI procurement platform, and recently helped build an AI agent with Adyen on a team trip to Amsterdam. Previously a Product Engineer at Intercom, Thomas earlier built tools and services at Twilio, Practifi and Honeywell in Sydney."
       photo="assets/speaker-kearsley.jpg"
     />
   );
@@ -496,7 +496,7 @@ function S05_Talk2() {
       role="AI Engineer"
       accent={C.accent}
       title="PLACEHOLDER: talk title to come."
-      bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, he was previously Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software he worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
+      bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
       photo="assets/speaker-cormack.jpg"
     />
   );
@@ -511,10 +511,10 @@ function S06_Talk3() {
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Jason Pope"
       role="Senior Manager, Solution Engineering"
-      brand={<SlackLogo variant="white" height={40} />}
+      brand={<SlackLogo variant="white" height={56} />}
       accent={C.accent}
       title="PLACEHOLDER: talk title to come."
-      bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing the impact of generative AI on how teams work. He joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
+      bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
       photo="assets/speaker-pope.jpg"
     />
   );
@@ -590,10 +590,10 @@ function S08_ThankYouSlack() {
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 13">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
-        top: 160, bottom: SPACE.padBottom,
+        top: 96, bottom: 96,
         display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 64, alignItems: 'center',
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', justifySelf: 'center', width: 'fit-content', maxWidth: '100%', textAlign: 'left' }}>
           <h2 data-reveal style={{
             ['--reveal-i']: 1,
             margin: 0, fontSize: 140, lineHeight: 1,
@@ -813,16 +813,19 @@ function S13_Closing() {
         </div>
         <div data-reveal style={{
           ['--reveal-i']: 3,
-          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
+          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
         }}>
           <div style={{
+            width: 340, height: 340, boxSizing: 'border-box',
             background: C.paper, padding: 24, border: `3px solid ${C.bgWarm}`,
           }}>
-            <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ display: 'block' }} />
+            <img src="assets/qr-linkedin-london-js.svg" width={280} height={280} alt="Follow London.js on LinkedIn" style={{ width: '100%', height: '100%', display: 'block' }} />
           </div>
-          <Mono style={{ fontSize: TYPE.micro, color: C.lavender, marginTop: 20 }}>
-            FOLLOW · linkedin.com/company/london-js
-          </Mono>
+          <div style={{ textAlign: 'center', marginTop: 24 }}>
+            <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>FOLLOW</Mono>
+            <br />
+            <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>linkedin.com/company/london-js</Mono>
+          </div>
           <div style={{ marginTop: 32 }}>
             <SlackLogo variant="white" height={72} />
           </div>
