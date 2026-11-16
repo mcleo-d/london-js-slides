@@ -287,7 +287,7 @@ function S02_Agenda() {
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
     ['18:40', 'Thomas Kearsley, Omnea', 'Talk and Q&A', true],
     ['19:00', 'Daryl Cecile, GitHub', 'Talk and Q&A', true],
-    ['19:20', 'Networking break', 'Drinks, conversation and a chance to stretch'],
+    ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
     ['19:40', 'Ryan Cormack', 'Talk and Q&A', true],
     ['20:00', 'Jason Pope, Slack', 'Talk and Q&A', true],
     ['20:20', 'Close', 'Drinks with the speakers, then the pub'],
@@ -330,10 +330,16 @@ function S02_Agenda() {
 // --- Slide 03  –  Housekeeping -------------------------------------------------
 function S03_Housekeeping() {
   const items = [
-    { num: '01', label: 'Fire',            body: "Note your nearest exit. In an alarm, follow the Slack team's lead." },
-    { num: '02', label: 'Code of conduct', body: 'Be kind. Anything feel off? Find an organiser. confcodeofconduct.com.' },
-    { num: '03', label: 'Food & drink',    body: 'Soft drinks and nibbles, thanks to Slack. We close at 20:30.' },
-    { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team.' },
+    { num: '01', label: 'Fire',            body: "Note your nearest exit. If the alarm sounds, leave calmly by the stairs, not the lifts, and follow the Slack team's lead." },
+    { num: '02', label: 'Code of conduct', body: (
+      <>
+        {"London.js is a friendly, inclusive space for everyone. Be kind and respectful. Anything feel off? Talk to James, Jordan or Will, or anyone from the Slack team."}
+        <br />
+        <a href="https://confcodeofconduct.com" style={{ color: C.accent, textDecoration: 'underline', textUnderlineOffset: 6 }}>confcodeofconduct.com</a>
+      </>
+    ) },
+    { num: '03', label: 'Food & drink',    body: 'Soft drinks, water and nibbles at the drinks station, thanks to Slack. Ask the Slack team for toilets or anything else. We close at 20:30.' },
+    { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team for the guest Wi-Fi details.' },
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 13">
@@ -511,7 +517,7 @@ function S06_Talk3() {
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Jason Pope"
       role="Senior Manager, Solution Engineering"
-      brand={<SlackLogo variant="white" height={56} />}
+      brand={<SlackLogo variant="white" height={72} />}
       accent={C.accent}
       title="PLACEHOLDER: talk title to come."
       bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
@@ -538,7 +544,7 @@ function S15_TalkCecile() {
   );
 }
 
-// --- Slide 10  –  Networking break ---------------------------------------------
+// --- Slide 10  –  Networking ---------------------------------------------
 function S14_Break() {
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="10 / 13">
@@ -554,7 +560,7 @@ function S14_Break() {
             <h2 style={{
               margin: 0, fontSize: 140, fontWeight: 700, lineHeight: 0.95,
               letterSpacing: '-0.03em',
-            }}>Networking break</h2>
+            }}>Networking</h2>
             <p style={{ margin: '40px 0 0', fontSize: TYPE.lead, lineHeight: 1.3 }}>
               Back at 19:40 with Ryan Cormack
             </p>
@@ -591,7 +597,7 @@ function S08_ThankYouSlack() {
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 96, bottom: 96,
-        display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 64, alignItems: 'center',
+        display: 'grid', gridTemplateColumns: '1fr 1.25fr', gap: 64, alignItems: 'center',
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', justifySelf: 'center', width: 'fit-content', maxWidth: '100%', textAlign: 'left' }}>
           <h2 data-reveal style={{
@@ -611,7 +617,7 @@ function S08_ThankYouSlack() {
           ['--reveal-i']: 2,
           display: 'flex', justifyContent: 'center', alignItems: 'center',
         }}>
-          <SlackLogo variant="white" height={240} />
+          <SlackLogo variant="white" height={300} style={{ padding: 0 }} />
         </div>
       </div>
     </Frame>
@@ -800,19 +806,26 @@ function S13_Closing() {
           </h2>
           <p data-reveal style={{
             ['--reveal-i']: 1,
+            margin: '24px 0 0', fontSize: 56, fontWeight: 600, lineHeight: 1.1,
+            letterSpacing: '-0.02em', color: C.accent,
+          }}>
+            Merry Christmas and Happy New Year
+          </p>
+          <p data-reveal style={{
+            ['--reveal-i']: 2,
             margin: '32px 0 0', fontSize: TYPE.lead, color: '#F2EEE4CC', lineHeight: 1.3,
           }}>
             Thanks to Slack for hosting and sponsoring tonight, and to tonight's speakers for sharing their time and knowledge.
           </p>
           <p data-reveal style={{
-            ['--reveal-i']: 2,
-            margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3,
+            ['--reveal-i']: 3,
+            margin: '24px 0 0', fontSize: TYPE.lead, fontWeight: 600, color: C.creamOnAubergine, lineHeight: 1.3,
           }}>
             London.js returns in early 2027.
           </p>
         </div>
         <div data-reveal style={{
-          ['--reveal-i']: 3,
+          ['--reveal-i']: 4,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
         }}>
           <div style={{
@@ -826,8 +839,8 @@ function S13_Closing() {
             <br />
             <Mono style={{ fontSize: TYPE.micro, color: C.lavender, whiteSpace: 'nowrap', textAlign: 'center' }}>linkedin.com/company/london-js</Mono>
           </div>
-          <div style={{ marginTop: 32 }}>
-            <SlackLogo variant="white" height={72} />
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 32 }}>
+            <SlackLogo variant="white" height={120} />
           </div>
         </div>
       </div>
