@@ -501,7 +501,7 @@ function S05_Talk2() {
       name="Ryan Cormack"
       role="AI Engineer"
       accent={C.accent}
-      title="PLACEHOLDER: talk title to come."
+      title="Building Open Source Agents using Open Protocols"
       bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
       photo="assets/speaker-cormack.jpg"
     />

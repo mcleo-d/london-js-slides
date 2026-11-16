@@ -119,10 +119,11 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 ## Talk 03
 
 - Speaker: Ryan Cormack. Role: AI Engineer. No brand (Ryan left Motorway in September 2026). Source: owner, 15 Nov 2026, for the line-up and order.
-- Title: `PLACEHOLDER: talk title to come.`
-- Abstract: `PLACEHOLDER: not yet supplied`.
+- Title: Building Open Source Agents using Open Protocols.
+- Description (not shown on the slide, which has no abstract prop): MCP, ACP, AG-UI, A2A, OpenTelemetry: the ways agents can operate are changing fast. Ryan shows how to build agents with the open-source Strands Agents SDK, connect them through open protocols, and run them on open-weight models.
 - Bio: Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup.
 - Photo: assets/speaker-cormack.jpg.
+- Source: Ryan via Jordan (WhatsApp), 16 Nov 2026. Bio confirmed by Ryan.
 - Source: linkedin.com/in/ryancormack (headline "Renaissance Developer and AI engineer"; Motorway Jun 2023 to Sep 2026).
 
 ## Talk 04
