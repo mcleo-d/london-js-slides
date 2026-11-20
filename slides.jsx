@@ -623,7 +623,7 @@ function S04_Talk1() {
       role="Product Engineer"
       brand={<img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
       accent={C.accent}
-      title={`Your API's newest user is an LLM`}
+      title={TALK_TITLES.tom}
       bio={`Tom Kearsley is a Product Engineer at Omnea, the procurement platform, and leads its MCP project: the layer that lets Claude, ChatGPT, Copilot, Gemini and customers' own agents work with their company's procurement data.`}
       photo="assets/speaker-kearsley.jpg"
     />
