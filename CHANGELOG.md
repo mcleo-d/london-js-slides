@@ -2,6 +2,14 @@
 
 Entries are keyed by event.
 
+## November 2026 - Slack
+
+London.js at Slack deck (Monday 23 November 2026): 14 slides, play order set by the November entry file.
+New lineup slide: speakers in running order with roles and talk titles. Agenda slide now shows the talk titles.
+Slack design system: aubergine palette, Slack logo files used unmodified with Slack's written permission, Thank you, Slack slide.
+Builds tagged nov2026-v83 to nov2026-v124 (cache-bust v=83 to v=124) and release candidates nov2026-rc1 to nov2026-rc12.
+Pre-merge tidy-up (no slide changes): unused October assets removed (still on archive/october-2026), README archive list and content pack sizes corrected.
+
 ## October 2026 - VEED.IO
 
 October 2026 VEED.IO deck live; April and July entry files retired to their archive branches.
@@ -15,6 +23,6 @@ Title footer: wordmark vertically centred with the date block. Wi-Fi: both cards
 Run of show: 10-minute welcome, two 20-minute talks with a changeover, presenter names in the agenda.
 Merge SHAs: S3 build 93ca326 (#26), S4 go-live af631b2 (#27). Final attendance 95 (Meetup).
 
-## July 2026 — incident.io
+## July 2026 - incident.io
 
 New deck for the London.js/incident.io co-branded event. incident.io is both host and sponsor; official SVG brand assets included with permission. April 2026 deck archived to `archive/april-2026`. Slides reordered from 10 to 12 slots and polished throughout. README and CHANGELOG added.
