@@ -288,9 +288,9 @@ function S02_Agenda() {
     ['18:40', 'Tom Kearsley', 'Talk and Q&A', true, 'omnea'],
     ['19:00', 'Daryl Cecile', 'Talk and Q&A', true, 'github'],
     ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
-    ['19:40', 'Ryan Cormack', 'Talk and Q&A', true],
-    ['20:00', 'Jason Pope', 'Talk and Q&A', true, 'slack'],
-    ['20:20', 'Close', 'Drinks with the speakers, then the pub'],
+    ['19:50', 'Ryan Cormack', 'Talk and Q&A', true],
+    ['20:10', 'Jason Pope', 'Talk and Q&A', true, 'slack'],
+    ['20:30', 'Close', 'Thank you and goodnight, then the pub'],
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 13">
@@ -521,10 +521,10 @@ function S06_Talk3() {
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Jason Pope"
-      role="Senior Manager, Solution Engineering"
+      role="Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire"
       brand={<SlackLogo variant="white" height={72} />}
       accent={C.accent}
-      title="PLACEHOLDER: talk title to come."
+      title="Slack for Communities & Engineering"
       bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
       photo="assets/speaker-pope.jpg"
     />
@@ -567,7 +567,7 @@ function S14_Break() {
               letterSpacing: '-0.03em',
             }}>Networking</h2>
             <p style={{ margin: '40px 0 0', fontSize: TYPE.lead, lineHeight: 1.3 }}>
-              Back at 19:40 with Ryan Cormack
+              Back at 19:50 with Ryan Cormack
             </p>
             <p style={{ margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3 }}>
               Grab a drink, meet someone new and stretch your legs.

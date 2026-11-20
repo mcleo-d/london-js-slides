@@ -42,9 +42,9 @@ Source: slides.jsx, owner instruction, 16 Nov 2026 (seven-row agenda on the Toni
 | 18:40 | Tom Kearsley, Omnea | Talk and Q&A |
 | 19:00 | Daryl Cecile, GitHub | Talk and Q&A |
 | 19:20 | Networking break | Drinks, conversation and a chance to stretch |
-| 19:40 | Ryan Cormack | Talk and Q&A |
-| 20:00 | Jason Pope, Slack | Talk and Q&A |
-| 20:20 | Close | Drinks with the speakers, then the pub |
+| 19:50 | Ryan Cormack | Talk and Q&A |
+| 20:10 | Jason Pope, Slack | Talk and Q&A |
+| 20:30 | Close | Thank you and goodnight, then the pub |
 
 ## Housekeeping
 
@@ -64,7 +64,7 @@ Kicker: `// before_we_start`. Title: "The important bits". Source: slides.jsx, c
 
 - Kicker: `// thank_you`
 - Headline: "Thank you, Slack"
-- Body: "PLACEHOLDER: Slack's own description, to come from the Slack team."
+- Body: "Slack is the AI-powered work OS, and the best place for Multiplayer AI: where people, agents, and apps work together."
 - Design note: Slack logo, white variant, 180px.
 
 Source: slides.jsx, committed 42897f2. This replaces the prior "Sponsor: Slack" section and its customer stats, which are no longer in the deck.
@@ -82,7 +82,7 @@ Source: slides.jsx, committed 42897f2. This replaces the prior "Sponsor: Slack" 
   - **4.7** - stars from 517 Meetup reviews.
   - **26** - floors up tonight.
 
-Source: slides.jsx, committed 42897f2 (all six tiles are now confirmed; the prior "By Numbers" section only had "24" confirmed, with the rest marked PLACEHOLDER).
+Source: slides.jsx, committed 42897f2 (all six tiles are now confirmed; the prior "By Numbers" section only had "24" confirmed, with the rest marked as to be confirmed).
 
 ## Welcome
 
@@ -129,9 +129,10 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 04
 
-- Speaker: Jason Pope, Slack. Role: Senior Manager, Solution Engineering. Brand: Slack logo, white variant, 56px. Source: owner, 15 Nov 2026, for the line-up and order.
-- Title: `PLACEHOLDER: talk title to come.`
-- Abstract: `PLACEHOLDER: not yet supplied`.
+- Speaker: Jason Pope, Slack. Role (as shown on the slide): Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire. Brand: Slack logo, white variant, 56px. Source: owner, 15 Nov 2026, for the line-up and order.
+- Title: Slack for Communities & Engineering.
+- Description (not shown on the slide, which has no abstract prop): Supporting collaboration and agent work becomes teamwork.
+- Speaker line: Jason Pope, Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire, Principal Solution Engineer, Slack. No bio or photo for Megan yet (pending from her).
 - Bio: Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.
 - Photo: assets/speaker-pope.jpg.
 - Source: linkedin.com/in/jspope (Senior Manager, Solution Engineering, Slack, Mar 2026 to present).
@@ -140,7 +141,7 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 - Slide 10 of 13, between Talk 02 and Talk 03. No kicker.
 - Headline: "Networking break"
-- Lead: "Back at 19:40 with Ryan Cormack"
+- Lead: "Back at 19:50 with Ryan Cormack"
 - Body: "Grab a drink, meet someone new and stretch your legs."
 - Right column: the Welcome slide's QR code and two-line `FOLLOW` / `linkedin.com/company/london-js` label.
 
