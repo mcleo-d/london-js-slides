@@ -538,25 +538,18 @@ function S16_Lineup() {
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
-        display: 'grid', gridTemplateColumns: '356px 1fr', gap: 48,
+        display: 'flex', flexDirection: 'column',
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, lineHeight: 1, color: C.creamOnAubergine }}>// lineup</Mono>
-          <h2 data-reveal style={{
-            margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
-            fontWeight: 600, letterSpacing: '-0.03em', textWrap: 'balance',
-          }}>Tonight’s speakers</h2>
-        </div>
         <div data-reveal style={{
-          ['--reveal-i']: 2,
+          ['--reveal-i']: 1,
           background: '#FFFFFF14', borderRadius: 20,
-          display: 'flex', flexDirection: 'column', overflow: 'hidden',
+          display: 'flex', flexDirection: 'column', overflow: 'hidden', flex: 1, minHeight: 0,
         }}>
-          <div style={{
-            padding: '14px 32px', borderBottom: '1px solid #F9F0FF33',
-            fontSize: TYPE.body, fontWeight: 600, color: C.creamOnAubergine,
+          <h2 style={{
+            margin: 0, padding: '14px 32px', borderBottom: '1px solid #F9F0FF33',
+            fontSize: TYPE.body, fontWeight: 600, lineHeight: 1.2, color: C.creamOnAubergine,
             fontFamily: '"JetBrains Mono", ui-monospace, monospace', letterSpacing: '0.02em',
-          }}># london-js</div>
+          }}># tonight’s speakers</h2>
           <div style={{ padding: '20px 32px 20px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1, minHeight: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 2 }}>
               <div style={{
@@ -573,14 +566,14 @@ function S16_Lineup() {
               <div key={t.num} style={{
                 flex: 1, display: 'flex', alignItems: 'center', gap: 32,
                 background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
-                borderRadius: '4px 14px 14px 4px', padding: '0 28px 0 24px', minHeight: 0,
+                borderRadius: '4px 14px 14px 4px', padding: '0 32px 0 32px', minHeight: 0,
               }}>
-                <div style={{ display: 'flex', width: 214, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
+                <div style={{ display: 'flex', width: 264, flex: 'none', alignItems: 'center', justifyContent: 'center' }}>
                   {t.photos.map(([src, alt], i) => (
                     <img key={src} src={src} alt={alt} style={{
                       width: 140, height: 140, boxSizing: 'border-box', borderRadius: '50%', objectFit: 'cover',
                       border: `3px solid ${t.color}`, display: 'block', flex: 'none',
-                      marginLeft: i === 0 ? 0 : -66,
+                      marginLeft: i === 0 ? 0 : -16,
                     }} />
                   ))}
                 </div>
