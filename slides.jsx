@@ -212,7 +212,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 // --- Slide 01  –  Title --------------------------------------------------------
 function S01_Title({ hostSize = 96 } = {}) {
   return (
-    <Frame bg={C.bgWarm} label="01 / 13">
+    <Frame bg={C.bgWarm} label="01 / 14">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -298,7 +298,7 @@ function S02_Agenda() {
     ['20:30', 'Close', 'Thank you and goodnight, then the pub'],
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -352,7 +352,7 @@ function S03_Housekeeping() {
     { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team for the guest Wi-Fi details.' },
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -518,11 +518,96 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
   );
 }
 
+// --- Slide 08  –  Lineup (chat-style card) -------------------------------------
+// Chat-channel card in the deck's own design language; deliberately not a
+// copy of the Slack app UI. Accent bars use the per-talk panel accents.
+function S16_Lineup() {
+  const talks = [
+    { num: '01', color: C.accent, name: 'Tom Kearsley', photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
+      role: <>Product Engineer at <strong>Omnea</strong></>, title: `Your API's newest user is an LLM` },
+    { num: '02', color: C.accentPurple, name: 'Daryl Cecile', photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
+      role: <>Software Engineer at <strong>GitHub</strong></>, title: 'Beyond the Reply: Building an AI Support Teammate' },
+    { num: '03', color: C.accentTeal, name: 'Ryan Cormack', photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
+      role: <>AI Engineer</>, title: 'Building Open Source Agents using Open Protocols' },
+    { num: '04', color: C.accentPink, name: 'Jason Pope and Megan Maguire',
+      photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
+      role: <strong>Slack</strong>, title: 'Slack for Communities & Engineering' },
+  ];
+  return (
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 160, bottom: SPACE.padBottom,
+        display: 'grid', gridTemplateColumns: '460px 1fr', gap: 64,
+      }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// lineup</Mono>
+          <h2 data-reveal style={{
+            margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
+            fontWeight: 600, letterSpacing: '-0.03em', textWrap: 'balance',
+          }}>Tonight's speakers</h2>
+        </div>
+        <div data-reveal style={{
+          ['--reveal-i']: 2,
+          background: '#FFFFFF14', borderRadius: 20,
+          display: 'flex', flexDirection: 'column', overflow: 'hidden',
+        }}>
+          <div style={{
+            padding: '18px 32px', borderBottom: '1px solid #F9F0FF33',
+            fontSize: TYPE.body, fontWeight: 600, color: C.creamOnAubergine,
+            fontFamily: '"JetBrains Mono", ui-monospace, monospace', letterSpacing: '0.02em',
+          }}># london-js</div>
+          <div style={{ padding: '22px 32px 28px', display: 'flex', flexDirection: 'column', gap: 18, flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+              <div style={{
+                width: 60, height: 60, borderRadius: 14, background: C.accent, color: C.ink,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 30, fontWeight: 700, letterSpacing: '-0.04em', flex: 'none',
+              }}>.js</div>
+              <div style={{ fontSize: TYPE.body, color: C.creamOnAubergine }}>
+                <strong style={{ fontWeight: 700 }}>London.js</strong>
+                <span style={{ marginLeft: 20 }}>Here's the lineup 👇</span>
+              </div>
+            </div>
+            {talks.map((t) => (
+              <div key={t.num} style={{
+                flex: 1, display: 'flex', alignItems: 'center', gap: 28,
+                background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
+                borderRadius: '4px 14px 14px 4px', padding: '0 28px 0 24px', minHeight: 0,
+              }}>
+                <div style={{ display: 'flex', width: 176, flex: 'none', alignItems: 'center' }}>
+                  {t.photos.map(([src, alt], i) => (
+                    <img key={src} src={src} alt={alt} style={{
+                      width: 96, height: 96, borderRadius: '50%', objectFit: 'cover',
+                      border: `3px solid ${t.color}`, display: 'block', flex: 'none',
+                      marginLeft: i === 0 ? 0 : -24,
+                    }} />
+                  ))}
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 18 }}>
+                    <span style={{ fontSize: TYPE.lead - 6, fontWeight: 600, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{t.name}</span>
+                    <span style={{ fontSize: TYPE.small, color: '#F2EEE4E6' }}>{t.role}</span>
+                  </div>
+                  <div style={{
+                    marginTop: 6, fontSize: TYPE.lead - 4, fontWeight: 600, lineHeight: 1.15,
+                    color: C.creamOnAubergine, textWrap: 'balance',
+                  }}>&ldquo;{t.title}&rdquo;</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Slide 04  –  Talk 1 -------------------------------------------------------
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="08 / 13"
+      label="09 / 14"
       num="01" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Tom Kearsley"
@@ -540,7 +625,7 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="11 / 13"
+      label="12 / 14"
       num="03" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Ryan Cormack"
@@ -558,7 +643,7 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="12 / 13"
+      label="13 / 14"
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
@@ -576,7 +661,7 @@ function S06_Talk3() {
 function S15_TalkCecile() {
   return (
     <TalkSlide
-      label="09 / 13"
+      label="10 / 14"
       num="02" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Daryl Cecile"
@@ -594,7 +679,7 @@ function S15_TalkCecile() {
 // --- Slide 10  –  Networking ---------------------------------------------
 function S14_Break() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="10 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="11 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 96, bottom: 96,
@@ -640,7 +725,7 @@ function S14_Break() {
 // --- Slide 05  –  Thank you, Slack (merged host + sponsor) --------------------
 function S08_ThankYouSlack() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 96, bottom: 96,
@@ -692,7 +777,7 @@ const Stat = ({ n, label, i = 0, accentBorder }) => (
 // --- Slide 06  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -739,7 +824,7 @@ function S11_ByNumbers() {
 // --- Slide 02  –  Welcome -------------------------------------------------------
 function S10_Welcome() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 14">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -806,7 +891,7 @@ function S10_Welcome() {
 // --- Slide 07  Announcements section divider ----------------------------
 function S12_Announcements() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
@@ -836,7 +921,7 @@ function S12_Announcements() {
 // --- Slide 11  –  Closing -------------------------------------------------------
 function S13_Closing() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="13 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="14 / 14">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -907,4 +992,5 @@ window.Slides = {
   S10_Welcome,
   S12_Announcements,
   S13_Closing,
+  S16_Lineup,
 };

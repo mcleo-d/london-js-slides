@@ -26,11 +26,20 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 
 ## Flow
 
-The 13-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s15; every label reads "NN / 13"):
+The 14-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s16; every label reads "NN / 14"). Slide 08, the lineup, is under review on branch `review/november-2026-accents-and-lineup` and is not part of Monday's deck (ecda62c, PR #38) until approved:
 
-01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Talk 01, Tom Kearsley (s04) · 09 Talk 02, Daryl Cecile (s15) · 10 Networking break (s14) · 11 Talk 03, Ryan Cormack (s05) · 12 Talk 04, Jason Pope and Megan Maguire (s06) · 13 Closing (s13).
+01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Lineup, chat-style card (s16, under review) · 09 Talk 01, Tom Kearsley (s04) · 10 Talk 02, Daryl Cecile (s15) · 11 Networking break (s14) · 12 Talk 03, Ryan Cormack (s05) · 13 Talk 04, Jason Pope and Megan Maguire (s06) · 14 Closing (s13).
 
 Source: London JS - November 2026.html and slides.jsx, owner instruction, 16 Nov 2026.
+
+## Lineup (under review)
+
+- Slide 08 of 14, immediately before Talk 01. Under review on branch `review/november-2026-accents-and-lineup`; not in the Monday deck until approved.
+- Kicker: `// lineup`. Title: "Tonight's speakers".
+- Chat-style card with a `# london-js` channel header, one message from London.js ("Here's the lineup 👇") and four speaker cards in running order, each with photo, name, role (company in bold), talk title in quotes and a left accent bar in that talk's accent colour.
+- Per-talk accents (panel left border on the talk slides and the lineup bars): 01 yellow, 02 purple, 03 teal, 04 pink. Tokens: `accent`, `accentPurple`, `accentTeal`, `accentPink` in `slides.jsx`.
+
+Source: owner instruction, 20 Nov 2026.
 
 ## Agenda
 
@@ -142,7 +151,7 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Networking break
 
-- Slide 10 of 13, between Talk 02 and Talk 03. No kicker.
+- Slide 11 of 14, between Talk 02 and Talk 03. No kicker.
 - Headline: "Networking break"
 - Lead: "Back at 19:50 with Ryan Cormack"
 - Body: "Grab a drink, meet someone new and stretch your legs."
@@ -163,7 +172,7 @@ Source: slides.jsx, committed 42897f2.
 
 ## Design notes
 
-- The yellow london.js header mark appears on slides 02 to 13 (the aubergine-background slides); slide 01 (yellow background) keeps the header mark in ink colour, not yellow.
+- The yellow london.js header mark appears on slides 02 to 14 (the aubergine-background slides); slide 01 (yellow background) keeps the header mark in ink colour, not yellow.
 - Cream kickers (the mono `//` labels) on the aubergine slides.
 - Yellow agenda times on the Tonight slide.
 - Slack logo sizes: Title slide 96px on a white plate; Thank you, Slack slide 180px; Closing slide 72px.
