@@ -575,12 +575,12 @@ function S16_Lineup() {
                 background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
                 borderRadius: '4px 14px 14px 4px', padding: '0 28px 0 24px', minHeight: 0,
               }}>
-                <div style={{ display: 'flex', width: 182, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
+                <div style={{ display: 'flex', width: 214, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
                   {t.photos.map(([src, alt], i) => (
                     <img key={src} src={src} alt={alt} style={{
                       width: 140, height: 140, boxSizing: 'border-box', borderRadius: '50%', objectFit: 'cover',
                       border: `3px solid ${t.color}`, display: 'block', flex: 'none',
-                      marginLeft: i === 0 ? 0 : -98,
+                      marginLeft: i === 0 ? 0 : -66,
                     }} />
                   ))}
                 </div>
