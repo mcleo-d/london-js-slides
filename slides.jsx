@@ -439,12 +439,12 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
     <>
       <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>
         {speakers.map((sp) => (
-          <div key={sp.name} style={{ maxWidth: 320, minWidth: 0 }}>
+          <div key={sp.name} style={{ flex: '1 1 0', minWidth: 0 }}>
             <img src={sp.photo} alt={sp.alt || sp.name} style={{ width: 160, height: 160, borderRadius: '50%', objectFit: 'cover', border: `3px solid ${accent}`, display: 'block' }} />
-            <div style={{ fontSize: TYPE.lead, fontWeight: 600, letterSpacing: '-0.02em', marginTop: 20 }}>
+            <div style={{ fontSize: TYPE.subtitle, fontWeight: 600, letterSpacing: '-0.02em', marginTop: 20 }}>
               {sp.name}
             </div>
-            <div style={{ fontSize: TYPE.small, color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft, marginTop: 8, lineHeight: 1.3 }}>
+            <div style={{ fontSize: TYPE.body, color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft, marginTop: 12 }}>
               {sp.role}
             </div>
             {sp.logo && (
@@ -656,8 +656,8 @@ function S06_Talk3() {
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
-        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', bio: "Jason leads Slack's UK Solution Engineering team and sits on its UK go-to-market leadership team, helping customers solve business challenges and showing how generative AI changes the way teams work.", logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
-        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', bio: 'Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
+        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', bio: "Jason leads Slack's UK Solution Engineering team and sits on its UK go-to-market leadership team, helping customers solve business challenges and showing how generative AI changes the way teams work.", logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
+        { name: 'Megan Maguire', role: 'Principal Solution Engineer', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', bio: 'Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
       ]}
       accent={C.accent}
       panelAccent={C.accentPink}
