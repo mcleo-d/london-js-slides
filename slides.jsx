@@ -420,12 +420,12 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
       )}
     </>
   );
-  // Optional co-speakers: two equal blocks side by side, brand once below.
+  // Optional co-speakers: two left-aligned blocks, each with its own logo.
   const speakerRow = speakers && speakers.length === 2 ? (
     <>
-      <div style={{ display: 'flex', gap: 48, alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>
         {speakers.map((sp) => (
-          <div key={sp.name} style={{ flex: 1, minWidth: 0 }}>
+          <div key={sp.name} style={{ maxWidth: 320, minWidth: 0 }}>
             <img src={sp.photo} alt={sp.alt || sp.name} style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', border: `3px solid ${accent}`, display: 'block' }} />
             <div style={{ fontSize: TYPE.lead, fontWeight: 600, letterSpacing: '-0.02em', marginTop: 20 }}>
               {sp.name}
@@ -433,14 +433,14 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
             <div style={{ fontSize: TYPE.small, color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft, marginTop: 8, lineHeight: 1.3 }}>
               {sp.role}
             </div>
+            {sp.logo && (
+              <div style={{ marginTop: 14 }}>
+                {sp.logo}
+              </div>
+            )}
           </div>
         ))}
       </div>
-      {brand && (
-        <div style={{ marginTop: 24 }}>
-          {brand}
-        </div>
-      )}
     </>
   ) : null;
   return (
@@ -544,10 +544,9 @@ function S06_Talk3() {
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
-        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope' },
-        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire' },
+        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', logo: <SlackLogo variant="white" height={40} /> },
+        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', logo: <SlackLogo variant="white" height={40} /> },
       ]}
-      brand={<SlackLogo variant="white" height={72} />}
       accent={C.accent}
       title="Slack for Communities & Engineering"
       bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}

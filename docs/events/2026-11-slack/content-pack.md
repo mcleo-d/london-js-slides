@@ -129,7 +129,7 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 04
 
-- Speakers (equal co-speakers, shown side by side, photos about 120px): Jason Pope, Senior Manager, Solution Engineering, Slack; Megan Maguire, Principal Solution Engineer, Slack. Brand: Slack logo, white variant, 56px. Source: owner, 15 Nov 2026, for the line-up and order.
+- Speakers (equal co-speakers, shown side by side, photos about 120px, left-aligned about 64px apart, a Slack logo under each speaker): Jason Pope, Senior Manager, Solution Engineering, Slack; Megan Maguire, Principal Solution Engineer, Slack. Brand: Slack logo, white variant, 40px, shown once under each speaker. Source: owner, 15 Nov 2026, for the line-up and order.
 - Title: Slack for Communities & Engineering.
 - Description (not shown on the slide, which has no abstract prop): Supporting collaboration and agent work becomes teamwork.
 - Speaker line: Jason Pope, Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire, Principal Solution Engineer, Slack. Megan's bio is pending from her; the right panel carries Jason's bio only.
