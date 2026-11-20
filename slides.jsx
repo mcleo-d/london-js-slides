@@ -531,14 +531,14 @@ function S16_Lineup() {
       role: <>AI Engineer</>, title: 'Building Open Source Agents using Open Protocols' },
     { num: '04', color: C.accentPink, name: 'Jason Pope and Megan Maguire',
       photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
-      role: <SlackLogo variant="white" height={28} style={{ padding: 0 }} />, title: 'Slack for Communities & Engineering' },
+      role: <SlackLogo variant="white" height={32} style={{ padding: 0 }} />, title: 'Slack for Communities & Engineering' },
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
-        display: 'grid', gridTemplateColumns: '356px 1fr', gap: 20,
+        display: 'grid', gridTemplateColumns: '356px 1fr', gap: 48,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Mono data-reveal style={{ fontSize: TYPE.micro, lineHeight: 1, color: C.creamOnAubergine }}>// lineup</Mono>
@@ -575,17 +575,17 @@ function S16_Lineup() {
                 background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
                 borderRadius: '4px 14px 14px 4px', padding: '0 28px 0 24px', minHeight: 0,
               }}>
-                <div style={{ display: 'flex', width: 214, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
+                <div style={{ display: 'flex', width: 182, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
                   {t.photos.map(([src, alt], i) => (
                     <img key={src} src={src} alt={alt} style={{
                       width: 140, height: 140, boxSizing: 'border-box', borderRadius: '50%', objectFit: 'cover',
                       border: `3px solid ${t.color}`, display: 'block', flex: 'none',
-                      marginLeft: i === 0 ? 0 : -66,
+                      marginLeft: i === 0 ? 0 : -98,
                     }} />
                   ))}
                 </div>
                 <div style={{ minWidth: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 18 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 24 }}>
                     <span style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{t.name}</span>
                     <span style={{ fontSize: TYPE.small, color: C.lavender, display: 'inline-flex', alignItems: 'center', gap: 12 }}>{t.role}</span>
                   </div>
