@@ -18,6 +18,9 @@
   --rule-strong:  #16151433;
   --accent:       #FFD93D;       /* motorway yellow */
   --accent-mint:  #3DD9A5;       /* omnea green */
+  --accent-purple: #B794FF;      /* talk 02 panel accent */
+  --accent-teal:   #2DD4BF;      /* talk 03 panel accent */
+  --accent-pink:   #FF7AC6;      /* talk 04 panel accent */
   --accent-ink:   oklch(0.45 0.14 70);
   --paper:        #FFFFFF;
 

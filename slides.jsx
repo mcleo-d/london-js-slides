@@ -37,6 +37,11 @@ const C = {
   aubergine: '#481A54',
   creamOnAubergine: '#F2EEE4',
   lavender: '#F9F0FF',
+  // Per-talk panel accents (talk 01 keeps `accent` yellow). Chosen to stay
+  // clearly visible on the aubergine background at projector brightness.
+  accentPurple: '#B794FF',            // talk 02
+  accentTeal: '#2DD4BF',              // talk 03
+  accentPink: '#FF7AC6',              // talk 04
 };
 
 // --- Atoms -------------------------------------------------------------------
@@ -207,7 +212,7 @@ const NoiseHero = ({ color = C.ink, density = 0.18 }) => {
 // --- Slide 01  –  Title --------------------------------------------------------
 function S01_Title({ hostSize = 96 } = {}) {
   return (
-    <Frame bg={C.bgWarm} label="01 / 13">
+    <Frame bg={C.bgWarm} label="01 / 14">
       <NoiseHero color={C.ink} density={0.04} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -282,18 +287,26 @@ function FooterCoBrand({ hostSize = 40 }) {
 }
 
 // --- Slide 02  –  Run of show --------------------------------------------------
+// Talk titles shown on the agenda (03) and lineup (08) slides: one source.
+const TALK_TITLES = {
+  tom: `Your API’s newest user is an LLM`,
+  daryl: 'Beyond the Reply: Building an AI Support Teammate',
+  ryan: 'Building Open Source Agents using Open Protocols',
+  slack: 'Slack for Communities & Engineering',
+};
+
 function S02_Agenda() {
   const rows = [
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
-    ['18:40', 'Tom Kearsley', 'Talk and Q&A', true, 'omnea'],
-    ['19:00', 'Daryl Cecile', 'Talk and Q&A', true, 'github'],
+    ['18:40', 'Tom Kearsley', TALK_TITLES.tom, true, 'omnea'],
+    ['19:00', 'Daryl Cecile', TALK_TITLES.daryl, true, 'github'],
     ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
-    ['19:50', 'Ryan Cormack', 'Talk and Q&A', true],
-    ['20:10', 'Jason & Megan', 'Talk and Q&A', true, 'slack'],
+    ['19:50', 'Ryan Cormack', TALK_TITLES.ryan, true],
+    ['20:10', 'Jason & Megan', TALK_TITLES.slack, true, 'slack'],
     ['20:30', 'Close', 'Thank you and goodnight, then the pub'],
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -347,7 +360,7 @@ function S03_Housekeeping() {
     { num: '04', label: 'Wi-Fi',           body: 'Ask the Slack team for the guest Wi-Fi details.' },
   ];
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="04 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -393,7 +406,7 @@ function S03_Housekeeping() {
 }
 
 // --- Talk slide template -----------------------------------------------------
-function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, photo, speakers, label, accent = C.accentInk, bg = C.bg, ink = C.ink }) {
+function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, photo, speakers, label, accent = C.accentInk, panelAccent = accent, bg = C.bg, ink = C.ink }) {
   // No published abstract: the right-hand panel carries the bio instead.
   const coSpeakers = speakers && speakers.length === 2;
   const panelLabel = abstract ? 'ABSTRACT' : (coSpeakers ? 'ABOUT THE SPEAKERS' : 'ABOUT THE SPEAKER');
@@ -479,7 +492,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
           background: ink === C.bg ? '#FFFFFF14' : (bg === C.bgWarm ? 'rgba(255,255,255,0.35)' : '#16151418'),
           padding: '48px 44px',
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          borderLeft: `2px solid ${accent}`,
+          borderLeft: `2px solid ${panelAccent}`,
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <Mono style={{ fontSize: TYPE.micro, color: ink === C.bg ? '#F2EEE4CC' : C.inkMute }}>
@@ -493,7 +506,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
           </div>
           {coSpeakers && !abstract ? speakers.map((sp, i) => (
             <div key={sp.name} style={{ marginTop: i === 0 ? 20 : 40 }}>
-              <Mono style={{ fontSize: TYPE.micro, color: accent, fontWeight: 600 }}>{sp.name}</Mono>
+              <Mono style={{ fontSize: TYPE.micro, color: panelAccent, fontWeight: 600 }}>{sp.name}</Mono>
               <p style={{
                 margin: '8px 0 0', fontSize: TYPE.small, lineHeight: 1.4,
                 color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft,
@@ -513,11 +526,97 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
   );
 }
 
+// --- Slide 08  –  Lineup (chat-style card) -------------------------------------
+// Chat-channel card in the deck's own design language; deliberately not a
+// copy of the Slack app UI. Accent bars use the per-talk panel accents.
+function S16_Lineup() {
+  // Roles are as written in the content pack (Talk 04) and the talk 04 slide panel.
+  const talks = [
+    { num: '01', color: C.accent, photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
+      lines: [[{ name: 'Tom Kearsley', role: 'Product Engineer', logo: <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 28, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} /> }]], title: TALK_TITLES.tom },
+    { num: '02', color: C.accentPurple, photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
+      lines: [[{ name: 'Daryl Cecile', role: 'Software Engineer', logo: <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 28, width: 'auto', display: 'block' }} /> }]], title: TALK_TITLES.daryl },
+    { num: '03', color: C.accentTeal, photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
+      lines: [[{ name: 'Ryan Cormack', role: 'AI Engineer' }]], title: TALK_TITLES.ryan },
+    { num: '04', color: C.accentPink,
+      photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
+      lines: [[{ name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }], [{ name: 'Megan Maguire', role: 'Principal Solution Engineer', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }]], title: TALK_TITLES.slack },
+  ];
+  return (
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 160, bottom: SPACE.padBottom,
+        display: 'flex', flexDirection: 'column',
+      }}>
+        <div data-reveal style={{
+          ['--reveal-i']: 1,
+          background: '#FFFFFF14', borderRadius: 20,
+          display: 'flex', flexDirection: 'column', overflow: 'hidden', flex: 1, minHeight: 0,
+        }}>
+          <h2 style={{
+            margin: 0, padding: '10px 32px', borderBottom: '1px solid #F9F0FF33',
+            display: 'flex', alignItems: 'center', columnGap: 16,
+            fontSize: TYPE.body, fontWeight: 600, lineHeight: 1.2, color: C.creamOnAubergine,
+            fontFamily: '"JetBrains Mono", ui-monospace, monospace', letterSpacing: '0.02em',
+          }}>
+            <span aria-hidden="true" style={{
+              width: 46, height: 46, borderRadius: 11, background: C.accent, color: C.ink,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: '"Inter Tight", system-ui, sans-serif',
+              fontSize: 23, fontWeight: 700, letterSpacing: '-0.04em', flex: 'none',
+            }}>.js</span>
+            <span>tonight’s speakers</span>
+          </h2>
+          <div style={{ padding: '20px 32px 20px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1, minHeight: 0 }}>
+            {talks.map((t) => (
+              <div key={t.num} style={{
+                flex: 1, display: 'flex', alignItems: 'center', gap: 32,
+                background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
+                borderRadius: '4px 14px 14px 4px', padding: '0 32px 0 32px', minHeight: 0,
+              }}>
+                <div style={{ display: 'flex', width: 264, flex: 'none', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  {t.photos.map(([src, alt], i) => (
+                    <img key={src} src={src} alt={alt} style={{
+                      width: 140, height: 140, boxSizing: 'border-box', borderRadius: '50%', objectFit: 'cover',
+                      border: `3px solid ${t.color}`, display: 'block', flex: 'none',
+                      marginLeft: i === 0 ? 0 : -16,
+                    }} />
+                  ))}
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  {t.lines.map((line, li) => (
+                    <div key={li} style={{ display: 'flex', alignItems: 'center', columnGap: 24, whiteSpace: 'nowrap', marginTop: li ? 4 : 0 }}>
+                      {line.map((pp, pi) => (
+                        <React.Fragment key={pp.name}>
+                          {pi > 0 && <span style={{ fontSize: TYPE.small, color: C.lavender }}>·</span>}
+                          <span style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{pp.name}</span>
+                          <span style={{ fontSize: TYPE.small, color: C.lavender, display: 'inline-flex', alignItems: 'center', gap: 12 }}>
+                            {pp.role}{pp.logo ? ' at' : ''}{pp.logo}
+                          </span>
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  ))}
+                  <div style={{
+                    marginTop: 6, fontSize: 32, fontWeight: 400, lineHeight: 1.2,
+                    color: C.creamOnAubergine, textWrap: 'balance',
+                  }}>{t.title}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Slide 04  –  Talk 1 -------------------------------------------------------
 function S04_Talk1() {
   return (
     <TalkSlide
-      label="08 / 13"
+      label="09 / 14"
       num="01" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Tom Kearsley"
@@ -535,12 +634,13 @@ function S04_Talk1() {
 function S05_Talk2() {
   return (
     <TalkSlide
-      label="11 / 13"
+      label="12 / 14"
       num="03" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Ryan Cormack"
       role="AI Engineer"
       accent={C.accent}
+      panelAccent={C.accentTeal}
       title="Building Open Source Agents using Open Protocols"
       bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
       photo="assets/speaker-cormack.jpg"
@@ -552,7 +652,7 @@ function S05_Talk2() {
 function S06_Talk3() {
   return (
     <TalkSlide
-      label="12 / 13"
+      label="13 / 14"
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
@@ -560,6 +660,7 @@ function S06_Talk3() {
         { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', bio: 'Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
       ]}
       accent={C.accent}
+      panelAccent={C.accentPink}
       title="Slack for Communities & Engineering"
     />
   );
@@ -569,13 +670,14 @@ function S06_Talk3() {
 function S15_TalkCecile() {
   return (
     <TalkSlide
-      label="09 / 13"
+      label="10 / 14"
       num="02" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       name="Daryl Cecile"
       role="Software Engineer"
       brand={<img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 40, width: 'auto', display: 'block' }} />}
       accent={C.accent}
+      panelAccent={C.accentPurple}
       title="Beyond the Reply: Building an AI Support Teammate"
       bio="Daryl is a Software Engineer at GitHub. Before GitHub, Daryl spent nearly four years at Capital One, latterly as a Senior Software Engineer, and co-founded ProjectFunction. Outside work, Daryl is building Knosh.app and writes about engineering with AI agents at darylcecile.net."
       photo="assets/speaker-cecile.jpg"
@@ -586,7 +688,7 @@ function S15_TalkCecile() {
 // --- Slide 10  –  Networking ---------------------------------------------
 function S14_Break() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="10 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="11 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 96, bottom: 96,
@@ -632,7 +734,7 @@ function S14_Break() {
 // --- Slide 05  –  Thank you, Slack (merged host + sponsor) --------------------
 function S08_ThankYouSlack() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="05 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 96, bottom: 96,
@@ -684,7 +786,7 @@ const Stat = ({ n, label, i = 0, accentBorder }) => (
 // --- Slide 06  –  London.js by numbers ----------------------------------------
 function S11_ByNumbers() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="06 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
@@ -731,7 +833,7 @@ function S11_ByNumbers() {
 // --- Slide 02  –  Welcome -------------------------------------------------------
 function S10_Welcome() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="02 / 14">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -798,7 +900,7 @@ function S10_Welcome() {
 // --- Slide 07  Announcements section divider ----------------------------
 function S12_Announcements() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="07 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 320, bottom: SPACE.padBottom,
@@ -828,7 +930,7 @@ function S12_Announcements() {
 // --- Slide 11  –  Closing -------------------------------------------------------
 function S13_Closing() {
   return (
-    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="13 / 13">
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="14 / 14">
       <NoiseHero color={C.creamOnAubergine} density={0.08} />
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
@@ -899,4 +1001,5 @@ window.Slides = {
   S10_Welcome,
   S12_Announcements,
   S13_Closing,
+  S16_Lineup,
 };
