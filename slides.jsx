@@ -395,7 +395,8 @@ function S03_Housekeeping() {
 // --- Talk slide template -----------------------------------------------------
 function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, photo, speakers, label, accent = C.accentInk, bg = C.bg, ink = C.ink }) {
   // No published abstract: the right-hand panel carries the bio instead.
-  const panelLabel = abstract ? 'ABSTRACT' : 'ABOUT THE SPEAKER';
+  const coSpeakers = speakers && speakers.length === 2;
+  const panelLabel = abstract ? 'ABSTRACT' : (coSpeakers ? 'ABOUT THE SPEAKERS' : 'ABOUT THE SPEAKER');
   const panelText = abstract || bio;
   const bioInline = abstract ? bio : null;
   const nameStack = (
@@ -421,7 +422,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
     </>
   );
   // Optional co-speakers: two left-aligned blocks, each with its own logo.
-  const speakerRow = speakers && speakers.length === 2 ? (
+  const speakerRow = coSpeakers ? (
     <>
       <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>
         {speakers.map((sp) => (
@@ -490,11 +491,22 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
               fontFamily: '"Inter Tight", system-ui, sans-serif',
             }}>{num}</span>
           </div>
+          {coSpeakers && !abstract ? speakers.map((sp, i) => (
+            <div key={sp.name} style={{ marginTop: i === 0 ? 20 : 40 }}>
+              <Mono style={{ fontSize: TYPE.micro, color: accent, fontWeight: 600 }}>{sp.name}</Mono>
+              <p style={{
+                margin: '8px 0 0', fontSize: TYPE.small, lineHeight: 1.4,
+                color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft,
+                textWrap: 'pretty',
+              }}>{sp.bio}</p>
+            </div>
+          )) : (
           <p style={{
             margin: '20px 0 0', fontSize: TYPE.body, lineHeight: 1.4,
             color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft,
             textWrap: 'pretty',
           }}>{panelText}</p>
+          )}
         </div>
       </div>
     </Frame>
@@ -544,12 +556,11 @@ function S06_Talk3() {
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
-        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
-        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
+        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', bio: "Jason leads Slack's UK Solution Engineering team and sits on its UK go-to-market leadership team, helping customers solve business challenges and showing how generative AI changes the way teams work.", logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
+        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', bio: 'Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
       ]}
       accent={C.accent}
       title="Slack for Communities & Engineering"
-      bio={`Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.`}
     />
   );
 }
