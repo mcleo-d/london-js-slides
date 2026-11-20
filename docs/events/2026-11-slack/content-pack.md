@@ -28,7 +28,7 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 
 The 13-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s15; every label reads "NN / 13"):
 
-01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Talk 01, Tom Kearsley (s04) · 09 Talk 02, Daryl Cecile (s15) · 10 Networking break (s14) · 11 Talk 03, Ryan Cormack (s05) · 12 Talk 04, Jason Pope (s06) · 13 Closing (s13).
+01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Talk 01, Tom Kearsley (s04) · 09 Talk 02, Daryl Cecile (s15) · 10 Networking break (s14) · 11 Talk 03, Ryan Cormack (s05) · 12 Talk 04, Jason Pope and Megan Maguire (s06) · 13 Closing (s13).
 
 Source: London JS - November 2026.html and slides.jsx, owner instruction, 16 Nov 2026.
 
@@ -43,7 +43,7 @@ Source: slides.jsx, owner instruction, 16 Nov 2026 (seven-row agenda on the Toni
 | 19:00 | Daryl Cecile, GitHub | Talk and Q&A |
 | 19:20 | Networking break | Drinks, conversation and a chance to stretch |
 | 19:50 | Ryan Cormack | Talk and Q&A |
-| 20:10 | Jason Pope, Slack | Talk and Q&A |
+| 20:10 | Jason & Megan, Slack | Talk and Q&A |
 | 20:30 | Close | Thank you and goodnight, then the pub |
 
 ## Housekeeping
@@ -129,12 +129,12 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 04
 
-- Speaker: Jason Pope, Slack. Role (as shown on the slide): Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire. Brand: Slack logo, white variant, 56px. Source: owner, 15 Nov 2026, for the line-up and order.
+- Speakers (equal co-speakers, shown side by side, photos about 120px): Jason Pope, Senior Manager, Solution Engineering, Slack; Megan Maguire, Principal Solution Engineer, Slack. Brand: Slack logo, white variant, 56px. Source: owner, 15 Nov 2026, for the line-up and order.
 - Title: Slack for Communities & Engineering.
 - Description (not shown on the slide, which has no abstract prop): Supporting collaboration and agent work becomes teamwork.
-- Speaker line: Jason Pope, Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire, Principal Solution Engineer, Slack. No bio or photo for Megan yet (pending from her).
+- Speaker line: Jason Pope, Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire, Principal Solution Engineer, Slack. Megan's bio is pending from her; the right panel carries Jason's bio only.
 - Bio: Jason leads Slack's UK Solution Engineering team, helping customers solve business challenges on the Slack platform and showing how generative AI changes the way teams work. Jason joined Slack in 2022 as a Principal Specialist Solution Engineer and now sits on Slack's UK go-to-market leadership team.
-- Photo: assets/speaker-pope.jpg.
+- Photos: assets/speaker-pope.jpg (Jason), assets/speaker-maguire.jpg (Megan, 320 x 320 baseline JPEG).
 - Source: linkedin.com/in/jspope (Senior Manager, Solution Engineering, Slack, Mar 2026 to present).
 
 ## Networking break
