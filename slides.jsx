@@ -819,8 +819,8 @@ function S11_ByNumbers() {
           gap: 32,
         }}>
           <Stat n="24"    label="events since the relaunch" i={0} accentBorder={C.lavender} />
-          <Stat n="4,518" label="Meetup members"             i={1} accentBorder={C.lavender} />
-          <Stat n="1,819" label="LinkedIn followers"         i={2} accentBorder={C.lavender} />
+          <Stat n="4,555" label="Meetup members"             i={1} accentBorder={C.lavender} />
+          <Stat n="1,829" label="LinkedIn followers"         i={2} accentBorder={C.lavender} />
           <Stat n="110"   label="places tonight"             i={3} accentBorder={C.lavender} />
           <Stat n="4.7"   label="stars from 517 Meetup reviews" i={4} accentBorder={C.lavender} />
           <Stat n="26"    label="floors up tonight"           i={5} accentBorder={C.lavender} />
