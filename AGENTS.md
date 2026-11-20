@@ -62,7 +62,7 @@ Slide content lives in `slides.jsx`. Slide play order lives in `London JS - Nove
 ### Event details
 - **Date:** Monday 23 November 2026, doors 17:30, welcome and talks from 18:30, close 20:30
 - **Venue:** Salesforce Tower, 110 Bishopsgate, London EC2N 4AY
-- **Organizers:** James McLeod (NatWest Group), Jordan Potts (Albany Growth), Will Laing (Plan:it)
+- **Organizers:** James McLeod (NatWest Group), Jordan Potts (Albany), Will Laing (Plan:it)
 - **Host and sponsor:** Slack
 - **Running order:** 18:30 Welcome; 18:40 Tom Kearsley; 19:00 Daryl Cecile; 19:20 Networking; 19:50 Ryan Cormack; 20:10 Jason Pope and Megan Maguire; 20:30 Close
 - **Talks:** Tom Kearsley (Omnea), "Your API's newest user is an LLM"; Daryl Cecile (GitHub), "Beyond the Reply: Building an AI Support Teammate"; Ryan Cormack, "Building Open Source Agents using Open Protocols"; Jason Pope and Megan Maguire (Slack), "Slack for Communities & Engineering"

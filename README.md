@@ -101,9 +101,9 @@ Merging to `main` auto-deploys to [https://london-js-slides.netlify.app](https:/
 
 ## Organisers
 
-- James McLeod: Open Source Program Lead, NatWest Group · FINOS Board Member · London.js Organiser
-- Jordan Potts: Head of Technology, Albany Growth · Co-Founder, London.js
-- Will Laing: Co-Founder, Plan:it · Co-Founder & Organiser, London.js
+- James McLeod: NatWest Group
+- Jordan Potts: Albany
+- Will Laing: Plan:it
 
 ## Brand assets
 
@@ -112,6 +112,8 @@ The VEED.IO wordmark (`assets/veed-wordmark.svg`, supplied by the host from veed
 The incident.io wordmark and icon (official SVG assets, provided by incident.io) are staged in `assets/` with permission for this event. They are **not** covered by the MIT licence, see `LICENSE` for details. Replace them with your own host/sponsor marks when forking.
 
 The Slack logo files (`assets/slack-logo-white.svg`, `assets/slack-logo-full-colour.svg`) are used unmodified with Slack's written permission dated 12 November 2026 for the November 2026 event. The GitHub and Omnea logos (`assets/github-lockup-white.svg`, `assets/omnea-logo.png`) and the speaker photos (`assets/speaker-kearsley.jpg`, `assets/speaker-cecile.jpg`, `assets/speaker-cormack.jpg`, `assets/speaker-pope.jpg`, `assets/speaker-maguire.jpg`) are used with the speakers' agreement for this event. None of these are covered by the MIT licence.
+
+The organiser firm logos (`assets/natwestgroup-logo-white.svg`, `assets/albany-logo-white.svg`, `assets/planit-logo-white.svg`) are used with each firm's permission, obtained via the organisers, for this event. They are **not** covered by the MIT licence.
 
 ## Licence
 

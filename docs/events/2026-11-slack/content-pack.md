@@ -101,10 +101,10 @@ Source: slides.jsx, committed 42897f2 (all six tiles are now confirmed; the prio
 - Headline: "Welcome"
 - Body, one paragraph: "First meetup or fiftieth, you’re welcome. Scan the QR to follow us on LinkedIn." (owner decision, 20 Nov 2026; replaces "Glad you made it."). Source: slides.jsx as built. The prior second line, "Three talks coming up - grab a drink and find a seat.", is stale and has been removed, it is not in the current deck.
 - QR label: `FOLLOW · linkedin.com/company/london-js`
-- Organisers (unchanged from October pack, per S2 Story body instruction):
-  - James McLeod: Open Source Program Lead, NatWest Group · FINOS Board Member · London.js Organiser
-  - Jordan Potts: Head of Technology, Albany Growth · Co-Founder, London.js
-  - Will Laing: Co-Founder, Plan:it · Co-Founder & Organiser, London.js
+- Organisers (owner decision, 20 Nov 2026: each role line is replaced by the firm's logo on the slide):
+  - James McLeod: NatWest Group
+  - Jordan Potts: Albany
+  - Will Laing: Plan:it
 
 ## Announcements
 

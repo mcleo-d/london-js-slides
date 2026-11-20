@@ -868,14 +868,14 @@ function S10_Welcome() {
             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
           }}>
             {[
-              ['James McLeod', 'Open Source Program Lead, NatWest Group · FINOS Board Member · London.js Organiser'],
-              ['Jordan Potts', 'Head of Technology, Albany Growth · Co-Founder, London.js'],
-              ['Will Laing', 'Co-Founder, Plan:it · Co-Founder & Organiser, London.js'],
-            ].map(([n, c], i) => (
+              ['James McLeod', 'assets/natwestgroup-logo-white.svg', 'NatWest Group'],
+              ['Jordan Potts', 'assets/albany-logo-white.svg', 'Albany'],
+              ['Will Laing', 'assets/planit-logo-white.svg', 'Plan:it'],
+            ].map(([n, logo, alt], i) => (
               <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.lavender }}>ORGANISER</Mono>
                 <div style={{ fontSize: TYPE.lead, fontWeight: 600, marginTop: 8 }}>{n}</div>
-                <div style={{ fontSize: TYPE.body, lineHeight: 1.35, color: '#F2EEE4CC', marginTop: 10 }}>{c}</div>
+                <img src={logo} alt={alt} style={{ height: 36, width: 'auto', display: 'block', marginTop: 16 }} />
               </div>
             ))}
           </div>
