@@ -287,14 +287,22 @@ function FooterCoBrand({ hostSize = 40 }) {
 }
 
 // --- Slide 02  –  Run of show --------------------------------------------------
+// Talk titles shown on the agenda (03) and lineup (08) slides: one source.
+const TALK_TITLES = {
+  tom: `Your API’s newest user is an LLM`,
+  daryl: 'Beyond the Reply: Building an AI Support Teammate',
+  ryan: 'Building Open Source Agents using Open Protocols',
+  slack: 'Slack for Communities & Engineering',
+};
+
 function S02_Agenda() {
   const rows = [
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
-    ['18:40', 'Tom Kearsley', 'Talk and Q&A', true, 'omnea'],
-    ['19:00', 'Daryl Cecile', 'Talk and Q&A', true, 'github'],
+    ['18:40', 'Tom Kearsley', TALK_TITLES.tom, true, 'omnea'],
+    ['19:00', 'Daryl Cecile', TALK_TITLES.daryl, true, 'github'],
     ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
-    ['19:50', 'Ryan Cormack', 'Talk and Q&A', true],
-    ['20:10', 'Jason & Megan', 'Talk and Q&A', true, 'slack'],
+    ['19:50', 'Ryan Cormack', TALK_TITLES.ryan, true],
+    ['20:10', 'Jason & Megan', TALK_TITLES.slack, true, 'slack'],
     ['20:30', 'Close', 'Thank you and goodnight, then the pub'],
   ];
   return (
@@ -525,14 +533,14 @@ function S16_Lineup() {
   // Roles are as written in the content pack (Talk 04) and the talk 04 slide panel.
   const talks = [
     { num: '01', color: C.accent, photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
-      lines: [[{ name: 'Tom Kearsley', role: 'Product Engineer', logo: <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 28, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} /> }]], title: `Your API’s newest user is an LLM` },
+      lines: [[{ name: 'Tom Kearsley', role: 'Product Engineer', logo: <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 28, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} /> }]], title: TALK_TITLES.tom },
     { num: '02', color: C.accentPurple, photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
-      lines: [[{ name: 'Daryl Cecile', role: 'Software Engineer', logo: <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 28, width: 'auto', display: 'block' }} /> }]], title: 'Beyond the Reply: Building an AI Support Teammate' },
+      lines: [[{ name: 'Daryl Cecile', role: 'Software Engineer', logo: <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 28, width: 'auto', display: 'block' }} /> }]], title: TALK_TITLES.daryl },
     { num: '03', color: C.accentTeal, photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
-      lines: [[{ name: 'Ryan Cormack', role: 'AI Engineer' }]], title: 'Building Open Source Agents using Open Protocols' },
+      lines: [[{ name: 'Ryan Cormack', role: 'AI Engineer' }]], title: TALK_TITLES.ryan },
     { num: '04', color: C.accentPink,
       photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
-      lines: [[{ name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }], [{ name: 'Megan Maguire', role: 'Principal Solution Engineer', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }]], title: 'Slack for Communities & Engineering' },
+      lines: [[{ name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }], [{ name: 'Megan Maguire', role: 'Principal Solution Engineer', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }]], title: TALK_TITLES.slack },
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
