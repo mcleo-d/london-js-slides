@@ -865,17 +865,17 @@ function S10_Welcome() {
           </div>
           <div style={{
             marginTop: 64, paddingTop: 32, borderTop: `1px solid #F9F0FF33`,
-            display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
+            display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 0,
           }}>
             {[
               ['James McLeod', 'assets/natwestgroup-logo-white.svg', 'NatWest Group', 64],
               ['Jordan Potts', 'assets/albany-logo-white.svg', 'Albany', 24],
               ['Will Laing', 'assets/planit-logo-white.svg', 'Plan:it', 34],
             ].map(([n, logo, alt, h], i) => (
-              <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
+              <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i, textAlign: 'center' }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.lavender }}>ORGANISER</Mono>
-                <div style={{ fontSize: TYPE.lead, fontWeight: 600, marginTop: 8 }}>{n}</div>
-                <div style={{ height: 64, display: 'flex', alignItems: 'center', marginTop: 12 }}>
+                <div style={{ fontSize: TYPE.lead, fontWeight: 600, marginTop: 8, whiteSpace: 'nowrap' }}>{n}</div>
+                <div style={{ height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 12 }}>
                   <img src={logo} alt={alt} style={{ height: h, width: 'auto', display: 'block' }} />
                 </div>
               </div>
