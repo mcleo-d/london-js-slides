@@ -37,6 +37,11 @@ const C = {
   aubergine: '#481A54',
   creamOnAubergine: '#F2EEE4',
   lavender: '#F9F0FF',
+  // Per-talk panel accents (talk 01 keeps `accent` yellow). Chosen to stay
+  // clearly visible on the aubergine background at projector brightness.
+  accentPurple: '#B794FF',            // talk 02
+  accentTeal: '#2DD4BF',              // talk 03
+  accentPink: '#FF7AC6',              // talk 04
 };
 
 // --- Atoms -------------------------------------------------------------------
@@ -393,7 +398,7 @@ function S03_Housekeeping() {
 }
 
 // --- Talk slide template -----------------------------------------------------
-function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, photo, speakers, label, accent = C.accentInk, bg = C.bg, ink = C.ink }) {
+function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, photo, speakers, label, accent = C.accentInk, panelAccent = accent, bg = C.bg, ink = C.ink }) {
   // No published abstract: the right-hand panel carries the bio instead.
   const coSpeakers = speakers && speakers.length === 2;
   const panelLabel = abstract ? 'ABSTRACT' : (coSpeakers ? 'ABOUT THE SPEAKERS' : 'ABOUT THE SPEAKER');
@@ -479,7 +484,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
           background: ink === C.bg ? '#FFFFFF14' : (bg === C.bgWarm ? 'rgba(255,255,255,0.35)' : '#16151418'),
           padding: '48px 44px',
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          borderLeft: `2px solid ${accent}`,
+          borderLeft: `2px solid ${panelAccent}`,
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <Mono style={{ fontSize: TYPE.micro, color: ink === C.bg ? '#F2EEE4CC' : C.inkMute }}>
@@ -493,7 +498,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
           </div>
           {coSpeakers && !abstract ? speakers.map((sp, i) => (
             <div key={sp.name} style={{ marginTop: i === 0 ? 20 : 40 }}>
-              <Mono style={{ fontSize: TYPE.micro, color: accent, fontWeight: 600 }}>{sp.name}</Mono>
+              <Mono style={{ fontSize: TYPE.micro, color: panelAccent, fontWeight: 600 }}>{sp.name}</Mono>
               <p style={{
                 margin: '8px 0 0', fontSize: TYPE.small, lineHeight: 1.4,
                 color: ink === C.bg ? '#F2EEE4CC' : C.inkSoft,
@@ -541,6 +546,7 @@ function S05_Talk2() {
       name="Ryan Cormack"
       role="AI Engineer"
       accent={C.accent}
+      panelAccent={C.accentTeal}
       title="Building Open Source Agents using Open Protocols"
       bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
       photo="assets/speaker-cormack.jpg"
@@ -560,6 +566,7 @@ function S06_Talk3() {
         { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', bio: 'Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
       ]}
       accent={C.accent}
+      panelAccent={C.accentPink}
       title="Slack for Communities & Engineering"
     />
   );
@@ -576,6 +583,7 @@ function S15_TalkCecile() {
       role="Software Engineer"
       brand={<img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 40, width: 'auto', display: 'block' }} />}
       accent={C.accent}
+      panelAccent={C.accentPurple}
       title="Beyond the Reply: Building an AI Support Teammate"
       bio="Daryl is a Software Engineer at GitHub. Before GitHub, Daryl spent nearly four years at Capital One, latterly as a Senior Software Engineer, and co-founded ProjectFunction. Outside work, Daryl is building Knosh.app and writes about engineering with AI agents at darylcecile.net."
       photo="assets/speaker-cecile.jpg"
