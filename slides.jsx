@@ -532,7 +532,7 @@ function S16_Lineup() {
       lines: [[{ name: 'Ryan Cormack', role: 'AI Engineer' }]], title: 'Building Open Source Agents using Open Protocols' },
     { num: '04', color: C.accentPink,
       photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
-      lines: [[{ name: 'Jason Pope', role: 'Senior Manager, Solution Engineering' }], [{ name: 'Megan Maguire', role: 'Principal Solution Engineer', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }]], title: 'Slack for Communities & Engineering' },
+      lines: [[{ name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }], [{ name: 'Megan Maguire', role: 'Principal Solution Engineer', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }]], title: 'Slack for Communities & Engineering' },
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
