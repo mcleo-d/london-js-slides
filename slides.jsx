@@ -440,7 +440,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
       <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>
         {speakers.map((sp) => (
           <div key={sp.name} style={{ maxWidth: 320, minWidth: 0 }}>
-            <img src={sp.photo} alt={sp.alt || sp.name} style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', border: `3px solid ${accent}`, display: 'block' }} />
+            <img src={sp.photo} alt={sp.alt || sp.name} style={{ width: 160, height: 160, borderRadius: '50%', objectFit: 'cover', border: `3px solid ${accent}`, display: 'block' }} />
             <div style={{ fontSize: TYPE.lead, fontWeight: 600, letterSpacing: '-0.02em', marginTop: 20 }}>
               {sp.name}
             </div>
