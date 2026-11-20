@@ -522,16 +522,17 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
 // Chat-channel card in the deck's own design language; deliberately not a
 // copy of the Slack app UI. Accent bars use the per-talk panel accents.
 function S16_Lineup() {
+  // Roles are as written in the content pack (Talk 04) and the talk 04 slide panel.
   const talks = [
-    { num: '01', color: C.accent, name: 'Tom Kearsley', photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
-      role: <>Product Engineer at <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 28, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} /></>, title: `Your API’s newest user is an LLM` },
-    { num: '02', color: C.accentPurple, name: 'Daryl Cecile', photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
-      role: <>Software Engineer at <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 28, width: 'auto', display: 'block' }} /></>, title: 'Beyond the Reply: Building an AI Support Teammate' },
-    { num: '03', color: C.accentTeal, name: 'Ryan Cormack', photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
-      role: <>AI Engineer</>, title: 'Building Open Source Agents using Open Protocols' },
-    { num: '04', color: C.accentPink, name: 'Jason Pope and Megan Maguire',
+    { num: '01', color: C.accent, photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
+      lines: [[{ name: 'Tom Kearsley', role: 'Product Engineer', logo: <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 28, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} /> }]], title: `Your API’s newest user is an LLM` },
+    { num: '02', color: C.accentPurple, photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
+      lines: [[{ name: 'Daryl Cecile', role: 'Software Engineer', logo: <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 28, width: 'auto', display: 'block' }} /> }]], title: 'Beyond the Reply: Building an AI Support Teammate' },
+    { num: '03', color: C.accentTeal, photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
+      lines: [[{ name: 'Ryan Cormack', role: 'AI Engineer' }]], title: 'Building Open Source Agents using Open Protocols' },
+    { num: '04', color: C.accentPink,
       photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
-      role: <SlackLogo variant="white" height={32} style={{ padding: 0 }} />, title: 'Slack for Communities & Engineering' },
+      lines: [[{ name: 'Jason Pope', role: 'Senior Manager, Solution Engineering' }], [{ name: 'Megan Maguire', role: 'Principal Solution Engineer', logo: <SlackLogo variant="white" height={32} style={{ padding: 0 }} /> }]], title: 'Slack for Communities & Engineering' },
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
@@ -551,24 +552,13 @@ function S16_Lineup() {
             fontFamily: '"JetBrains Mono", ui-monospace, monospace', letterSpacing: '0.02em',
           }}># tonight’s speakers</h2>
           <div style={{ padding: '20px 32px 20px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1, minHeight: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 2 }}>
-              <div style={{
-                width: 60, height: 60, borderRadius: 14, background: C.accent, color: C.ink,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 30, fontWeight: 700, letterSpacing: '-0.04em', flex: 'none',
-              }}>.js</div>
-              <div style={{ fontSize: TYPE.body, color: C.creamOnAubergine }}>
-                <strong style={{ fontWeight: 700 }}>London.js</strong>
-                <span style={{ marginLeft: 20 }}>Here's the lineup 👇</span>
-              </div>
-            </div>
             {talks.map((t) => (
               <div key={t.num} style={{
                 flex: 1, display: 'flex', alignItems: 'center', gap: 32,
                 background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
                 borderRadius: '4px 14px 14px 4px', padding: '0 32px 0 32px', minHeight: 0,
               }}>
-                <div style={{ display: 'flex', width: 264, flex: 'none', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', width: 264, flex: 'none', alignItems: 'center', justifyContent: 'flex-start' }}>
                   {t.photos.map(([src, alt], i) => (
                     <img key={src} src={src} alt={alt} style={{
                       width: 140, height: 140, boxSizing: 'border-box', borderRadius: '50%', objectFit: 'cover',
@@ -578,10 +568,19 @@ function S16_Lineup() {
                   ))}
                 </div>
                 <div style={{ minWidth: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 24 }}>
-                    <span style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{t.name}</span>
-                    <span style={{ fontSize: TYPE.small, color: C.lavender, display: 'inline-flex', alignItems: 'center', gap: 12 }}>{t.role}</span>
-                  </div>
+                  {t.lines.map((line, li) => (
+                    <div key={li} style={{ display: 'flex', alignItems: 'center', columnGap: 24, whiteSpace: 'nowrap', marginTop: li ? 4 : 0 }}>
+                      {line.map((pp, pi) => (
+                        <React.Fragment key={pp.name}>
+                          {pi > 0 && <span style={{ fontSize: TYPE.small, color: C.lavender }}>·</span>}
+                          <span style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{pp.name}</span>
+                          <span style={{ fontSize: TYPE.small, color: C.lavender, display: 'inline-flex', alignItems: 'center', gap: 12 }}>
+                            {pp.role}{pp.logo ? ' at' : ''}{pp.logo}
+                          </span>
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  ))}
                   <div style={{
                     marginTop: 6, fontSize: 32, fontWeight: 400, lineHeight: 1.2,
                     color: C.creamOnAubergine, textWrap: 'balance',
