@@ -544,8 +544,8 @@ function S06_Talk3() {
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
-        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', logo: <SlackLogo variant="white" height={40} /> },
-        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', logo: <SlackLogo variant="white" height={40} /> },
+        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering, Slack', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
+        { name: 'Megan Maguire', role: 'Principal Solution Engineer, Slack', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
       ]}
       accent={C.accent}
       title="Slack for Communities & Engineering"
