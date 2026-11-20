@@ -868,14 +868,16 @@ function S10_Welcome() {
             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32,
           }}>
             {[
-              ['James McLeod', 'assets/natwestgroup-logo-white.svg', 'NatWest Group'],
-              ['Jordan Potts', 'assets/albany-logo-white.svg', 'Albany'],
-              ['Will Laing', 'assets/planit-logo-white.svg', 'Plan:it'],
-            ].map(([n, logo, alt], i) => (
+              ['James McLeod', 'assets/natwestgroup-logo-white.svg', 'NatWest Group', 64],
+              ['Jordan Potts', 'assets/albany-logo-white.svg', 'Albany', 24],
+              ['Will Laing', 'assets/planit-logo-white.svg', 'Plan:it', 34],
+            ].map(([n, logo, alt, h], i) => (
               <div key={n} data-reveal style={{ ['--reveal-i']: 2 + i }}>
                 <Mono style={{ fontSize: TYPE.micro, color: C.lavender }}>ORGANISER</Mono>
                 <div style={{ fontSize: TYPE.lead, fontWeight: 600, marginTop: 8 }}>{n}</div>
-                <img src={logo} alt={alt} style={{ height: 36, width: 'auto', display: 'block', marginTop: 16 }} />
+                <div style={{ height: 64, display: 'flex', alignItems: 'center', marginTop: 12 }}>
+                  <img src={logo} alt={alt} style={{ height: h, width: 'auto', display: 'block' }} />
+                </div>
               </div>
             ))}
           </div>

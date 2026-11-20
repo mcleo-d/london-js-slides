@@ -7,7 +7,7 @@ Entries are keyed by event.
 London.js at Slack deck (Monday 23 November 2026): 14 slides, play order set by the November entry file.
 New lineup slide: speakers in running order with roles and talk titles. Agenda slide now shows the talk titles.
 Slack design system: aubergine palette, Slack logo files used unmodified with Slack's written permission, Thank you, Slack slide.
-Builds tagged nov2026-v83 to nov2026-v122 (cache-bust v=83 to v=122) and release candidates nov2026-rc1 to nov2026-rc9.
+Builds tagged nov2026-v83 to nov2026-v123 (cache-bust v=83 to v=123) and release candidates nov2026-rc1 to nov2026-rc10.
 
 ## October 2026 - VEED.IO
 
