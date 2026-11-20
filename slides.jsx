@@ -437,9 +437,9 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
   // Optional co-speakers: two left-aligned blocks, each with its own logo.
   const speakerRow = coSpeakers ? (
     <>
-      <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', gap: 64, alignItems: 'stretch' }}>
         {speakers.map((sp) => (
-          <div key={sp.name} style={{ flex: '1 1 0', minWidth: 0 }}>
+          <div key={sp.name} style={{ flex: '1 1 0', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
             <img src={sp.photo} alt={sp.alt || sp.name} style={{ width: 160, height: 160, borderRadius: '50%', objectFit: 'cover', border: `3px solid ${accent}`, display: 'block' }} />
             <div style={{ fontSize: TYPE.subtitle, fontWeight: 600, letterSpacing: '-0.02em', marginTop: 20 }}>
               {sp.name}
@@ -448,7 +448,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
               {sp.role}
             </div>
             {sp.logo && (
-              <div style={{ marginTop: 14 }}>
+              <div style={{ marginTop: 'auto', paddingTop: 14 }}>
                 {sp.logo}
               </div>
             )}
