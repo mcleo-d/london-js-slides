@@ -524,28 +524,28 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
 function S16_Lineup() {
   const talks = [
     { num: '01', color: C.accent, name: 'Tom Kearsley', photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
-      role: <>Product Engineer at <strong>Omnea</strong></>, title: `Your API’s newest user is an LLM` },
+      role: <>Product Engineer at <img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 28, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} /></>, title: `Your API’s newest user is an LLM` },
     { num: '02', color: C.accentPurple, name: 'Daryl Cecile', photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
-      role: <>Software Engineer at <strong>GitHub</strong></>, title: 'Beyond the Reply: Building an AI Support Teammate' },
+      role: <>Software Engineer at <img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 28, width: 'auto', display: 'block' }} /></>, title: 'Beyond the Reply: Building an AI Support Teammate' },
     { num: '03', color: C.accentTeal, name: 'Ryan Cormack', photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
       role: <>AI Engineer</>, title: 'Building Open Source Agents using Open Protocols' },
     { num: '04', color: C.accentPink, name: 'Jason Pope and Megan Maguire',
       photos: [['assets/speaker-pope.jpg', 'Jason Pope'], ['assets/speaker-maguire.jpg', 'Megan Maguire']],
-      role: <strong>Slack</strong>, title: 'Slack for Communities & Engineering' },
+      role: <SlackLogo variant="white" height={28} style={{ padding: 0 }} />, title: 'Slack for Communities & Engineering' },
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="08 / 14">
       <div style={{
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
-        display: 'grid', gridTemplateColumns: '460px 1fr', gap: 64,
+        display: 'grid', gridTemplateColumns: '356px 1fr', gap: 20,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Mono data-reveal style={{ fontSize: TYPE.micro, lineHeight: 1, color: C.creamOnAubergine }}>// lineup</Mono>
           <h2 data-reveal style={{
             margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
             fontWeight: 600, letterSpacing: '-0.03em', textWrap: 'balance',
-          }}>Tonight's speakers</h2>
+          }}>Tonight’s speakers</h2>
         </div>
         <div data-reveal style={{
           ['--reveal-i']: 2,
@@ -553,12 +553,12 @@ function S16_Lineup() {
           display: 'flex', flexDirection: 'column', overflow: 'hidden',
         }}>
           <div style={{
-            padding: '18px 32px', borderBottom: '1px solid #F9F0FF33',
+            padding: '14px 32px', borderBottom: '1px solid #F9F0FF33',
             fontSize: TYPE.body, fontWeight: 600, color: C.creamOnAubergine,
             fontFamily: '"JetBrains Mono", ui-monospace, monospace', letterSpacing: '0.02em',
           }}># london-js</div>
-          <div style={{ padding: '22px 32px 28px', display: 'flex', flexDirection: 'column', gap: 18, flex: 1 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+          <div style={{ padding: '20px 32px 20px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1, minHeight: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 2 }}>
               <div style={{
                 width: 60, height: 60, borderRadius: 14, background: C.accent, color: C.ink,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -575,24 +575,24 @@ function S16_Lineup() {
                 background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
                 borderRadius: '4px 14px 14px 4px', padding: '0 28px 0 24px', minHeight: 0,
               }}>
-                <div style={{ display: 'flex', width: 144, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
+                <div style={{ display: 'flex', width: 214, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
                   {t.photos.map(([src, alt], i) => (
                     <img key={src} src={src} alt={alt} style={{
-                      width: 96, height: 96, borderRadius: '50%', objectFit: 'cover',
+                      width: 140, height: 140, boxSizing: 'border-box', borderRadius: '50%', objectFit: 'cover',
                       border: `3px solid ${t.color}`, display: 'block', flex: 'none',
-                      marginLeft: i === 0 ? 0 : -48,
+                      marginLeft: i === 0 ? 0 : -66,
                     }} />
                   ))}
                 </div>
                 <div style={{ minWidth: 0 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 18 }}>
-                    <span style={{ fontSize: TYPE.lead - 6, fontWeight: 600, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{t.name}</span>
-                    <span style={{ fontSize: TYPE.small, color: C.lavender }}>{t.role}</span>
+                    <span style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{t.name}</span>
+                    <span style={{ fontSize: TYPE.small, color: C.lavender, display: 'inline-flex', alignItems: 'center', gap: 12 }}>{t.role}</span>
                   </div>
                   <div style={{
-                    marginTop: 6, fontSize: TYPE.lead - 4, fontWeight: 600, lineHeight: 1.15,
+                    marginTop: 6, fontSize: 32, fontWeight: 400, lineHeight: 1.2,
                     color: C.creamOnAubergine, textWrap: 'balance',
-                  }}>&ldquo;{t.title}&rdquo;</div>
+                  }}>{t.title}</div>
                 </div>
               </div>
             ))}
