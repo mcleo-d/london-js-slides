@@ -10,9 +10,9 @@ Past events are preserved on archive branches (`archive/april-2026`, `archive/ju
 
 | File | Role |
 |---|---|
-| `slides.jsx` | All slide content — the only file you normally need to edit |
+| `slides.jsx` | All slide content: the only file you normally need to edit |
 | `London JS - November 2026.html` | Entry point: loads React, Babel, and the deck |
-| `deck-stage.js` | Web component — keyboard nav, viewport scaling, PDF print |
+| `deck-stage.js` | Web component: keyboard nav, viewport scaling, PDF print |
 | `reveals.js` | MutationObserver-based staggered entry animations |
 | `tweaks-panel.jsx` | Live logo-size controls on the title slide |
 | `tokens.css` | Design tokens (colours, typography, spacing) |
@@ -109,7 +109,7 @@ Merging to `main` auto-deploys to [https://london-js-slides.netlify.app](https:/
 
 The VEED.IO wordmark (`assets/veed-wordmark.svg`, supplied by the host from veed.io and rendered inline in `slides.jsx`) is used with VEED's permission for the October 2026 event. It is **not** covered by the MIT licence.
 
-The incident.io wordmark and icon (official SVG assets, provided by incident.io) are staged in `assets/` with permission for this event. They are **not** covered by the MIT licence — see `LICENSE` for details. Replace them with your own host/sponsor marks when forking.
+The incident.io wordmark and icon (official SVG assets, provided by incident.io) are staged in `assets/` with permission for this event. They are **not** covered by the MIT licence, see `LICENSE` for details. Replace them with your own host/sponsor marks when forking.
 
 The Slack logo files (`assets/slack-logo-white.svg`, `assets/slack-logo-full-colour.svg`) are used unmodified with Slack's written permission dated 12 November 2026 for the November 2026 event. The GitHub and Omnea logos (`assets/github-lockup-white.svg`, `assets/omnea-logo.png`) and the speaker photos (`assets/speaker-kearsley.jpg`, `assets/speaker-cecile.jpg`, `assets/speaker-cormack.jpg`, `assets/speaker-pope.jpg`, `assets/speaker-maguire.jpg`) are used with the speakers' agreement for this event. None of these are covered by the MIT licence.
 

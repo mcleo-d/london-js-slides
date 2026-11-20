@@ -22,6 +22,6 @@ Title footer: wordmark vertically centred with the date block. Wi-Fi: both cards
 Run of show: 10-minute welcome, two 20-minute talks with a changeover, presenter names in the agenda.
 Merge SHAs: S3 build 93ca326 (#26), S4 go-live af631b2 (#27). Final attendance 95 (Meetup).
 
-## July 2026 — incident.io
+## July 2026 - incident.io
 
 New deck for the London.js/incident.io co-branded event. incident.io is both host and sponsor; official SVG brand assets included with permission. April 2026 deck archived to `archive/april-2026`. Slides reordered from 10 to 12 slots and polished throughout. README and CHANGELOG added.

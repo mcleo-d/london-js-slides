@@ -30,7 +30,7 @@ print('Fixed', content.count(b'\xe2\x80\x9c') + content.count(b'\xe2\x80\x9d'), 
 "
 ```
 
-**Prevention:** After any Edit to JSX string attributes, verify no curly quotes were introduced. For abstract/bio content containing double quotes, always use JSX expression syntax with a template literal — e.g. `abstract={\`text with "quotes" inside\`}` — never escaped `\"` inside a double-quoted attribute.
+**Prevention:** After any Edit to JSX string attributes, verify no curly quotes were introduced. For abstract/bio content containing double quotes, always use JSX expression syntax with a template literal, e.g. `abstract={\`text with "quotes" inside\`}`, never escaped `\"` inside a double-quoted attribute.
 
 ### Cache-bust on every slides.jsx edit
 

@@ -10,12 +10,12 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 
 - Event: "London.js at Slack on Monday 23 November 2026". Source: S2 Story body, citing https://www.meetup.com/london-js/events/317366197/ (not independently re-fetched this session, see fetch attempts above).
 - Date: Monday 23 November 2026. Doors 17:30, to clear registration and security before welcome and talks start. Welcome and talks from 18:30. Event ends about 20:30, then the pub. Source: owner, 13 Nov 2026.
-- Venue: Salesforce Tower, 110 Bishopsgate, London EC2N 4AY. Source: owner, 13 Nov 2026. Do not name a floor (S2 Story body instruction).
+- Venue: Salesforce Tower, 110 Bishopsgate, London EC2N 4AY. Source: owner, 13 Nov 2026. Floor 26 is public on the Meetup listing; slide 06 uses it (owner decision, 20 Nov 2026).
 - Floor closes: 21:00. Source: owner, 13 Nov 2026. The House rules slide now says "We close at 20:30." (owner, 16 Nov 2026).
 - Kicker: `// london.js · november 2026`
 - Subtitle: "JavaScript in the conversation: chat, bots and agents in the room." Source: slides.jsx, committed 42897f2.
 - Chrome date: `23 · 11 · 2026`. Footer: "Mon 23 November 2026 · Doors 17:30" / "Salesforce Tower, 110 Bishopsgate, London EC2N 4AY". Source: slides.jsx, committed 42897f2.
-- Footer co-brand: "HOSTED & SPONSORED BY" plus the Slack logo (full-colour, on a white plate). This is a change from the old pack, which specified "Slack" as plain text with no logo; see Host section below for the brand permission rule. Source: slides.jsx, committed 42897f2.
+- Footer co-brand: "HOSTED & SPONSORED BY" plus the Slack full-colour SVG at 96px, rendered solid black by a CSS filter on the cream title background (no white plate; see the Design notes). This is a change from the old pack, which specified "Slack" as plain text with no logo; see Host section below for the brand permission rule. Source: slides.jsx, committed 42897f2.
 
 ## Access
 
@@ -26,43 +26,44 @@ Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connect
 
 ## Flow
 
-The 14-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s16; every label reads "NN / 14"). Slide 08, the lineup, is under review on branch `review/november-2026-accents-and-lineup` and is not part of Monday's deck (ecda62c, PR #38) until approved:
+The 14-slide play order, canonical per `London JS - November 2026.html` (mounts s01 to s16; every label reads "NN / 14"). Slide 08, the lineup, is approved and in the deck (owner, 20 Nov 2026):
 
-01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Lineup, chat-style card (s16, under review) · 09 Talk 01, Tom Kearsley (s04) · 10 Talk 02, Daryl Cecile (s15) · 11 Networking break (s14) · 12 Talk 03, Ryan Cormack (s05) · 13 Talk 04, Jason Pope and Megan Maguire (s06) · 14 Closing (s13).
+01 Title (s01) · 02 Welcome (s10) · 03 Tonight (s02) · 04 House rules (s03) · 05 Thank you, Slack (s08) · 06 By numbers (s11) · 07 Announcements (s12) · 08 Lineup, chat-style card (s16) · 09 Talk 01, Tom Kearsley (s04) · 10 Talk 02, Daryl Cecile (s15) · 11 Networking (s14) · 12 Talk 03, Ryan Cormack (s05) · 13 Talk 04, Jason Pope and Megan Maguire (s06) · 14 Closing (s13).
 
 Source: London JS - November 2026.html and slides.jsx, owner instruction, 16 Nov 2026.
 
-## Lineup (under review)
+## Lineup
 
-- Slide 08 of 14, immediately before Talk 01. Under review on branch `review/november-2026-accents-and-lineup`; not in the Monday deck until approved.
-- Kicker: `// lineup`. Title: "Tonight's speakers".
-- Chat-style card with a `# london-js` channel header, one message from London.js ("Here's the lineup 👇") and four speaker cards in running order, each with photo, name, role (company in bold), talk title in quotes and a left accent bar in that talk's accent colour.
+- Slide 08 of 14, immediately before Talk 01. Approved and in the deck (owner, 20 Nov 2026).
+- No kicker. A chat-style card, deliberately not a copy of the Slack app UI. Its header is an h2 with a yellow `.js` badge (decorative, aria-hidden) and the text "tonight’s speakers".
+- Four rows in running order, each a panel with a photo, name (40px), role, " at" plus the firm logo (Omnea, GitHub or Slack; none for Ryan Cormack), the talk title (32px) and a left accent bar in that talk's accent colour. Photos are 140px circles with a 3px border in the accent colour; the Slack row shows both co-speaker photos overlapping, with the Slack logo (white, 32px) after each name.
 - Per-talk accents (panel left border on the talk slides and the lineup bars): 01 yellow, 02 purple, 03 teal, 04 pink. Tokens: `accent`, `accentPurple`, `accentTeal`, `accentPink` in `slides.jsx`.
+- Roles and titles as in the Talk sections below; titles come from `TALK_TITLES` in `slides.jsx`.
 
-Source: owner instruction, 20 Nov 2026.
+Source: slides.jsx as built, owner approval 20 Nov 2026.
 
 ## Agenda
 
-Source: slides.jsx, owner instruction, 16 Nov 2026 (seven-row agenda on the Tonight slide). Each talk is 15 minutes plus 5 minutes of Q&A. Talk rows carry a subtle highlight.
+Source: slides.jsx as built (seven-row agenda on the Tonight slide, kicker `// run_of_show`). Each talk is 15 minutes plus 5 minutes of Q&A. Talk rows carry a subtle highlight and show the talk title in the detail column. Firm logos stand in for the old ", Omnea", ", GitHub" and ", Slack" name suffixes: Omnea (40px, white), GitHub lockup (40px) and Slack (white, 56px) sit at the right of the label cell.
 
 | Time | Label | Detail |
 |---|---|---|
 | 18:30 | Welcome | Intro, house rules and announcements |
-| 18:40 | Tom Kearsley, Omnea | Talk and Q&A |
-| 19:00 | Daryl Cecile, GitHub | Talk and Q&A |
-| 19:20 | Networking break | Drinks, conversation and a chance to stretch |
-| 19:50 | Ryan Cormack | Talk and Q&A |
-| 20:10 | Jason & Megan, Slack | Talk and Q&A |
+| 18:40 | Tom Kearsley (Omnea logo) | Your API’s newest user is an LLM |
+| 19:00 | Daryl Cecile (GitHub logo) | Beyond the Reply: Building an AI Support Teammate |
+| 19:20 | Networking | Drinks, conversation and a chance to stretch |
+| 19:50 | Ryan Cormack | Building Open Source Agents using Open Protocols |
+| 20:10 | Jason & Megan (Slack logo) | Slack for Communities & Engineering |
 | 20:30 | Close | Thank you and goodnight, then the pub |
 
 ## Housekeeping
 
-Kicker: `// before_we_start`. Title: "The important bits". Source: slides.jsx, committed 42897f2 (replaces the prior placeholder-heavy version and absorbs the removed Wi-Fi section as card 04).
+Kicker: `// before_we_start`. Title: "The important bits". Source: slides.jsx as built (replaces the prior placeholder-heavy version and absorbs the removed Wi-Fi section as card 04).
 
-- 01 Fire: Note your nearest exit. In an alarm, follow the Slack team's lead.
-- 02 Code of conduct: Be kind. Anything feel off? Find an organiser. confcodeofconduct.com.
-- 03 Food & drink: Soft drinks and nibbles, thanks to Slack. We close at 20:30.
-- 04 Wi-Fi: Ask the Slack team.
+- 01 Fire: Note your nearest exit. If the alarm sounds, leave calmly by the stairs, not the lifts, and follow the Slack team's lead.
+- 02 Code of conduct: London.js is a friendly, inclusive space for everyone. Be kind and respectful. Anything feel off? Talk to James, Jordan or Will, or anyone from the Slack team. Link: confcodeofconduct.com.
+- 03 Food & drink: Soft drinks, water and nibbles at the drinks station, thanks to Slack. Ask the Slack team for toilets or anything else. We close at 20:30.
+- 04 Wi-Fi: Ask the Slack team for the guest Wi-Fi details.
 
 ## Host: Slack
 
@@ -74,7 +75,7 @@ Kicker: `// before_we_start`. Title: "The important bits". Source: slides.jsx, c
 - Kicker: `// thank_you`
 - Headline: "Thank you, Slack"
 - Body: "Slack is the AI-powered work OS, and the best place for Multiplayer AI: where people, agents, and apps work together."
-- Design note: Slack logo, white variant, 180px.
+- Design note: Slack logo, white variant, 300px.
 
 Source: slides.jsx, committed 42897f2. This replaces the prior "Sponsor: Slack" section and its customer stats, which are no longer in the deck.
 
@@ -110,7 +111,7 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 01
 
-- Speaker: Tom Kearsley. Role: Product Engineer. Brand: Omnea (text only, no logo). Source: owner, 15 Nov 2026, for the line-up and order.
+- Speaker: Tom Kearsley. Role: Product Engineer. Brand: Omnea logo shown under the role (40px, rendered white on the aubergine slide); the agenda and lineup slides show it too. Source: owner, 15 Nov 2026, for the line-up and order.
 - Title: Your API's newest user is an LLM.
 - Description (not shown on the slide, which has no abstract prop): We built an MCP server so people could ask their AI assistants, from Claude to ChatGPT to Copilot, about their procurement data. Then agents and AI-built dashboards started calling it too, in ways we never planned for. Our logs could tell us what they were doing, but not why. So we asked them. This talk covers what the models told us, what we changed because of it, and what it means for anyone building tools for agents in TypeScript.
 - Bio: Tom Kearsley is a Product Engineer at Omnea, the procurement platform, and leads its MCP project: the layer that lets Claude, ChatGPT, Copilot, Gemini and customers' own agents work with their company's procurement data.
@@ -138,7 +139,7 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 
 ## Talk 04
 
-- Speakers (equal co-speakers, shown side by side, photos about 120px, left-aligned about 64px apart, a Slack logo under each speaker): Jason Pope, Senior Manager, Solution Engineering, Slack; Megan Maguire, Principal Solution Engineer, Slack. Brand: Slack logo, white variant, 40px, shown once under each speaker. Source: owner, 15 Nov 2026, for the line-up and order.
+- Speakers (equal co-speakers, shown side by side, photos 160px, left-aligned 64px apart, a Slack logo under each speaker): Jason Pope, Senior Manager, Solution Engineering, Slack; Megan Maguire, Principal Solution Engineer, Slack. Brand: Slack logo, white variant, 40px, shown once under each speaker. Source: owner, 15 Nov 2026, for the line-up and order.
 - Title: Slack for Communities & Engineering.
 - Description (not shown on the slide, which has no abstract prop): Supporting collaboration and agent work becomes teamwork.
 - Speaker line: Jason Pope, Senior Manager, Solution Engineering, Slack, with a live demo from Megan Maguire, Principal Solution Engineer, Slack. The right panel (labelled ABOUT THE SPEAKERS) shows a short bio for each speaker, with the speaker's name as a small label above each.
@@ -146,13 +147,13 @@ Unchanged from October pack, per S2 Story body instruction: "Your Announcements"
 - Bio, Jason (on the slide): Jason leads Slack's UK Solution Engineering team and sits on its UK go-to-market leadership team, helping customers solve business challenges and showing how generative AI changes the way teams work.
 - Bio, Megan (full): Megan is a Principal Solution Engineer at Slack in London, helping organisations transform how they work together with AI, workflow automation and platform integrations. Since joining Slack in 2020, she has moved from supporting small businesses to leading enterprise solution architecture across the UK and Ireland. She speaks regularly at tech and community events, including Slack City Tour Europe and PowerToFly.
 - Bio, Megan (on the slide): Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.
-- Photos: assets/speaker-pope.jpg (Jason), assets/speaker-maguire.jpg (Megan, 320 x 320 baseline JPEG).
+- Photos: assets/speaker-pope.jpg (Jason), assets/speaker-maguire.jpg (Megan); both 320 x 320 JPEG.
 - Source: linkedin.com/in/jspope (Senior Manager, Solution Engineering, Slack, Mar 2026 to present).
 
 ## Networking break
 
 - Slide 11 of 14, between Talk 02 and Talk 03. No kicker.
-- Headline: "Networking break"
+- Headline: "Networking"
 - Lead: "Back at 19:50 with Ryan Cormack"
 - Body: "Grab a drink, meet someone new and stretch your legs."
 - Right column: the Welcome slide's QR code and two-line `FOLLOW` / `linkedin.com/company/london-js` label.
@@ -163,10 +164,11 @@ Source: slides.jsx, owner instruction, 16 Nov 2026.
 
 - Kicker: `// thank_you_and_whats_next`
 - Headline: "Thank you"
+- Greeting (56px, yellow, between the headline and body 1): "Merry Christmas and Happy New Year"
 - Body 1: "Thanks to Slack for hosting and sponsoring tonight, and to tonight's speakers for sharing their time and knowledge."
 - Body 2: "London.js returns in early 2027."
 - QR label: `FOLLOW · linkedin.com/company/london-js`
-- Design note: Slack logo, white variant, 72px.
+- Design note: Slack logo, white variant, 120px, under the QR code.
 
 Source: slides.jsx, committed 42897f2.
 
@@ -175,7 +177,7 @@ Source: slides.jsx, committed 42897f2.
 - The yellow london.js header mark appears on slides 02 to 14 (the aubergine-background slides); slide 01 (yellow background) keeps the header mark in ink colour, not yellow.
 - Cream kickers (the mono `//` labels) on the aubergine slides.
 - Yellow agenda times on the Tonight slide.
-- Slack logo sizes: Title slide 96px on a white plate; Thank you, Slack slide 180px; Closing slide 72px.
+- Slack logo sizes: Title slide 96px (full-colour SVG shown solid black by a CSS filter, no white plate); Tonight slide 56px; Lineup slide 32px; Talk 04 slide 40px; Thank you, Slack slide 300px; Closing slide 120px. All white-variant logos sit on aubergine.
 - The Welcome slide's organiser photo and QR code are both 300 by 300 px.
 
-Source: slides.jsx, committed 42897f2 (read-only reference).
+Source: slides.jsx as built (read-only reference).
