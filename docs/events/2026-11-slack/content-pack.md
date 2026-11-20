@@ -1,10 +1,8 @@
 # London.js November 2026 (Slack) content pack
 
-`[claude-code | team-alpha | mac-mini | claude-sonnet-5 | none | 2026-11-14T13:51:45Z]`
+`[claude-code | owner | mac-primary | claude-sonnet-5-5 | none | 2026-11-20T23:48:19Z]` (refreshed 20 Nov 2026)
 
 Single input for S3. Every fact carries its source. Section order is for reading only. Slide copy drafted by the `london-js-content-creator` subagent from the facts below.
-
-Fetch attempts (UTC, 2026-11-12): Meetup event page, attempted 00:06:58, connection failed (no route to host) from this container; facts below are taken from the S2 Story body instead, which cites the Meetup listing as its own source. Slack brand terms of service and slack.com/intl/en-gb/about, fetched successfully 00:05. confcodeofconduct.com, attempted 00:07, connection failed (no route to host).
 
 ## Title
 
@@ -179,6 +177,6 @@ Source: slides.jsx, committed 42897f2.
 - Cream kickers (the mono `//` labels) on the aubergine slides.
 - Yellow agenda times on the Tonight slide.
 - Slack logo sizes: Title slide 96px (unmodified full-colour SVG on the yellow background, no filter, no white plate); Tonight slide 56px; Lineup slide 32px; Talk 04 slide 40px; Thank you, Slack slide 300px; Closing slide 120px. All white-variant logos sit on aubergine.
-- The Welcome slide's organiser photo and QR code are both 300 by 300 px.
+- The Welcome slide's organiser photo is 340 by 340 px; the QR code sits in a 340 px plate with a 286 px QR inside.
 
 Source: slides.jsx as built (read-only reference).

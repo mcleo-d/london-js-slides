@@ -4,7 +4,7 @@ Browser-based presentation deck for the [London.js](https://www.meetup.com/londo
 
 **Current event:** London.js at Slack, Monday 23 November 2026, hosted and sponsored by [Slack](https://slack.com/), at Salesforce Tower, 110 Bishopsgate. Entry file: `London JS - November 2026.html`. Content pack: `docs/events/2026-11-slack/content-pack.md`. Live at [https://london-js-slides.netlify.app](https://london-js-slides.netlify.app).
 
-Past events are preserved on archive branches (`archive/april-2026`, `archive/july-2026`).
+Past events are preserved on archive branches (`archive/april-2026`, `archive/july-2026`, `archive/october-2026`).
 
 ## Key files
 
@@ -106,8 +106,6 @@ Merging to `main` auto-deploys to [https://london-js-slides.netlify.app](https:/
 - Will Laing: Plan:it
 
 ## Brand assets
-
-The VEED.IO wordmark (`assets/veed-wordmark.svg`, supplied by the host from veed.io and rendered inline in `slides.jsx`) is used with VEED's permission for the October 2026 event. It is **not** covered by the MIT licence.
 
 The incident.io wordmark and icon (official SVG assets, provided by incident.io) are staged in `assets/` with permission for this event. They are **not** covered by the MIT licence, see `LICENSE` for details. Replace them with your own host/sponsor marks when forking.
 
