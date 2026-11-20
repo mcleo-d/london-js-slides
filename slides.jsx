@@ -102,7 +102,7 @@ const Wordmark = ({ name, color = C.ink, size = 56, weight = 700 }) => (
 );
 
 // Slack logo: Slack gave written permission to use its logo on 12 Nov 2026
-// (Cassie Hatfield, Senior Slack Specialist, Salesforce). Rendered via <img>
+// (Slack's events team). Rendered via <img>
 // from the committed, unmodified brand files rather than inlined, because
 // both SVGs share internal id/class names and would collide if inlined
 // side-by-side. `full` on light backgrounds only, `white` on aubergine only,
@@ -244,6 +244,12 @@ function S01_Title({ hostSize = 96 } = {}) {
             JavaScript in the conversation: chat, bots and agents in the
             room.
           </div>
+          <div style={{
+            marginTop: 16, fontSize: TYPE.body, color: C.inkSoft,
+            maxWidth: 1500, lineHeight: 1.25,
+          }}>
+            Learn, Share, Use JavaScript.
+          </div>
         </div>
         <div>
           <FooterCoBrand hostSize={hostSize} />
@@ -270,7 +276,7 @@ function FooterCoBrand({ hostSize = 40 }) {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
         <span style={labelStyle}>HOSTED &amp; SPONSORED BY</span>
-        <SlackLogo variant="full" height={hostSize} style={{ filter: 'brightness(0)' }} />
+        <SlackLogo variant="full" height={hostSize} />
       </div>
       <div style={{
         textAlign: 'right',
@@ -300,10 +306,10 @@ function S02_Agenda() {
     ['18:30', 'Welcome', 'Intro, house rules and announcements'],
     ['18:40', 'Tom Kearsley', TALK_TITLES.tom, true, 'omnea'],
     ['19:00', 'Daryl Cecile', TALK_TITLES.daryl, true, 'github'],
-    ['19:20', 'Networking', 'Drinks, conversation and a chance to stretch'],
+    ['19:20', 'Networking', 'Drinks, conversation and a breather'],
     ['19:50', 'Ryan Cormack', TALK_TITLES.ryan, true],
     ['20:10', 'Jason & Megan', TALK_TITLES.slack, true, 'slack'],
-    ['20:30', 'Close', 'Thank you and goodnight, then the pub'],
+    ['20:30', 'Close', 'Thank you and goodnight. Pub afterwards, soft drinks very welcome.'],
   ];
   return (
     <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="03 / 14">
@@ -311,7 +317,7 @@ function S02_Agenda() {
         position: 'absolute', left: SPACE.padX, right: SPACE.padX,
         top: 160, bottom: SPACE.padBottom,
       }}>
-        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// run_of_show</Mono>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// agenda</Mono>
         <h2 style={{
           margin: '16px 0 56px', fontSize: TYPE.title, lineHeight: 1,
           fontWeight: 600, letterSpacing: '-0.03em',
@@ -348,7 +354,7 @@ function S02_Agenda() {
 // --- Slide 03  –  Housekeeping -------------------------------------------------
 function S03_Housekeeping() {
   const items = [
-    { num: '01', label: 'Fire',            body: "Note your nearest exit. If the alarm sounds, leave calmly by the stairs, not the lifts, and follow the Slack team's lead." },
+    { num: '01', label: 'Fire',            body: "Note your nearest exit. If the alarm sounds, leave calmly by the stairs, not the lifts, and follow the Slack team’s lead. Need help getting out or around? Ask any organiser." },
     { num: '02', label: 'Code of conduct', body: (
       <>
         {"London.js is a friendly, inclusive space for everyone. Be kind and respectful. Anything feel off? Talk to James, Jordan or Will, or anyone from the Slack team."}
@@ -624,7 +630,7 @@ function S04_Talk1() {
       brand={<img src="assets/omnea-logo.png" alt="Omnea" style={{ height: 40, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />}
       accent={C.accent}
       title={TALK_TITLES.tom}
-      bio={`Tom Kearsley is a Product Engineer at Omnea, the procurement platform, and leads its MCP project: the layer that lets Claude, ChatGPT, Copilot, Gemini and customers' own agents work with their company's procurement data.`}
+      bio={`Tom Kearsley is a Product Engineer at Omnea, the procurement platform, and leads its MCP project: the layer that lets Claude, ChatGPT, Copilot, Gemini and customers’ own agents work with their company’s procurement data.`}
       photo="assets/speaker-kearsley.jpg"
     />
   );
@@ -641,7 +647,7 @@ function S05_Talk2() {
       role="AI Engineer"
       accent={C.accent}
       panelAccent={C.accentTeal}
-      title="Building Open Source Agents using Open Protocols"
+      title={TALK_TITLES.ryan}
       bio="Ryan is an AI engineer and self-described renaissance developer. Most recently a Principal Engineer at Motorway, Ryan was previously a Principal Engineer at Moonpig and spent four years engineering at Just Eat. Before software, Ryan worked in digital marketing and co-founded MemoryStoria, an EU-backed startup."
       photo="assets/speaker-cormack.jpg"
     />
@@ -656,12 +662,12 @@ function S06_Talk3() {
       num="04" total="04"
       bg={C.aubergine} ink={C.creamOnAubergine}
       speakers={[
-        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', bio: "Jason leads Slack's UK Solution Engineering team and sits on its UK go-to-market leadership team, helping customers solve business challenges and showing how generative AI changes the way teams work.", logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
+        { name: 'Jason Pope', role: 'Senior Manager, Solution Engineering', photo: 'assets/speaker-pope.jpg', alt: 'Jason Pope', bio: "Jason leads Slack’s UK Solution Engineering team and sits on its UK go-to-market leadership team, helping customers solve business challenges and showing how generative AI changes the way teams work.", logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
         { name: 'Megan Maguire', role: 'Principal Solution Engineer', photo: 'assets/speaker-maguire.jpg', alt: 'Megan Maguire', bio: 'Megan leads enterprise solution architecture for Slack across the UK and Ireland, helping organisations work together with AI, workflow automation and platform integrations. She speaks regularly at community events, including Slack City Tour Europe.', logo: <SlackLogo variant="white" height={40} style={{ paddingLeft: 0 }} /> },
       ]}
       accent={C.accent}
       panelAccent={C.accentPink}
-      title="Slack for Communities & Engineering"
+      title={TALK_TITLES.slack}
     />
   );
 }
@@ -678,7 +684,7 @@ function S15_TalkCecile() {
       brand={<img src="assets/github-lockup-white.svg" alt="GitHub" style={{ height: 40, width: 'auto', display: 'block' }} />}
       accent={C.accent}
       panelAccent={C.accentPurple}
-      title="Beyond the Reply: Building an AI Support Teammate"
+      title={TALK_TITLES.daryl}
       bio="Daryl is a Software Engineer at GitHub. Before GitHub, Daryl spent nearly four years at Capital One, latterly as a Senior Software Engineer, and co-founded ProjectFunction. Outside work, Daryl is building Knosh.app and writes about engineering with AI agents at darylcecile.net."
       photo="assets/speaker-cecile.jpg"
     />
@@ -706,7 +712,7 @@ function S14_Break() {
               Back at 19:50 with Ryan Cormack
             </p>
             <p style={{ margin: '16px 0 0', fontSize: TYPE.body, color: '#F2EEE4CC', lineHeight: 1.3 }}>
-              Grab a drink, meet someone new and stretch your legs.
+              Grab a drink, meet someone new and take a breather.
             </p>
           </div>
           <div style={{
@@ -807,7 +813,7 @@ function S11_ByNumbers() {
           fontSize: TYPE.lead, lineHeight: 1.3,
           color: '#F2EEE4CC', maxWidth: 1200,
         }}>
-          24 events since the relaunch, and counting.
+          Thanks for being part of it.
         </p>
 
         <div style={{
@@ -842,19 +848,19 @@ function S10_Welcome() {
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>
-            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// welcome</Mono>
+            <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// hello_london</Mono>
             <h2 style={{
               margin: '24px 0 0', fontSize: 160, lineHeight: 0.88,
               fontWeight: 600, letterSpacing: '-0.03em',
               whiteSpace: 'nowrap',
             }}>
-              Follow London.js
+              Welcome
             </h2>
             <p data-reveal style={{
               ['--reveal-i']: 1,
               margin: '32px 0 0', fontSize: TYPE.lead, color: '#F2EEE4CC', lineHeight: 1.3,
             }}>
-              Glad you made it. Scan the QR to follow us on LinkedIn.
+              First meetup or fiftieth, you’re welcome. Scan the QR to follow us on LinkedIn.
             </p>
           </div>
           <div style={{
@@ -906,14 +912,14 @@ function S12_Announcements() {
         top: 320, bottom: SPACE.padBottom,
       }}>
         <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>
-          // section_divider
+          // announcements
         </Mono>
         <h2 data-reveal style={{
           ['--reveal-i']: 1,
           margin: '24px 0 0', fontSize: TYPE.display, lineHeight: 0.9,
           fontWeight: 700, letterSpacing: '-0.04em', color: C.creamOnAubergine,
         }}>
-          Your Announcements
+          Your announcements
         </h2>
         <p data-reveal style={{
           ['--reveal-i']: 2,
@@ -956,7 +962,7 @@ function S13_Closing() {
             ['--reveal-i']: 2,
             margin: '32px 0 0', fontSize: TYPE.lead, color: '#F2EEE4CC', lineHeight: 1.3,
           }}>
-            Thanks to Slack for hosting and sponsoring tonight, and to tonight's speakers for sharing their time and knowledge.
+            Thanks for coming, to Slack for hosting, and to our speakers.
           </p>
           <p data-reveal style={{
             ['--reveal-i']: 3,
