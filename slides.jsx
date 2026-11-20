@@ -547,10 +547,19 @@ function S16_Lineup() {
           display: 'flex', flexDirection: 'column', overflow: 'hidden', flex: 1, minHeight: 0,
         }}>
           <h2 style={{
-            margin: 0, padding: '14px 32px', borderBottom: '1px solid #F9F0FF33',
+            margin: 0, padding: '10px 32px', borderBottom: '1px solid #F9F0FF33',
+            display: 'flex', alignItems: 'center', columnGap: 16,
             fontSize: TYPE.body, fontWeight: 600, lineHeight: 1.2, color: C.creamOnAubergine,
             fontFamily: '"JetBrains Mono", ui-monospace, monospace', letterSpacing: '0.02em',
-          }}># tonight’s speakers</h2>
+          }}>
+            <span aria-hidden="true" style={{
+              width: 46, height: 46, borderRadius: 11, background: C.accent, color: C.ink,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: '"Inter Tight", system-ui, sans-serif',
+              fontSize: 23, fontWeight: 700, letterSpacing: '-0.04em', flex: 'none',
+            }}>.js</span>
+            <span>tonight’s speakers</span>
+          </h2>
           <div style={{ padding: '20px 32px 20px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1, minHeight: 0 }}>
             {talks.map((t) => (
               <div key={t.num} style={{
