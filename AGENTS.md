@@ -1,6 +1,6 @@
 # London.JS slides repository, agent instructions
 
-> Current event metadata: October 2026 deck (VEED.IO, Wednesday 28 October 2026). Update this metadata when the repository is reused for a future London.js event. The generic agent rules below apply to every event.
+> Current event metadata: London.js at Slack, Monday 23 November 2026 (Salesforce Tower, 110 Bishopsgate). Update this metadata when the repository is reused for a future London.js event. The generic agent rules below apply to every event.
 
 ## Content production
 
@@ -34,22 +34,22 @@ print('Fixed', content.count(b'\xe2\x80\x9c') + content.count(b'\xe2\x80\x9d'), 
 
 ### Cache-bust on every slides.jsx edit
 
-Bump the `?v=N` cache-bust on the `<script>` tag in `London JS - October 2026.html` after every edit to `slides.jsx` to ensure the browser fetches the updated file.
+Bump the `?v=N` cache-bust on the `<script>` tag in `London JS - November 2026.html` after every edit to `slides.jsx` to ensure the browser fetches the updated file.
 
 ---
 
 ## Project overview
 
-A browser-based presentation deck (no build step) for the London.JS meetup, 28 October 2026 at VEED.IO, 17-18 Clere Street, EC2A 4LJ.
+A browser-based presentation deck (no build step) for the London.JS meetup, Monday 23 November 2026 at Salesforce Tower, 110 Bishopsgate (hosted by Slack).
 
 **Stack:** HTML + React 18 (CDN) + Babel standalone  
 **Dev server:** `python3 -m http.server 8765` from project root  
-**Entry point:** `London JS - October 2026.html`
+**Entry point:** `London JS - November 2026.html`
 
 ### Key files
 | File | Purpose |
 |---|---|
-| `slides.jsx` | All 11 slide components |
+| `slides.jsx` | All 14 slide components |
 | `deck-stage.js` | Web component: keyboard nav, scaling, speaker notes, PDF print |
 | `reveals.js` | Staggered entry animations |
 | `tweaks-panel.jsx` | Live edit mode for logo sizing |
@@ -57,23 +57,24 @@ A browser-based presentation deck (no build step) for the London.JS meetup, 28 O
 
 ### Slides
 
-Slide content lives in `slides.jsx`. Slide play order lives in `London JS - October 2026.html` as the document order of `<section>` elements inside `<deck-stage>`. The procedure to add or reorder slides is documented in `docs/SLIDE_ORDER_MECHANISM.md`. Do not maintain a per-slide table here; the deck file and the slide-order doc are the canonical sources.
+Slide content lives in `slides.jsx`. Slide play order lives in `London JS - November 2026.html` as the document order of `<section>` elements inside `<deck-stage>`. The procedure to add or reorder slides is documented in `docs/SLIDE_ORDER_MECHANISM.md`. Do not maintain a per-slide table here; the deck file and the slide-order doc are the canonical sources.
 
 ### Event details
-- **Date:** Wednesday 28 October 2026, doors 18:00, talks 18:30
-- **Venue:** VEED.IO, 17-18 Clere Street, EC2A 4LJ, London
+- **Date:** Monday 23 November 2026, doors 17:30, welcome and talks from 18:30, close 20:30
+- **Venue:** Salesforce Tower, 110 Bishopsgate, London EC2N 4AY
 - **Organizers:** James McLeod (NatWest Group), Jordan Potts (Albany Growth), Will Laing (Plan:it)
-- **Host and sponsor:** VEED.IO (AI video creation platform, founded in London in 2018)
-- **Talks:** Joséphine Parquet (VEED), "Prompt to Video: Building a Video-Editing Agent"; Sam Starling (Semaloop), "Using LLMs to punch above my weight"
-- **Content pack:** `docs/events/2026-10-veed/content-pack.md`
+- **Host and sponsor:** Slack
+- **Running order:** 18:30 Welcome; 18:40 Tom Kearsley; 19:00 Daryl Cecile; 19:20 Networking; 19:50 Ryan Cormack; 20:10 Jason Pope and Megan Maguire; 20:30 Close
+- **Talks:** Tom Kearsley (Omnea), "Your API's newest user is an LLM"; Daryl Cecile (GitHub), "Beyond the Reply: Building an AI Support Teammate"; Ryan Cormack, "Building Open Source Agents using Open Protocols"; Jason Pope and Megan Maguire (Slack), "Slack for Communities & Engineering"
+- **Content pack:** `docs/events/2026-11-slack/content-pack.md`
 
 ## Slide order
 
-Play order is the document order of the `<section>` elements inside `<deck-stage>` in `London JS - October 2026.html`, NOT the `slides.jsx` `window.Slides` key order. Authoritative reference: `docs/SLIDE_ORDER_MECHANISM.md`.
+Play order is the document order of the `<section>` elements inside `<deck-stage>` in `London JS - November 2026.html`, NOT the `slides.jsx` `window.Slides` key order. Authoritative reference: `docs/SLIDE_ORDER_MECHANISM.md`.
 
 ### When adding or removing slides
 
-When the slide count changes, every component's `label="NN / 11"` prop in `slides.jsx` MUST be updated to reflect the new total. The procedure in `docs/SLIDE_ORDER_MECHANISM.md` names this step (step 5 of "How to add a slide") but it is a frequent miss in agent-driven edits. Verify the count match after any slide insertion or removal by grepping `label="` in `slides.jsx` and confirming every match uses the same denominator.
+When the slide count changes, every component's `label="NN / 14"` prop in `slides.jsx` MUST be updated to reflect the new total. The procedure in `docs/SLIDE_ORDER_MECHANISM.md` names this step (step 5 of "How to add a slide") but it is a frequent miss in agent-driven edits. Verify the count match after any slide insertion or removal by grepping `label="` in `slides.jsx` and confirming every match uses the same denominator.
 
 ## Documentation policy
 
@@ -85,5 +86,5 @@ When the slide count changes, every component's `label="NN / 11"` prop in `slide
 
 - `docs/SLIDE_ORDER_MECHANISM.md`, canonical procedure for slide order and slide addition.
 - `README.md`, repository overview and licence notes (brand assets carry a separate licence carve-out).
-- `London JS - October 2026.html`, the entry point and the canonical play-order source.
+- `London JS - November 2026.html`, the entry point and the canonical play-order source.
 - `agents/londonjs-content-creator.md`, the binding content-production subagent, source-of-truth in this repository; install to `~/.claude/agents/` to activate (see Content production above).
