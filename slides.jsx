@@ -524,7 +524,7 @@ function TalkSlide({ idx, num, total, name, role, brand, title, abstract, bio, p
 function S16_Lineup() {
   const talks = [
     { num: '01', color: C.accent, name: 'Tom Kearsley', photos: [['assets/speaker-kearsley.jpg', 'Tom Kearsley']],
-      role: <>Product Engineer at <strong>Omnea</strong></>, title: `Your API's newest user is an LLM` },
+      role: <>Product Engineer at <strong>Omnea</strong></>, title: `Your API’s newest user is an LLM` },
     { num: '02', color: C.accentPurple, name: 'Daryl Cecile', photos: [['assets/speaker-cecile.jpg', 'Daryl Cecile']],
       role: <>Software Engineer at <strong>GitHub</strong></>, title: 'Beyond the Reply: Building an AI Support Teammate' },
     { num: '03', color: C.accentTeal, name: 'Ryan Cormack', photos: [['assets/speaker-cormack.jpg', 'Ryan Cormack']],
@@ -541,7 +541,7 @@ function S16_Lineup() {
         display: 'grid', gridTemplateColumns: '460px 1fr', gap: 64,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>// lineup</Mono>
+          <Mono data-reveal style={{ fontSize: TYPE.micro, lineHeight: 1, color: C.creamOnAubergine }}>// lineup</Mono>
           <h2 data-reveal style={{
             margin: '16px 0 0', fontSize: TYPE.title, lineHeight: 1,
             fontWeight: 600, letterSpacing: '-0.03em', textWrap: 'balance',
@@ -571,23 +571,23 @@ function S16_Lineup() {
             </div>
             {talks.map((t) => (
               <div key={t.num} style={{
-                flex: 1, display: 'flex', alignItems: 'center', gap: 28,
+                flex: 1, display: 'flex', alignItems: 'center', gap: 32,
                 background: '#FFFFFF14', borderLeft: `8px solid ${t.color}`,
                 borderRadius: '4px 14px 14px 4px', padding: '0 28px 0 24px', minHeight: 0,
               }}>
-                <div style={{ display: 'flex', width: 176, flex: 'none', alignItems: 'center' }}>
+                <div style={{ display: 'flex', width: 144, flex: 'none', alignItems: 'center', justifyContent: 'flex-end' }}>
                   {t.photos.map(([src, alt], i) => (
                     <img key={src} src={src} alt={alt} style={{
                       width: 96, height: 96, borderRadius: '50%', objectFit: 'cover',
                       border: `3px solid ${t.color}`, display: 'block', flex: 'none',
-                      marginLeft: i === 0 ? 0 : -24,
+                      marginLeft: i === 0 ? 0 : -48,
                     }} />
                   ))}
                 </div>
                 <div style={{ minWidth: 0 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 18 }}>
                     <span style={{ fontSize: TYPE.lead - 6, fontWeight: 600, letterSpacing: '-0.02em', color: C.creamOnAubergine }}>{t.name}</span>
-                    <span style={{ fontSize: TYPE.small, color: '#F2EEE4E6' }}>{t.role}</span>
+                    <span style={{ fontSize: TYPE.small, color: C.lavender }}>{t.role}</span>
                   </div>
                   <div style={{
                     marginTop: 6, fontSize: TYPE.lead - 4, fontWeight: 600, lineHeight: 1.15,
