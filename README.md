@@ -58,6 +58,15 @@ Then open: [http://localhost:8765/London%20JS%20-%20November%202026.html](http:/
 
 > **Why a server?** Babel standalone fetches `slides.jsx` via XHR and cannot run from `file://`. Any static HTTP server works; `python3 -m http.server` is the zero-dependency option.
 
+### Smoke check
+
+```bash
+make smoke
+# or: bash scripts/smoke-check.sh
+```
+
+`scripts/smoke-check.sh` never starts or stops a server on port 8765 (the review server above) unless you explicitly ask it to. By default it reads `PORT` (default `8766`): if a deck is already answering on that port it reuses it and leaves it running; otherwise it starts its own server and stops only that one on exit. To check against your own review server instead, run `PORT=8765 bash scripts/smoke-check.sh` -- it will detect and reuse it rather than touching it.
+
 ## Navigation
 
 | Key | Action |
