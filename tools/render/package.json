@@ -1,0 +1,14 @@
+{
+  "name": "london-js-slides-render",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Headless render check and PDF export for the London.js deck",
+  "type": "module",
+  "scripts": {
+    "render": "node render-check.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.49.1",
+    "pdf-lib": "1.17.1"
+  }
+}
