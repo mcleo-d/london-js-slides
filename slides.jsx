@@ -997,6 +997,73 @@ function S13_Closing() {
   );
 }
 
+// --- Announcement slide (community contributions) ---------------------------
+// Reusable slide for one community announcement, shown after slide 07
+// ("Your announcements"). It is NOT part of the play order until an
+// announcement is added to the entry HTML. See README.md, "Add an
+// announcement slide".
+//
+// Copy-paste example (goes in London JS - November 2026.html, directly after
+// the 07 Announcements <section>; the slide mounts itself, nothing else to edit):
+//
+//   <section data-label="07a Announcement - Ada Lovelace"><div
+//     data-announcement
+//     data-title="Join our open source sprint"
+//     data-body="We are hacking on accessibility fixes every second Saturday. Beginners welcome."
+//     data-link="https://example.com/sprint"
+//     data-name="Ada Lovelace"
+//     data-company="Analytical Engines Ltd"></div></section>
+//
+// data-company is optional. Keep the title to about six words and the body to
+// one or two short lines so it reads from the back of the room.
+function AnnouncementSlide({ title, body, link, name, company }) {
+  const linkText = (link || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+  return (
+    <Frame bg={C.aubergine} ink={C.creamOnAubergine} label="announcement">
+      <div style={{
+        position: 'absolute', left: SPACE.padX, right: SPACE.padX,
+        top: 160, bottom: SPACE.padBottom,
+        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+      }}>
+        <Mono data-reveal style={{ fontSize: TYPE.micro, color: C.creamOnAubergine }}>
+          // announcement
+        </Mono>
+        <h2 data-reveal style={{
+          ['--reveal-i']: 1,
+          margin: '24px 0 0', fontSize: TYPE.title, lineHeight: 1,
+          fontWeight: 600, letterSpacing: '-0.03em', color: C.creamOnAubergine,
+        }}>
+          {title}
+        </h2>
+        <p data-reveal style={{
+          ['--reveal-i']: 2,
+          margin: '40px 0 0', maxWidth: 1400, fontSize: TYPE.lead, lineHeight: 1.3,
+          color: '#F2EEE4CC',
+        }}>
+          {body}
+        </p>
+        {link && (
+          <p data-reveal style={{ ['--reveal-i']: 3, margin: '40px 0 0' }}>
+            <a href={link} style={{
+              fontFamily: '"JetBrains Mono", ui-monospace, monospace',
+              fontSize: TYPE.subtitle * 0.6, color: C.accent,
+              textDecoration: 'underline', textUnderlineOffset: 8,
+            }}>{linkText}</a>
+          </p>
+        )}
+        <div data-reveal style={{
+          ['--reveal-i']: 4,
+          marginTop: 56, paddingTop: 24, borderTop: `2px solid ${C.lavender}`,
+          display: 'flex', alignItems: 'baseline', gap: 16,
+        }}>
+          <span style={{ fontSize: TYPE.subtitle * 0.7, fontWeight: 600, letterSpacing: '-0.02em' }}>{name}</span>
+          {company && <Mono style={{ fontSize: TYPE.micro, color: C.lavender }}>{company}</Mono>}
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 // --- Export ------------------------------------------------------------------
 // Label-to-component registry only. Play order is set by <section> order in
 // London JS - November 2026.html. See docs/SLIDE_ORDER_MECHANISM.md.
@@ -1010,4 +1077,5 @@ window.Slides = {
   S12_Announcements,
   S13_Closing,
   S16_Lineup,
+  AnnouncementSlide,
 };
