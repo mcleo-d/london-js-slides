@@ -36,6 +36,18 @@ Announcement slides have no slide number. Leave the other slides unchanged.
 
 The organisers review every pull request and may edit or decline slides to keep the evening on time. Slides follow the London.js [Code of Conduct](https://confcodeofconduct.com).
 
+### Automated announcement check
+
+Every pull request runs an automated check (`.github/workflows/announcement-check.yml`, `scripts/check-announcement.sh`) that fails with a readable message when an announcement pull request:
+
+- adds more than one new announcement (one per pull request);
+- is missing a required attribute (`data-title`, `data-body`, `data-link`, `data-name`);
+- has a link that is not `https://`;
+- has a title over 60 characters or a body over 160 characters;
+- is not positioned directly after the "Your announcements" section.
+
+It also warns, without failing, if the pull request changes any file other than the entry HTML. The check reports in the job log and the step summary, not as a pull request comment; it does not require any secrets. Organisers should still check the Netlify deploy preview before merging -- the check catches the common mistakes, it is not a substitute for review.
+
 ## Key files
 
 | File | Role |
