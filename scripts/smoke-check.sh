@@ -1,21 +1,26 @@
 #!/usr/bin/env bash
 # Smoke-checks the london-js-slides presentation.
 # Steps:
-#   1. Starts python3 -m http.server directly in the background (no subshell
-#      wrapping the daemon) on a fixed port, so $! captures the real server
-#      PID.
-#   2. Curls the entry HTML (discovered at runtime) and asserts a 200
+#   1. Reads the port from $PORT (default 8766, never the owner's 8765
+#      review server unless explicitly requested via PORT=8765).
+#   2. If a server already answers on that port with the deck (GET / is
+#      HTTP 200 and the body contains the entry HTML's filename), reuses it
+#      and leaves it running. Otherwise starts python3 -m http.server
+#      directly in the background (no subshell wrapping the daemon) so $!
+#      captures the real server PID, and that PID is the only one this
+#      script will ever stop.
+#   3. Curls the entry HTML (discovered at runtime) and asserts a 200
 #      response.
-#   3. If Chrome/Chromium is available, dumps the rendered DOM and greps for
+#   4. If Chrome/Chromium is available, dumps the rendered DOM and greps for
 #      Babel syntax errors.  Chrome step is skipped (with a notice) if absent.
-#   4. A trap on EXIT kills the server PID on every exit path, so no listener
-#      survives the script regardless of how it exits.
-#   5. Exits 0 only when all available checks pass.
+#   5. A trap on EXIT stops the server this script started (if any) on every
+#      exit path. A reused, pre-existing server is never stopped.
+#   6. Exits 0 only when all available checks pass.
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PORT=8765
+PORT="${PORT:-8766}"
 SERVER_PID=""
 PAGE_FILE=""
 DOM_FILE=""
@@ -77,15 +82,28 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo "smoke-check: starting http.server on port $PORT in $REPO_ROOT"
-python3 -m http.server "$PORT" --directory "$REPO_ROOT" &>/dev/null &
-SERVER_PID=$!
+# The deck is recognised when GET / on the port returns HTTP 200 and the
+# body contains the entry HTML's filename (how a plain http.server directory
+# listing, or the entry file itself served at root, both expose it).
+deck_already_running() {
+  local body
+  body="$(curl -sf --max-time 1 "http://localhost:${PORT}/" 2>/dev/null)" || return 1
+  [ -n "$body" ] && printf '%s' "$body" | grep -qF -- "$ENTRY_FILE"
+}
 
-# Wait up to 5 seconds for server to be ready.
-for i in $(seq 1 10); do
-  curl -sf --max-time 1 "http://localhost:${PORT}/" &>/dev/null && break || true
-  sleep 0.5
-done
+if deck_already_running; then
+  echo "smoke-check: deck already serving on port $PORT; reusing it (not starting or stopping a server)"
+else
+  echo "smoke-check: starting http.server on port $PORT in $REPO_ROOT"
+  python3 -m http.server "$PORT" --directory "$REPO_ROOT" &>/dev/null &
+  SERVER_PID=$!
+
+  # Wait up to 5 seconds for server to be ready.
+  for i in $(seq 1 10); do
+    curl -sf --max-time 1 "http://localhost:${PORT}/" &>/dev/null && break || true
+    sleep 0.5
+  done
+fi
 
 PAGE_FILE="$(mktemp /tmp/smoke_page.XXXXXX.html)"
 
