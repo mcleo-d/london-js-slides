@@ -40,7 +40,7 @@ Timing: cut the archive branch from `main` **before** the new event's PR merges,
 ## Step 2 -- Create a working branch
 
 ```bash
-git checkout -b event/october-2026-acme-corp
+git checkout -b event/march-2027-acme-corp
 ```
 
 Use the format `event/<month>-<year>-<host-slug>` as described in `CONTRIBUTING.md`.
@@ -49,7 +49,7 @@ Use the format `event/<month>-<year>-<host-slug>` as described in `CONTRIBUTING.
 
 ## Step 3 -- Duplicate the entry HTML
 
-Identify the current entry HTML. As of the October 2026 event it is `London JS - October 2026.html`. Confirm which file `netlify.toml` is currently redirecting to:
+Identify the current entry HTML by checking which file `netlify.toml` is currently redirecting to (the filename will be out of date by the time you read this doc, so check the live file rather than trusting an example here):
 
 ```bash
 grep -A2 '\[\[redirects\]\]' netlify.toml
@@ -58,7 +58,7 @@ grep -A2 '\[\[redirects\]\]' netlify.toml
 Copy it to a new file named for the incoming event:
 
 ```bash
-cp "London JS - October 2026.html" "London JS - <Month> <Year>.html"
+cp "London JS - <Outgoing Month> <Outgoing Year>.html" "London JS - <Month> <Year>.html"
 ```
 
 ---
@@ -70,7 +70,7 @@ Open the new `London JS - <Month> <Year>.html` in a text editor and make the fol
 ### 4a -- Update the page title
 
 ```html
-<title>London.js - October 2026</title>
+<title>London.js - <Month> <Year></title>
 ```
 
 ### 4b -- Bump the `?v=N` cache-bust integer
@@ -168,7 +168,7 @@ The root redirect must point to the new entry HTML. Open `netlify.toml` and upda
 ```toml
 [[redirects]]
   from = "/"
-  to = "/London%20JS%20-%20October%202026.html"
+  to = "/London%20JS%20-%20<Month>%20<Year>.html"
   status = 302
   force = true
 ```
@@ -196,7 +196,7 @@ slides.jsx
 
 `CONTRIBUTING.md`, `README.md`, `CHANGELOG.md`, `Makefile`, `scripts/*`, and `.github/*` must not appear in this diff.
 
-In the separate go-live PR, expect two deletions alongside `netlify.toml`: the outgoing entry HTML (for example `London JS - October 2026.html`) and any older entry HTML still on `main`, both already preserved on their `archive/*` branches.
+In the separate go-live PR, expect two deletions alongside `netlify.toml`: the outgoing entry HTML (the file identified in Step 3) and any older entry HTML still on `main`, both already preserved on their `archive/*` branches.
 
 ---
 
@@ -206,7 +206,7 @@ Follow every item in the **Pre-merge checklist** section of `CONTRIBUTING.md` be
 
 Key points:
 - Serve locally via `python3 -m http.server 8765` and open the new entry HTML (not the old one).
-- Walk every slide (the current slide count is 11 as of October 2026); check keyboard nav and the browser print preview (`Cmd`/`Ctrl` + `P`). There is no speaker-notes toggle key.
+- Walk every slide (check the current slide count in `AGENTS.md` rather than trusting a number in this doc); check keyboard nav and the browser print preview (`Cmd`/`Ctrl` + `P`). There is no speaker-notes toggle key.
 - Confirm the Netlify Deploy Preview works after opening the PR.
 
 ---
@@ -218,9 +218,9 @@ Push your branch and open the PR targeting `main`:
 ```bash
 git add .
 git commit -m "feat(slides): rebuild [Month] [Year] deck for [host] (ST-XXX)"
-git push -u origin event/october-2026-acme-corp
-gh pr create --title "[ST-XXX] feat(slides): rebuild October 2026 deck for Acme Corp" \
-  --body "Adapts the deck for London.js October 2026..."
+git push -u origin event/march-2027-acme-corp
+gh pr create --title "[ST-XXX] feat(slides): rebuild [Month] [Year] deck for [Host]" \
+  --body "Adapts the deck for London.js [Month] [Year]..."
 ```
 
 The Netlify Deploy Preview URL will appear automatically on the PR:
