@@ -23,15 +23,16 @@ Want to tell the room about something at London.js on Monday 23 November 2026? Y
 1. Fork this repo on GitHub.
 2. Copy the announcement template: the commented example above `AnnouncementSlide` in `slides.jsx`. It is a single `<section>` line.
 3. Fill in your title, text, link and name.
-4. Add that one `<section>` line directly after the "Your announcements" section (`07 Announcements`) in `London JS - November 2026.html`. The slide mounts itself, so nothing else needs editing.
-5. Bump the `slides.jsx?v=` number in the same file by one (for example `v=125` becomes `v=126`).
-6. Open a pull request to `main`.
+4. Add that one `<section>` line after the "Your announcements" section (`07 Announcements`) in `London JS - November 2026.html`, below any announcements already there, so your pull request does not clash with others. The slide mounts itself, so nothing else needs editing.
+5. Open a pull request to `main`.
+
+You do not need to change the `slides.jsx` version number; announcements live in the HTML file, which is never cached.
 
 For more detail on how slide order works, see [docs/SLIDE_ORDER_MECHANISM.md](docs/SLIDE_ORDER_MECHANISM.md).
 
 **How to preview:** once your pull request is open, the Netlify deploy preview link appears on it automatically. Open it and press `→` to find your slide.
 
-Announcement slides have no slide number. Leave the other slides unchanged; the organisers handle any renumbering.
+Announcement slides have no slide number. Leave the other slides unchanged.
 
 The organisers review every pull request and may edit or decline slides to keep the evening on time. Slides follow the London.js [Code of Conduct](https://confcodeofconduct.com).
 
