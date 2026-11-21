@@ -49,6 +49,8 @@ Before opening or merging a PR, run through every item below.
    # then open http://localhost:8765/London%20JS%20-%20[Month]%20[Year].html
    ```
 
+1a. **Run the smoke check** -- `make smoke` (or `bash scripts/smoke-check.sh`). It reads `PORT` (default `8766`) and never starts or stops a server on `8765`: if a deck is already answering on the chosen port it reuses it and leaves it running, otherwise it starts its own and stops only that one. CI runs it the same way, with no `PORT` set, so it uses the default `8766`.
+
 2. **Walk every slide** using the keyboard:
    - `Right arrow` / `Space` -- next slide
    - `Left arrow` -- previous slide
@@ -141,7 +143,7 @@ Automated agents (Claude Code, Cowork) merge PRs under the standing GL-58 policy
 | `scripts/install-hooks.sh` | Installs the curly-quote pre-commit hook |
 | `scripts/fix-curly-quotes.py` | Detects and fixes curly-quote JSX regressions |
 | `scripts/export-pdf.sh` | Exports the deck to PDF via Chrome headless |
-| `scripts/smoke-check.sh` | Smoke test: verifies the entry HTML loads without errors |
+| `scripts/smoke-check.sh` | Smoke test: verifies the entry HTML loads without errors. Reads `PORT` (default `8766`); reuses an already-running deck on that port instead of starting or stopping one |
 | `scripts/archive-event.sh` | Cuts and pushes the `archive/<event-slug>` branch for the outgoing event |
 | `docs/` | Additional technical documentation |
 
