@@ -89,7 +89,7 @@ make smoke
 | `1`-`9`, `0` | Jump to slide 1-9, `0` for slide 10 |
 | `R` | Back to slide 1 |
 
-There is no speaker-notes toggle key. To export, use the browser's own print (`Cmd`/`Ctrl` + `P`): `@media print` lays out one slide per page. `make pdf` does the same headlessly (see `scripts/export-pdf.sh`).
+There is no speaker-notes toggle key. To export, use the browser's own print (`Cmd`/`Ctrl` + `P`): `@media print` lays out one slide per page. `make pdf` does the same headlessly (see `tools/render/README.md`); the old Chrome-based export is now `make pdf-chrome`.
 
 ## Slide structure
 
@@ -149,6 +149,8 @@ Use the deploy preview to verify slides render correctly before requesting revie
 ## Deployment
 
 Merging to `main` auto-deploys to [https://london-js-slides.netlify.app](https://london-js-slides.netlify.app). The root URL redirects to the current entry HTML file. No build step; Netlify serves the repo root as-is.
+
+For tag convention, merge method, the production-wiring checklist, rollback, and archiving, see [docs/RELEASE.md](docs/RELEASE.md).
 
 ## Organisers
 

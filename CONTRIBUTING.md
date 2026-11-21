@@ -10,7 +10,7 @@ Just want to add an announcement slide for an event? See [Add an announcement sl
 
 | Work type | Convention | Example |
 |---|---|---|
-| New event deck | `event/<month>-<year>-<host-slug>` | `event/october-2026-acme-corp` |
+| New event deck | `event/<month>-<year>-<host-slug>` | `event/march-2027-acme-corp` |
 | Story / feature | `st<N>/<short-slug>` | `st383/contributor-docs` |
 | Hotfix | `fix/<short-slug>` | `fix/broken-logo-path` |
 
@@ -31,7 +31,7 @@ Common types: `feat`, `fix`, `docs`, `chore`, `refactor`. The prefix identifies 
 The merged history also contains commits using [Conventional Commits](https://www.conventionalcommits.org/) with the Story reference trailing in parentheses, which remains an established alternative:
 
 ```
-feat(slides): rebuild October 2026 deck for acme corp (ST-400)
+feat(slides): rebuild [Month] [Year] deck for acme corp (ST-400)
 docs: add contributing guide (ST-383)
 ```
 
@@ -54,13 +54,13 @@ Before opening or merging a PR, run through every item below.
 2. **Walk every slide** using the keyboard:
    - `Right arrow` / `Space` -- next slide
    - `Left arrow` -- previous slide
-   - Confirm every slide renders with no blank or broken content (11 slides as of October 2026).
+   - Confirm every slide renders with no blank or broken content. Check the current slide count in `AGENTS.md` rather than trusting a number in this doc.
 
 3. **Keyboard navigation** -- verify transitions feel correct end-to-end.
 
 4. **Speaker notes** -- `deck-stage.js` has no toggle key; notes are read only from a `<script type="application/json" id="speaker-notes">` block, if the entry HTML carries one. Nothing to check unless you added one.
 
-5. **Print preview** -- use the browser's print (`Cmd`/`Ctrl` + `P`) or `make pdf` (with `python3 -m http.server 8765` running); confirm one slide per page, correct dimensions, nothing clipped.
+5. **Print preview** -- use the browser's print (`Cmd`/`Ctrl` + `P`) or `make pdf` (headless render check and PDF export, see `tools/render/README.md`); confirm one slide per page, correct dimensions, nothing clipped.
 
 6. **Check the `?v=N` cache-bust integer** has been incremented (see below).
 
@@ -142,7 +142,8 @@ Automated agents (Claude Code, Cowork) merge PRs under the standing GL-58 policy
 | `netlify.toml` | Netlify config; root redirect points to the current entry HTML |
 | `scripts/install-hooks.sh` | Installs the curly-quote pre-commit hook |
 | `scripts/fix-curly-quotes.py` | Detects and fixes curly-quote JSX regressions |
-| `scripts/export-pdf.sh` | Exports the deck to PDF via Chrome headless |
+| `tools/render/render-check.mjs` | Headless render check and PDF export (`make render` / `make pdf`), see `tools/render/README.md` |
+| `scripts/export-pdf.sh` | Chrome-headless PDF export, now `make pdf-chrome` |
 | `scripts/smoke-check.sh` | Smoke test: verifies the entry HTML loads without errors. Reads `PORT` (default `8766`); reuses an already-running deck on that port instead of starting or stopping one |
 | `scripts/archive-event.sh` | Cuts and pushes the `archive/<event-slug>` branch for the outgoing event |
 | `docs/` | Additional technical documentation |

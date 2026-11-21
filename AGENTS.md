@@ -85,6 +85,7 @@ When the slide count changes, every component's `label="NN / 14"` prop in `slide
 ## See also
 
 - `docs/SLIDE_ORDER_MECHANISM.md`, canonical procedure for slide order and slide addition.
+- `docs/RELEASE.md`, tag convention, merge method, production-wiring checklist, rollback, and archiving.
 - `README.md`, repository overview and licence notes (brand assets carry a separate licence carve-out).
 - `London JS - November 2026.html`, the entry point and the canonical play-order source.
 - `agents/londonjs-content-creator.md`, the binding content-production subagent, source-of-truth in this repository; install to `~/.claude/agents/` to activate (see Content production above).
