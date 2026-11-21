@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<body>
+<deck-stage>
+  <section data-label="01 Title"><div id="s01"></div></section>
+  <section data-label="07 Announcements"><div id="s12"></div></section>
+  <section data-label="07a Announcement - Ada Lovelace"><div data-announcement data-title="Join our open source sprint" data-body="We hack on accessibility fixes every second Saturday. Beginners welcome." data-link="http://example.com/sprint" data-name="Ada Lovelace"></div></section>
+  <section data-label="08 Lineup"><div id="s16"></div></section>
+</deck-stage>
+<script type="text/babel">
+  for (const el of document.querySelectorAll('div[data-announcement]')) {
+    // mounts itself
+  }
+</script>
+</body>
+</html>
