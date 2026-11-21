@@ -6,6 +6,35 @@ Browser-based presentation deck for the [London.js](https://www.meetup.com/londo
 
 Past events are preserved on archive branches (`archive/april-2026`, `archive/july-2026`, `archive/october-2026`).
 
+## Add an announcement slide
+
+Want to tell the room about something at London.js on Monday 23 November 2026? You can add one slide with a pull request. No local setup is needed.
+
+**What to submit**
+
+- A title, one or two lines of text, one link, and your name (and your company if you like).
+- One slide per person.
+- You must be at the event to present it.
+
+**Deadline:** open your pull request by midday on Monday 23 November 2026.
+
+**Steps**
+
+1. Fork this repo on GitHub.
+2. Copy the announcement template: the commented example above `AnnouncementSlide` in `slides.jsx`. It is a single `<section>` line.
+3. Fill in your title, text, link and name.
+4. Add that one `<section>` line directly after the "Your announcements" section (`07 Announcements`) in `London JS - November 2026.html`. The slide mounts itself, so nothing else needs editing.
+5. Bump the `slides.jsx?v=` number in the same file by one (for example `v=125` becomes `v=126`).
+6. Open a pull request to `main`.
+
+For more detail on how slide order works, see [docs/SLIDE_ORDER_MECHANISM.md](docs/SLIDE_ORDER_MECHANISM.md).
+
+**How to preview:** once your pull request is open, the Netlify deploy preview link appears on it automatically. Open it and press `→` to find your slide.
+
+Announcement slides have no slide number. Leave the other slides unchanged; the organisers handle any renumbering.
+
+The organisers review every pull request and may edit or decline slides to keep the evening on time. Slides follow the London.js [Code of Conduct](https://confcodeofconduct.com).
+
 ## Key files
 
 | File | Role |

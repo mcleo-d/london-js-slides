@@ -2,6 +2,8 @@
 
 This is the browser-based slide deck for the [London.js](https://www.meetup.com/london-javascript-community/) monthly meetup. There is no build step; the deck runs entirely in the browser.
 
+Just want to add an announcement slide for an event? See [Add an announcement slide](README.md#add-an-announcement-slide) in the README.
+
 ---
 
 ## Branch naming
