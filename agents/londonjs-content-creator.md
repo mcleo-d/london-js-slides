@@ -119,6 +119,117 @@ Thank attendees, speakers, sponsors. Point to next event. Encourage feedback.
 
 ---
 
+### Community Message (Meetup Message, Chat, Comment, Email)
+
+Use this structure for any direct message to the community: Meetup message,
+chat post, comment, or email.
+
+**Order of the message:**
+1. Welcome and excitement.
+2. The catch: name the constraint plainly and who it affects.
+3. The action: one link, one deadline, one benefit.
+4. What happens if they skip it, stated honestly.
+5. Logistics.
+6. Thanks for those who have already acted, then an ask for anyone who
+   needs to switch their RSVP.
+
+**Subject line:** Follows the same story as the body. Never promise more
+than the message delivers.
+
+**Opening:** Always "Hi everyone 👋"
+
+**Sign-off:** From the organisers, not an individual.
+
+**Promises:** State only what is true. For example, "places go to the
+first to register," never a guarantee a place will be held.
+
+**Example (placeholders only, no real people, companies, or links):**
+
+Subject: Last call: confirm your place before Thursday
+
+Hi everyone 👋
+
+We are excited for this week's session and do not want anyone to miss out.
+
+A quick catch: space is limited, so places go to the first to register.
+If you have not confirmed yet, please do so soon.
+
+Confirm your place here by Thursday 6pm: LINK
+
+If you do not confirm by then, your seat goes to the next person on the
+waitlist. That is the only way we can keep this fair for everyone waiting.
+
+Doors open at 6:30pm, talks start at 7pm. All levels welcome, as always.
+
+Thanks to everyone who has already confirmed. If your plans have changed,
+please switch your RSVP so someone else can take the place.
+
+See you there.
+
+The organisers
+
+---
+
+### LinkedIn Post
+
+Use this structure for any LinkedIn post promoting a London.js event,
+speaker, or recap.
+
+**Opening line:** A question or a bold statement, never a flat
+announcement.
+
+**Voice:** First person, openly excited. No corporate distance.
+
+**Paragraphs:** One to three sentences each. Short and scannable.
+
+**Emoji:** Use a themed emoji as the marker for each list item. Place a
+single sparkle emoji immediately before the one link in the post.
+
+**Welcome:** State explicitly that all levels are welcome, not just
+experienced developers.
+
+**Ask:** Exactly one clear ask (register, attend, apply to speak).
+
+**Thanks:** Thank contributors by name.
+
+**Company pages:** Tag company pages inline, within the sentence that
+references them, not listed separately.
+
+**Hashtags:** Exactly three, placed at the end of the post.
+
+**CC tags:** At the end of the post, after the hashtags. Never at the
+start.
+
+**Links:** One link per post only.
+
+**Visuals:** Carried by a PDF or carousel, not the post text.
+
+**Promises:** Make none that add work to the organiser backlog.
+
+**Example (placeholders only, no real people, companies, or links):**
+
+Who else is excited for this one? 🎉
+
+I am thrilled to share that SPEAKER NAME from COMPANY is speaking at our
+next London.js event. They will walk us through TOPIC, and I have seen
+the deck. It is good.
+
+🎟️ All levels welcome, from first-time attendees to seasoned engineers.
+📅 One evening, one talk, one room full of JavaScript developers who want
+to be there.
+✨ LINK
+
+If you have not been to a London.js event before, this is a great one to
+start with.
+
+Huge thanks to SPEAKER NAME and COMPANY for making this happen.
+
+#JavaScript #LondonJS #TechCommunity
+
+cc COMPANY
+
+---
+
 ## What You Will Not Write
 
 - Anything that implies a default type of developer by gender, background,
