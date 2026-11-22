@@ -85,8 +85,8 @@ Source: slides.jsx, committed 42897f2. This replaces the prior "Sponsor: Slack" 
 - Subhead: "Thanks for being part of it."
 - Tiles:
   - **24** - events since the relaunch.
-  - **4,555** - Meetup members.
-  - **1,829** - LinkedIn followers.
+  - **4,574** - Meetup members.
+  - **1,830** - LinkedIn followers.
   - **110** - places tonight.
   - **4.7** - stars from 517 Meetup reviews.
   - **26** - floors up tonight.
