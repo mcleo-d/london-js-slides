@@ -14,6 +14,8 @@ make render-setup
 This runs `npm ci` in `tools/render/` and installs Playwright's Chromium inside
 `tools/render/node_modules/`. Needs Node 18 or later and network access.
 
+The install is keyed to the pinned Playwright version through a stamp file, `tools/render/node_modules/.pw-<version>`, so `make render-setup` reinstalls the browser when that version changes in `package.json` and skips it when unchanged.
+
 ## Usage
 
 ```sh
