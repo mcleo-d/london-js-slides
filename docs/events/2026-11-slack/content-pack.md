@@ -186,6 +186,6 @@ Source: slides.jsx as built (read-only reference).
 - Deck shown on the night: v126, tag nov2026-v126 (PR #46, slide 06 figures, merge 5682965).
 - Go-live: PR #38 merged 2026-11-20T23:52:02Z, merge 3c66c85ddc0eaa8f9e86226ee118f7b8439f51d9. Render tool pin: PR #47, b9bf583.
 - Guest list: 97 names sent to Salesforce for building pre-registration (count only, no names or emails held in this repo).
-- Final attendance: PLACEHOLDER: final attendance (owner to supply).
+- Final attendance: 79 on the night.
 
 Source: Story S6 body, facts verified from the GitHub API, 24 Nov 2026.
